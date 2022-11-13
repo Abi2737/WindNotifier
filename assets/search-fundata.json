@@ -1,0 +1,112 @@
+{
+  "suggestions": [
+    {
+      "value": "Romania - Fundata The Spot, spotfundata",
+      "data": 508600,
+      "g": "3",
+      "type": "W_",
+      "lat": 44.608343,
+      "lon": 27.183309,
+      "id_user": 2
+    },
+    {
+      "value": "Romania - Lacul Fundata, IL, Kiteboarding Fundata",
+      "data": 979473,
+      "g": "3",
+      "type": "W",
+      "lat": 44.57922,
+      "lon": 27.19378,
+      "id_user": 2
+    },
+    {
+      "value": "Fundata The Spot spotfundata",
+      "data": 97,
+      "g": "4",
+      "type": "W_",
+      "lat": 44.608343,
+      "lon": 27.183309,
+      "s": 1,
+      "id_user": 0
+    },
+    {
+      "value": "Lacul Fundata, IL Kiteboarding Fundata",
+      "data": 2688,
+      "g": "4",
+      "type": "W",
+      "lat": 44.57922,
+      "lon": 27.19378,
+      "s": 1,
+      "id_user": 0
+    },
+    {
+      "value": "Fundata, ROU",
+      "data": 677837,
+      "g": "5",
+      "type": "G_",
+      "lat": 44.58333,
+      "lon": 25.78333,
+      "id_user": -1,
+      "category": "populated place"
+    },
+    {
+      "value": "Fundata, ROU",
+      "data": 7932223,
+      "g": "5",
+      "type": "G",
+      "lat": 45.44493,
+      "lon": 25.29746,
+      "id_user": -1,
+      "category": "peak"
+    },
+    {
+      "value": "Fundata, ROU",
+      "data": 677834,
+      "g": "5",
+      "type": "G",
+      "lat": 45.46757,
+      "lon": 26.52299,
+      "id_user": -1,
+      "category": "populated place"
+    },
+    {
+      "value": "Fundata, ROU",
+      "data": 677835,
+      "g": "5",
+      "type": "G",
+      "lat": 45.45,
+      "lon": 25.3,
+      "id_user": -1,
+      "category": "seat of a second-order administrative division"
+    },
+    {
+      "value": "Fundata, ROU",
+      "data": 677836,
+      "g": "5",
+      "type": "G",
+      "lat": 44.58843,
+      "lon": 27.25821,
+      "id_user": -1,
+      "category": "populated place"
+    },
+    {
+      "value": "Lacul Fundata, ROU",
+      "data": 6697289,
+      "g": "5",
+      "type": "G",
+      "lat": 44.59487,
+      "lon": 27.17803,
+      "id_user": -1,
+      "category": "lake"
+    },
+    {
+      "value": "Lacul Fundata, ROU",
+      "data": 677831,
+      "g": "5",
+      "type": "G",
+      "lat": 44.75,
+      "lon": 27.16667,
+      "id_user": -1,
+      "category": "lake"
+    }
+  ]
+}
