@@ -3,10 +3,12 @@
 
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:wind_notifier/model/default_vars.dart';
 import 'package:wind_notifier/model/forecast.dart';
 import 'package:wind_notifier/model/spot_data.dart';
+import 'package:wind_notifier/model/suggestion.dart';
 import 'package:wind_notifier/model/wgmodel_run.dart';
 
 import 'model/wgmodel.dart';
@@ -30,7 +32,6 @@ const String kLocation = "fundata";
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022111306x0x240x0x240&initstr=2022111306&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
 
 void main() {
-
   fetchSearch();
 
   // fetchSpot();
@@ -38,9 +39,9 @@ void main() {
   // fetchFundata();
 }
 
-
 Future<void> fetchSearch() async {
-  var uri = Uri.parse("https://www.windguru.cz/int/iapi.php?q=autocomplete_ss&type_info=true&all=0&latlon=1&country=1&favourite=1&favourite_geonames=1&custom=1&stations=1&geonames=40&spots=1&priority_sort=1&query=$kLocation");
+  var uri = Uri.parse(
+      "https://www.windguru.cz/int/iapi.php?q=autocomplete_ss&type_info=true&all=0&latlon=1&country=1&favourite=1&favourite_geonames=1&custom=1&stations=1&geonames=40&spots=1&priority_sort=1&query=$kLocation");
 
   Map<String, String> requestHeaders = {
     'accept': '*/*',
@@ -53,13 +54,23 @@ Future<void> fetchSearch() async {
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'user-agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
 
   print("--------Response ${response.statusCode}------");
   print(response.body);
+
+  var json = jsonDecode(response.body);
+
+  print("=========== Search data ===========");
+  List<Suggestion> suggestions = (json["suggestions"] as List<dynamic>).map((e) => Suggestion.fromJson(e)).toList();
+
+  for (int i = 0; i < suggestions.length; i++) {
+    print(suggestions[i]);
+  }
 }
 
 Future<void> fetchSpot() async {
@@ -76,7 +87,8 @@ Future<void> fetchSpot() async {
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'user-agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
@@ -86,7 +98,8 @@ Future<void> fetchSpot() async {
 }
 
 Future<void> fetchFundata() async {
-  var uri = Uri.parse("https://www.windguru.net/int/iapi.php?q=forecast&id_model=$kModelWrfeuhId&rundef=${kDate}x0x78x0x78&initstr=$kDate&id_spot=$kSpotFundataTheSpotId&WGCACHEABLE=21600&cachefix=44.608x27.183x37");
+  var uri = Uri.parse(
+      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$kModelWrfeuhId&rundef=${kDate}x0x78x0x78&initstr=$kDate&id_spot=$kSpotFundataTheSpotId&WGCACHEABLE=21600&cachefix=44.608x27.183x37");
 
   Map<String, String> requestHeaders = {
     'accept': '*/*',
@@ -99,7 +112,8 @@ Future<void> fetchFundata() async {
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'user-agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
@@ -109,7 +123,6 @@ Future<void> fetchFundata() async {
 
   print("------Request headers-----");
   print(response.request?.headers);
-
 
   print("------Response headers-----");
   print(response.headers);
