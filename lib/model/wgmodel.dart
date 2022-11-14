@@ -1,4 +1,4 @@
-import 'package:wind_notifier/model/wgmodel_run.dart';
+import 'index.dart';
 
 class Wgmodel {
   final int id;
