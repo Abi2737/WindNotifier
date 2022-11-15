@@ -1,3 +1,5 @@
+part of models;
+
 class DefaultVars {
   final int modelId;
   final List<String> vars;
@@ -11,5 +13,5 @@ class DefaultVars {
       };
 
   @override
-  String toString() => toJson().toString();
+  String toString() => "DefaultVars(modelId: $modelId, vars: $vars)";
 }

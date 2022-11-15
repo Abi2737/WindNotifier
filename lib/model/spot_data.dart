@@ -1,5 +1,4 @@
-import 'package:wind_notifier/model/default_vars.dart';
-import 'package:wind_notifier/model/forecast.dart';
+import 'package:wind_notifier/model/index.dart';
 import 'package:wind_notifier/model/wgmodel.dart';
 
 class SpotData {

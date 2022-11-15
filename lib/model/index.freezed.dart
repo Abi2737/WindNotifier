@@ -14,6 +14,1018 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Forecast _$ForecastFromJson(Map<String, dynamic> json) {
+  return _Forecast$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Forecast {
+  @JsonKey(name: "id_model")
+  int get idModel => throw _privateConstructorUsedError;
+  @JsonKey(name: "model_name")
+  String get modelName => throw _privateConstructorUsedError;
+  @JsonKey(name: "model_longname")
+  String get modelLongName => throw _privateConstructorUsedError;
+  @JsonKey(name: "initstamp")
+  int get initStamp => throw _privateConstructorUsedError;
+  @JsonKey(
+      name: "initdate",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  DateTime get initDateTime => throw _privateConstructorUsedError;
+  @JsonKey(name: "init_d")
+  String get initDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "init_dm")
+  String get initDayMonth => throw _privateConstructorUsedError;
+  @JsonKey(name: "init_h")
+  String get initHour => throw _privateConstructorUsedError;
+  @JsonKey(name: "initstr")
+  String get initStr => throw _privateConstructorUsedError;
+  @JsonKey(
+      name: "update_last",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  DateTime get updateLast => throw _privateConstructorUsedError;
+  @JsonKey(
+      name: "update_next",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  DateTime get updateNext => throw _privateConstructorUsedError;
+  @JsonKey(name: "WINDSPD")
+  List<double> get windSpeed => throw _privateConstructorUsedError; // knots
+  @JsonKey(name: "GUST")
+  List<double> get windGusts => throw _privateConstructorUsedError; // knots
+  @JsonKey(name: "WINDDIR")
+  List<int> get windDirection => throw _privateConstructorUsedError;
+  @JsonKey(name: "TMPE")
+  List<double> get temperatures =>
+      throw _privateConstructorUsedError; // celsius
+  @JsonKey(name: "APCP1")
+  List<double> get precipitations =>
+      throw _privateConstructorUsedError; // mm/1h
+  @JsonKey(name: "HCDC")
+  List<int> get highCloudDensityCover =>
+      throw _privateConstructorUsedError; // %
+  @JsonKey(name: "MCDC")
+  List<int> get mediumCloudDensityCover =>
+      throw _privateConstructorUsedError; // %
+  @JsonKey(name: "LCDC")
+  List<int> get lowCloudDensityCover => throw _privateConstructorUsedError; // %
+  @JsonKey(name: "TCDC")
+  List<int> get totalCloudDensityCover =>
+      throw _privateConstructorUsedError; // %
+  List<int> get hours => throw _privateConstructorUsedError;
+  List<double> get TMP => throw _privateConstructorUsedError;
+  List<int> get SLP => throw _privateConstructorUsedError;
+  List<int> get FLHGT => throw _privateConstructorUsedError;
+  List<int> get SLHGT => throw _privateConstructorUsedError;
+  List<int> get PCPT => throw _privateConstructorUsedError;
+  List<String> get vars => throw _privateConstructorUsedError;
+  @JsonKey(name: "img_var_map")
+  List<String> get imgVarMap => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ForecastCopyWith<Forecast> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ForecastCopyWith<$Res> {
+  factory $ForecastCopyWith(Forecast value, $Res Function(Forecast) then) =
+      _$ForecastCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "id_model")
+          int idModel,
+      @JsonKey(name: "model_name")
+          String modelName,
+      @JsonKey(name: "model_longname")
+          String modelLongName,
+      @JsonKey(name: "initstamp")
+          int initStamp,
+      @JsonKey(name: "initdate", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          DateTime initDateTime,
+      @JsonKey(name: "init_d")
+          String initDate,
+      @JsonKey(name: "init_dm")
+          String initDayMonth,
+      @JsonKey(name: "init_h")
+          String initHour,
+      @JsonKey(name: "initstr")
+          String initStr,
+      @JsonKey(name: "update_last", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          DateTime updateLast,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          DateTime updateNext,
+      @JsonKey(name: "WINDSPD")
+          List<double> windSpeed,
+      @JsonKey(name: "GUST")
+          List<double> windGusts,
+      @JsonKey(name: "WINDDIR")
+          List<int> windDirection,
+      @JsonKey(name: "TMPE")
+          List<double> temperatures,
+      @JsonKey(name: "APCP1")
+          List<double> precipitations,
+      @JsonKey(name: "HCDC")
+          List<int> highCloudDensityCover,
+      @JsonKey(name: "MCDC")
+          List<int> mediumCloudDensityCover,
+      @JsonKey(name: "LCDC")
+          List<int> lowCloudDensityCover,
+      @JsonKey(name: "TCDC")
+          List<int> totalCloudDensityCover,
+      List<int> hours,
+      List<double> TMP,
+      List<int> SLP,
+      List<int> FLHGT,
+      List<int> SLHGT,
+      List<int> PCPT,
+      List<String> vars,
+      @JsonKey(name: "img_var_map")
+          List<String> imgVarMap});
+}
+
+/// @nodoc
+class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
+  _$ForecastCopyWithImpl(this._value, this._then);
+
+  final Forecast _value;
+  // ignore: unused_field
+  final $Res Function(Forecast) _then;
+
+  @override
+  $Res call({
+    Object? idModel = freezed,
+    Object? modelName = freezed,
+    Object? modelLongName = freezed,
+    Object? initStamp = freezed,
+    Object? initDateTime = freezed,
+    Object? initDate = freezed,
+    Object? initDayMonth = freezed,
+    Object? initHour = freezed,
+    Object? initStr = freezed,
+    Object? updateLast = freezed,
+    Object? updateNext = freezed,
+    Object? windSpeed = freezed,
+    Object? windGusts = freezed,
+    Object? windDirection = freezed,
+    Object? temperatures = freezed,
+    Object? precipitations = freezed,
+    Object? highCloudDensityCover = freezed,
+    Object? mediumCloudDensityCover = freezed,
+    Object? lowCloudDensityCover = freezed,
+    Object? totalCloudDensityCover = freezed,
+    Object? hours = freezed,
+    Object? TMP = freezed,
+    Object? SLP = freezed,
+    Object? FLHGT = freezed,
+    Object? SLHGT = freezed,
+    Object? PCPT = freezed,
+    Object? vars = freezed,
+    Object? imgVarMap = freezed,
+  }) {
+    return _then(_value.copyWith(
+      idModel: idModel == freezed
+          ? _value.idModel
+          : idModel // ignore: cast_nullable_to_non_nullable
+              as int,
+      modelName: modelName == freezed
+          ? _value.modelName
+          : modelName // ignore: cast_nullable_to_non_nullable
+              as String,
+      modelLongName: modelLongName == freezed
+          ? _value.modelLongName
+          : modelLongName // ignore: cast_nullable_to_non_nullable
+              as String,
+      initStamp: initStamp == freezed
+          ? _value.initStamp
+          : initStamp // ignore: cast_nullable_to_non_nullable
+              as int,
+      initDateTime: initDateTime == freezed
+          ? _value.initDateTime
+          : initDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      initDate: initDate == freezed
+          ? _value.initDate
+          : initDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      initDayMonth: initDayMonth == freezed
+          ? _value.initDayMonth
+          : initDayMonth // ignore: cast_nullable_to_non_nullable
+              as String,
+      initHour: initHour == freezed
+          ? _value.initHour
+          : initHour // ignore: cast_nullable_to_non_nullable
+              as String,
+      initStr: initStr == freezed
+          ? _value.initStr
+          : initStr // ignore: cast_nullable_to_non_nullable
+              as String,
+      updateLast: updateLast == freezed
+          ? _value.updateLast
+          : updateLast // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updateNext: updateNext == freezed
+          ? _value.updateNext
+          : updateNext // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      windSpeed: windSpeed == freezed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      windGusts: windGusts == freezed
+          ? _value.windGusts
+          : windGusts // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      windDirection: windDirection == freezed
+          ? _value.windDirection
+          : windDirection // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      temperatures: temperatures == freezed
+          ? _value.temperatures
+          : temperatures // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      precipitations: precipitations == freezed
+          ? _value.precipitations
+          : precipitations // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      highCloudDensityCover: highCloudDensityCover == freezed
+          ? _value.highCloudDensityCover
+          : highCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      mediumCloudDensityCover: mediumCloudDensityCover == freezed
+          ? _value.mediumCloudDensityCover
+          : mediumCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      lowCloudDensityCover: lowCloudDensityCover == freezed
+          ? _value.lowCloudDensityCover
+          : lowCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      totalCloudDensityCover: totalCloudDensityCover == freezed
+          ? _value.totalCloudDensityCover
+          : totalCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      hours: hours == freezed
+          ? _value.hours
+          : hours // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      TMP: TMP == freezed
+          ? _value.TMP
+          : TMP // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      SLP: SLP == freezed
+          ? _value.SLP
+          : SLP // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      FLHGT: FLHGT == freezed
+          ? _value.FLHGT
+          : FLHGT // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      SLHGT: SLHGT == freezed
+          ? _value.SLHGT
+          : SLHGT // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      PCPT: PCPT == freezed
+          ? _value.PCPT
+          : PCPT // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      vars: vars == freezed
+          ? _value.vars
+          : vars // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      imgVarMap: imgVarMap == freezed
+          ? _value.imgVarMap
+          : imgVarMap // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_Forecast$CopyWith<$Res> implements $ForecastCopyWith<$Res> {
+  factory _$$_Forecast$CopyWith(
+          _$_Forecast$ value, $Res Function(_$_Forecast$) then) =
+      __$$_Forecast$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "id_model")
+          int idModel,
+      @JsonKey(name: "model_name")
+          String modelName,
+      @JsonKey(name: "model_longname")
+          String modelLongName,
+      @JsonKey(name: "initstamp")
+          int initStamp,
+      @JsonKey(name: "initdate", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          DateTime initDateTime,
+      @JsonKey(name: "init_d")
+          String initDate,
+      @JsonKey(name: "init_dm")
+          String initDayMonth,
+      @JsonKey(name: "init_h")
+          String initHour,
+      @JsonKey(name: "initstr")
+          String initStr,
+      @JsonKey(name: "update_last", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          DateTime updateLast,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          DateTime updateNext,
+      @JsonKey(name: "WINDSPD")
+          List<double> windSpeed,
+      @JsonKey(name: "GUST")
+          List<double> windGusts,
+      @JsonKey(name: "WINDDIR")
+          List<int> windDirection,
+      @JsonKey(name: "TMPE")
+          List<double> temperatures,
+      @JsonKey(name: "APCP1")
+          List<double> precipitations,
+      @JsonKey(name: "HCDC")
+          List<int> highCloudDensityCover,
+      @JsonKey(name: "MCDC")
+          List<int> mediumCloudDensityCover,
+      @JsonKey(name: "LCDC")
+          List<int> lowCloudDensityCover,
+      @JsonKey(name: "TCDC")
+          List<int> totalCloudDensityCover,
+      List<int> hours,
+      List<double> TMP,
+      List<int> SLP,
+      List<int> FLHGT,
+      List<int> SLHGT,
+      List<int> PCPT,
+      List<String> vars,
+      @JsonKey(name: "img_var_map")
+          List<String> imgVarMap});
+}
+
+/// @nodoc
+class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
+    implements _$$_Forecast$CopyWith<$Res> {
+  __$$_Forecast$CopyWithImpl(
+      _$_Forecast$ _value, $Res Function(_$_Forecast$) _then)
+      : super(_value, (v) => _then(v as _$_Forecast$));
+
+  @override
+  _$_Forecast$ get _value => super._value as _$_Forecast$;
+
+  @override
+  $Res call({
+    Object? idModel = freezed,
+    Object? modelName = freezed,
+    Object? modelLongName = freezed,
+    Object? initStamp = freezed,
+    Object? initDateTime = freezed,
+    Object? initDate = freezed,
+    Object? initDayMonth = freezed,
+    Object? initHour = freezed,
+    Object? initStr = freezed,
+    Object? updateLast = freezed,
+    Object? updateNext = freezed,
+    Object? windSpeed = freezed,
+    Object? windGusts = freezed,
+    Object? windDirection = freezed,
+    Object? temperatures = freezed,
+    Object? precipitations = freezed,
+    Object? highCloudDensityCover = freezed,
+    Object? mediumCloudDensityCover = freezed,
+    Object? lowCloudDensityCover = freezed,
+    Object? totalCloudDensityCover = freezed,
+    Object? hours = freezed,
+    Object? TMP = freezed,
+    Object? SLP = freezed,
+    Object? FLHGT = freezed,
+    Object? SLHGT = freezed,
+    Object? PCPT = freezed,
+    Object? vars = freezed,
+    Object? imgVarMap = freezed,
+  }) {
+    return _then(_$_Forecast$(
+      idModel: idModel == freezed
+          ? _value.idModel
+          : idModel // ignore: cast_nullable_to_non_nullable
+              as int,
+      modelName: modelName == freezed
+          ? _value.modelName
+          : modelName // ignore: cast_nullable_to_non_nullable
+              as String,
+      modelLongName: modelLongName == freezed
+          ? _value.modelLongName
+          : modelLongName // ignore: cast_nullable_to_non_nullable
+              as String,
+      initStamp: initStamp == freezed
+          ? _value.initStamp
+          : initStamp // ignore: cast_nullable_to_non_nullable
+              as int,
+      initDateTime: initDateTime == freezed
+          ? _value.initDateTime
+          : initDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      initDate: initDate == freezed
+          ? _value.initDate
+          : initDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      initDayMonth: initDayMonth == freezed
+          ? _value.initDayMonth
+          : initDayMonth // ignore: cast_nullable_to_non_nullable
+              as String,
+      initHour: initHour == freezed
+          ? _value.initHour
+          : initHour // ignore: cast_nullable_to_non_nullable
+              as String,
+      initStr: initStr == freezed
+          ? _value.initStr
+          : initStr // ignore: cast_nullable_to_non_nullable
+              as String,
+      updateLast: updateLast == freezed
+          ? _value.updateLast
+          : updateLast // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updateNext: updateNext == freezed
+          ? _value.updateNext
+          : updateNext // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      windSpeed: windSpeed == freezed
+          ? _value._windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      windGusts: windGusts == freezed
+          ? _value._windGusts
+          : windGusts // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      windDirection: windDirection == freezed
+          ? _value._windDirection
+          : windDirection // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      temperatures: temperatures == freezed
+          ? _value._temperatures
+          : temperatures // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      precipitations: precipitations == freezed
+          ? _value._precipitations
+          : precipitations // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      highCloudDensityCover: highCloudDensityCover == freezed
+          ? _value._highCloudDensityCover
+          : highCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      mediumCloudDensityCover: mediumCloudDensityCover == freezed
+          ? _value._mediumCloudDensityCover
+          : mediumCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      lowCloudDensityCover: lowCloudDensityCover == freezed
+          ? _value._lowCloudDensityCover
+          : lowCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      totalCloudDensityCover: totalCloudDensityCover == freezed
+          ? _value._totalCloudDensityCover
+          : totalCloudDensityCover // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      hours: hours == freezed
+          ? _value._hours
+          : hours // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      TMP: TMP == freezed
+          ? _value._TMP
+          : TMP // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      SLP: SLP == freezed
+          ? _value._SLP
+          : SLP // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      FLHGT: FLHGT == freezed
+          ? _value._FLHGT
+          : FLHGT // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      SLHGT: SLHGT == freezed
+          ? _value._SLHGT
+          : SLHGT // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      PCPT: PCPT == freezed
+          ? _value._PCPT
+          : PCPT // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      vars: vars == freezed
+          ? _value._vars
+          : vars // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      imgVarMap: imgVarMap == freezed
+          ? _value._imgVarMap
+          : imgVarMap // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Forecast$ implements _Forecast$ {
+  const _$_Forecast$(
+      {@JsonKey(name: "id_model")
+          required this.idModel,
+      @JsonKey(name: "model_name")
+          required this.modelName,
+      @JsonKey(name: "model_longname")
+          required this.modelLongName,
+      @JsonKey(name: "initstamp")
+          required this.initStamp,
+      @JsonKey(name: "initdate", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          required this.initDateTime,
+      @JsonKey(name: "init_d")
+          required this.initDate,
+      @JsonKey(name: "init_dm")
+          required this.initDayMonth,
+      @JsonKey(name: "init_h")
+          required this.initHour,
+      @JsonKey(name: "initstr")
+          required this.initStr,
+      @JsonKey(name: "update_last", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          required this.updateLast,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          required this.updateNext,
+      @JsonKey(name: "WINDSPD")
+          required final List<double> windSpeed,
+      @JsonKey(name: "GUST")
+          required final List<double> windGusts,
+      @JsonKey(name: "WINDDIR")
+          required final List<int> windDirection,
+      @JsonKey(name: "TMPE")
+          required final List<double> temperatures,
+      @JsonKey(name: "APCP1")
+          required final List<double> precipitations,
+      @JsonKey(name: "HCDC")
+          required final List<int> highCloudDensityCover,
+      @JsonKey(name: "MCDC")
+          required final List<int> mediumCloudDensityCover,
+      @JsonKey(name: "LCDC")
+          required final List<int> lowCloudDensityCover,
+      @JsonKey(name: "TCDC")
+          required final List<int> totalCloudDensityCover,
+      required final List<int> hours,
+      required final List<double> TMP,
+      required final List<int> SLP,
+      required final List<int> FLHGT,
+      required final List<int> SLHGT,
+      required final List<int> PCPT,
+      required final List<String> vars,
+      @JsonKey(name: "img_var_map")
+          required final List<String> imgVarMap})
+      : _windSpeed = windSpeed,
+        _windGusts = windGusts,
+        _windDirection = windDirection,
+        _temperatures = temperatures,
+        _precipitations = precipitations,
+        _highCloudDensityCover = highCloudDensityCover,
+        _mediumCloudDensityCover = mediumCloudDensityCover,
+        _lowCloudDensityCover = lowCloudDensityCover,
+        _totalCloudDensityCover = totalCloudDensityCover,
+        _hours = hours,
+        _TMP = TMP,
+        _SLP = SLP,
+        _FLHGT = FLHGT,
+        _SLHGT = SLHGT,
+        _PCPT = PCPT,
+        _vars = vars,
+        _imgVarMap = imgVarMap;
+
+  factory _$_Forecast$.fromJson(Map<String, dynamic> json) =>
+      _$$_Forecast$FromJson(json);
+
+  @override
+  @JsonKey(name: "id_model")
+  final int idModel;
+  @override
+  @JsonKey(name: "model_name")
+  final String modelName;
+  @override
+  @JsonKey(name: "model_longname")
+  final String modelLongName;
+  @override
+  @JsonKey(name: "initstamp")
+  final int initStamp;
+  @override
+  @JsonKey(
+      name: "initdate",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  final DateTime initDateTime;
+  @override
+  @JsonKey(name: "init_d")
+  final String initDate;
+  @override
+  @JsonKey(name: "init_dm")
+  final String initDayMonth;
+  @override
+  @JsonKey(name: "init_h")
+  final String initHour;
+  @override
+  @JsonKey(name: "initstr")
+  final String initStr;
+  @override
+  @JsonKey(
+      name: "update_last",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  final DateTime updateLast;
+  @override
+  @JsonKey(
+      name: "update_next",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  final DateTime updateNext;
+  final List<double> _windSpeed;
+  @override
+  @JsonKey(name: "WINDSPD")
+  List<double> get windSpeed {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_windSpeed);
+  }
+
+// knots
+  final List<double> _windGusts;
+// knots
+  @override
+  @JsonKey(name: "GUST")
+  List<double> get windGusts {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_windGusts);
+  }
+
+// knots
+  final List<int> _windDirection;
+// knots
+  @override
+  @JsonKey(name: "WINDDIR")
+  List<int> get windDirection {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_windDirection);
+  }
+
+  final List<double> _temperatures;
+  @override
+  @JsonKey(name: "TMPE")
+  List<double> get temperatures {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_temperatures);
+  }
+
+// celsius
+  final List<double> _precipitations;
+// celsius
+  @override
+  @JsonKey(name: "APCP1")
+  List<double> get precipitations {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_precipitations);
+  }
+
+// mm/1h
+  final List<int> _highCloudDensityCover;
+// mm/1h
+  @override
+  @JsonKey(name: "HCDC")
+  List<int> get highCloudDensityCover {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_highCloudDensityCover);
+  }
+
+// %
+  final List<int> _mediumCloudDensityCover;
+// %
+  @override
+  @JsonKey(name: "MCDC")
+  List<int> get mediumCloudDensityCover {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_mediumCloudDensityCover);
+  }
+
+// %
+  final List<int> _lowCloudDensityCover;
+// %
+  @override
+  @JsonKey(name: "LCDC")
+  List<int> get lowCloudDensityCover {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lowCloudDensityCover);
+  }
+
+// %
+  final List<int> _totalCloudDensityCover;
+// %
+  @override
+  @JsonKey(name: "TCDC")
+  List<int> get totalCloudDensityCover {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_totalCloudDensityCover);
+  }
+
+// %
+  final List<int> _hours;
+// %
+  @override
+  List<int> get hours {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hours);
+  }
+
+  final List<double> _TMP;
+  @override
+  List<double> get TMP {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_TMP);
+  }
+
+  final List<int> _SLP;
+  @override
+  List<int> get SLP {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_SLP);
+  }
+
+  final List<int> _FLHGT;
+  @override
+  List<int> get FLHGT {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_FLHGT);
+  }
+
+  final List<int> _SLHGT;
+  @override
+  List<int> get SLHGT {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_SLHGT);
+  }
+
+  final List<int> _PCPT;
+  @override
+  List<int> get PCPT {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_PCPT);
+  }
+
+  final List<String> _vars;
+  @override
+  List<String> get vars {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_vars);
+  }
+
+  final List<String> _imgVarMap;
+  @override
+  @JsonKey(name: "img_var_map")
+  List<String> get imgVarMap {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_imgVarMap);
+  }
+
+  @override
+  String toString() {
+    return 'Forecast(idModel: $idModel, modelName: $modelName, modelLongName: $modelLongName, initStamp: $initStamp, initDateTime: $initDateTime, initDate: $initDate, initDayMonth: $initDayMonth, initHour: $initHour, initStr: $initStr, updateLast: $updateLast, updateNext: $updateNext, windSpeed: $windSpeed, windGusts: $windGusts, windDirection: $windDirection, temperatures: $temperatures, precipitations: $precipitations, highCloudDensityCover: $highCloudDensityCover, mediumCloudDensityCover: $mediumCloudDensityCover, lowCloudDensityCover: $lowCloudDensityCover, totalCloudDensityCover: $totalCloudDensityCover, hours: $hours, TMP: $TMP, SLP: $SLP, FLHGT: $FLHGT, SLHGT: $SLHGT, PCPT: $PCPT, vars: $vars, imgVarMap: $imgVarMap)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Forecast$ &&
+            const DeepCollectionEquality().equals(other.idModel, idModel) &&
+            const DeepCollectionEquality().equals(other.modelName, modelName) &&
+            const DeepCollectionEquality()
+                .equals(other.modelLongName, modelLongName) &&
+            const DeepCollectionEquality().equals(other.initStamp, initStamp) &&
+            const DeepCollectionEquality()
+                .equals(other.initDateTime, initDateTime) &&
+            const DeepCollectionEquality().equals(other.initDate, initDate) &&
+            const DeepCollectionEquality()
+                .equals(other.initDayMonth, initDayMonth) &&
+            const DeepCollectionEquality().equals(other.initHour, initHour) &&
+            const DeepCollectionEquality().equals(other.initStr, initStr) &&
+            const DeepCollectionEquality()
+                .equals(other.updateLast, updateLast) &&
+            const DeepCollectionEquality()
+                .equals(other.updateNext, updateNext) &&
+            const DeepCollectionEquality()
+                .equals(other._windSpeed, _windSpeed) &&
+            const DeepCollectionEquality()
+                .equals(other._windGusts, _windGusts) &&
+            const DeepCollectionEquality()
+                .equals(other._windDirection, _windDirection) &&
+            const DeepCollectionEquality()
+                .equals(other._temperatures, _temperatures) &&
+            const DeepCollectionEquality()
+                .equals(other._precipitations, _precipitations) &&
+            const DeepCollectionEquality()
+                .equals(other._highCloudDensityCover, _highCloudDensityCover) &&
+            const DeepCollectionEquality().equals(
+                other._mediumCloudDensityCover, _mediumCloudDensityCover) &&
+            const DeepCollectionEquality()
+                .equals(other._lowCloudDensityCover, _lowCloudDensityCover) &&
+            const DeepCollectionEquality().equals(
+                other._totalCloudDensityCover, _totalCloudDensityCover) &&
+            const DeepCollectionEquality().equals(other._hours, _hours) &&
+            const DeepCollectionEquality().equals(other._TMP, _TMP) &&
+            const DeepCollectionEquality().equals(other._SLP, _SLP) &&
+            const DeepCollectionEquality().equals(other._FLHGT, _FLHGT) &&
+            const DeepCollectionEquality().equals(other._SLHGT, _SLHGT) &&
+            const DeepCollectionEquality().equals(other._PCPT, _PCPT) &&
+            const DeepCollectionEquality().equals(other._vars, _vars) &&
+            const DeepCollectionEquality()
+                .equals(other._imgVarMap, _imgVarMap));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(idModel),
+        const DeepCollectionEquality().hash(modelName),
+        const DeepCollectionEquality().hash(modelLongName),
+        const DeepCollectionEquality().hash(initStamp),
+        const DeepCollectionEquality().hash(initDateTime),
+        const DeepCollectionEquality().hash(initDate),
+        const DeepCollectionEquality().hash(initDayMonth),
+        const DeepCollectionEquality().hash(initHour),
+        const DeepCollectionEquality().hash(initStr),
+        const DeepCollectionEquality().hash(updateLast),
+        const DeepCollectionEquality().hash(updateNext),
+        const DeepCollectionEquality().hash(_windSpeed),
+        const DeepCollectionEquality().hash(_windGusts),
+        const DeepCollectionEquality().hash(_windDirection),
+        const DeepCollectionEquality().hash(_temperatures),
+        const DeepCollectionEquality().hash(_precipitations),
+        const DeepCollectionEquality().hash(_highCloudDensityCover),
+        const DeepCollectionEquality().hash(_mediumCloudDensityCover),
+        const DeepCollectionEquality().hash(_lowCloudDensityCover),
+        const DeepCollectionEquality().hash(_totalCloudDensityCover),
+        const DeepCollectionEquality().hash(_hours),
+        const DeepCollectionEquality().hash(_TMP),
+        const DeepCollectionEquality().hash(_SLP),
+        const DeepCollectionEquality().hash(_FLHGT),
+        const DeepCollectionEquality().hash(_SLHGT),
+        const DeepCollectionEquality().hash(_PCPT),
+        const DeepCollectionEquality().hash(_vars),
+        const DeepCollectionEquality().hash(_imgVarMap)
+      ]);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_Forecast$CopyWith<_$_Forecast$> get copyWith =>
+      __$$_Forecast$CopyWithImpl<_$_Forecast$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_Forecast$ToJson(this);
+  }
+}
+
+abstract class _Forecast$ implements Forecast {
+  const factory _Forecast$(
+      {@JsonKey(name: "id_model")
+          required final int idModel,
+      @JsonKey(name: "model_name")
+          required final String modelName,
+      @JsonKey(name: "model_longname")
+          required final String modelLongName,
+      @JsonKey(name: "initstamp")
+          required final int initStamp,
+      @JsonKey(name: "initdate", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          required final DateTime initDateTime,
+      @JsonKey(name: "init_d")
+          required final String initDate,
+      @JsonKey(name: "init_dm")
+          required final String initDayMonth,
+      @JsonKey(name: "init_h")
+          required final String initHour,
+      @JsonKey(name: "initstr")
+          required final String initStr,
+      @JsonKey(name: "update_last", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          required final DateTime updateLast,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+          required final DateTime updateNext,
+      @JsonKey(name: "WINDSPD")
+          required final List<double> windSpeed,
+      @JsonKey(name: "GUST")
+          required final List<double> windGusts,
+      @JsonKey(name: "WINDDIR")
+          required final List<int> windDirection,
+      @JsonKey(name: "TMPE")
+          required final List<double> temperatures,
+      @JsonKey(name: "APCP1")
+          required final List<double> precipitations,
+      @JsonKey(name: "HCDC")
+          required final List<int> highCloudDensityCover,
+      @JsonKey(name: "MCDC")
+          required final List<int> mediumCloudDensityCover,
+      @JsonKey(name: "LCDC")
+          required final List<int> lowCloudDensityCover,
+      @JsonKey(name: "TCDC")
+          required final List<int> totalCloudDensityCover,
+      required final List<int> hours,
+      required final List<double> TMP,
+      required final List<int> SLP,
+      required final List<int> FLHGT,
+      required final List<int> SLHGT,
+      required final List<int> PCPT,
+      required final List<String> vars,
+      @JsonKey(name: "img_var_map")
+          required final List<String> imgVarMap}) = _$_Forecast$;
+
+  factory _Forecast$.fromJson(Map<String, dynamic> json) =
+      _$_Forecast$.fromJson;
+
+  @override
+  @JsonKey(name: "id_model")
+  int get idModel;
+  @override
+  @JsonKey(name: "model_name")
+  String get modelName;
+  @override
+  @JsonKey(name: "model_longname")
+  String get modelLongName;
+  @override
+  @JsonKey(name: "initstamp")
+  int get initStamp;
+  @override
+  @JsonKey(
+      name: "initdate",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  DateTime get initDateTime;
+  @override
+  @JsonKey(name: "init_d")
+  String get initDate;
+  @override
+  @JsonKey(name: "init_dm")
+  String get initDayMonth;
+  @override
+  @JsonKey(name: "init_h")
+  String get initHour;
+  @override
+  @JsonKey(name: "initstr")
+  String get initStr;
+  @override
+  @JsonKey(
+      name: "update_last",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  DateTime get updateLast;
+  @override
+  @JsonKey(
+      name: "update_next",
+      fromJson: _localDateTimeFromJson,
+      toJson: _localDateTimeToJson)
+  DateTime get updateNext;
+  @override
+  @JsonKey(name: "WINDSPD")
+  List<double> get windSpeed;
+  @override // knots
+  @JsonKey(name: "GUST")
+  List<double> get windGusts;
+  @override // knots
+  @JsonKey(name: "WINDDIR")
+  List<int> get windDirection;
+  @override
+  @JsonKey(name: "TMPE")
+  List<double> get temperatures;
+  @override // celsius
+  @JsonKey(name: "APCP1")
+  List<double> get precipitations;
+  @override // mm/1h
+  @JsonKey(name: "HCDC")
+  List<int> get highCloudDensityCover;
+  @override // %
+  @JsonKey(name: "MCDC")
+  List<int> get mediumCloudDensityCover;
+  @override // %
+  @JsonKey(name: "LCDC")
+  List<int> get lowCloudDensityCover;
+  @override // %
+  @JsonKey(name: "TCDC")
+  List<int> get totalCloudDensityCover;
+  @override // %
+  List<int> get hours;
+  @override
+  List<double> get TMP;
+  @override
+  List<int> get SLP;
+  @override
+  List<int> get FLHGT;
+  @override
+  List<int> get SLHGT;
+  @override
+  List<int> get PCPT;
+  @override
+  List<String> get vars;
+  @override
+  @JsonKey(name: "img_var_map")
+  List<String> get imgVarMap;
+  @override
+  @JsonKey(ignore: true)
+  _$$_Forecast$CopyWith<_$_Forecast$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 WgmodelRun _$WgmodelRunFromJson(Map<String, dynamic> json) {
   return _WgmodelRun$.fromJson(json);
 }
