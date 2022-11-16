@@ -4,9 +4,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:wind_notifier/model/spot_data.dart';
-
-import 'model/index.dart';
+import 'package:wind_notifier/model/index.dart';
 
 const int kSpotFundataTheSpotId = 508600;
 const int kSpotWeGoId = 1109235;
@@ -27,11 +25,11 @@ const String kLocation = "fundata";
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022111306x0x240x0x240&initstr=2022111306&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
 
 void main() {
-  fetchSearch();
+  // fetchSearch();
 
   // fetchSpot();
 
-  // fetchFundata();
+  fetchFundata();
 }
 
 Future<void> fetchSearch() async {

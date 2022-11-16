@@ -7,15 +7,15 @@ class Forecast with _$Forecast {
     @JsonKey(name: "model_name") required String modelName,
     @JsonKey(name: "model_longname") required String modelLongName,
     @JsonKey(name: "initstamp") required int initStamp,
-    @JsonKey(name: "initdate", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+    @JsonKey(name: "initdate", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
         required DateTime initDateTime,
     @JsonKey(name: "init_d") required String initDate,
     @JsonKey(name: "init_dm") required String initDayMonth,
     @JsonKey(name: "init_h") required String initHour,
     @JsonKey(name: "initstr") required String initStr,
-    @JsonKey(name: "update_last", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+    @JsonKey(name: "update_last", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
         required DateTime updateLast,
-    @JsonKey(name: "update_next", fromJson: _localDateTimeFromJson, toJson: _localDateTimeToJson)
+    @JsonKey(name: "update_next", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
         required DateTime updateNext,
     @JsonKey(name: "WINDSPD") required List<double> windSpeed, // knots
     @JsonKey(name: "GUST") required List<double> windGusts, // knots

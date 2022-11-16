@@ -11,13 +11,13 @@ _$_Forecast$ _$$_Forecast$FromJson(Map<String, dynamic> json) => _$_Forecast$(
       modelName: json['model_name'] as String,
       modelLongName: json['model_longname'] as String,
       initStamp: json['initstamp'] as int,
-      initDateTime: _localDateTimeFromJson(json['initdate'] as String),
+      initDateTime: _localDateTimeFromUtcString(json['initdate'] as String),
       initDate: json['init_d'] as String,
       initDayMonth: json['init_dm'] as String,
       initHour: json['init_h'] as String,
       initStr: json['initstr'] as String,
-      updateLast: _localDateTimeFromJson(json['update_last'] as String),
-      updateNext: _localDateTimeFromJson(json['update_next'] as String),
+      updateLast: _localDateTimeFromUtcString(json['update_last'] as String),
+      updateNext: _localDateTimeFromUtcString(json['update_next'] as String),
       windSpeed: (json['WINDSPD'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
@@ -60,13 +60,13 @@ Map<String, dynamic> _$$_Forecast$ToJson(_$_Forecast$ instance) =>
       'model_name': instance.modelName,
       'model_longname': instance.modelLongName,
       'initstamp': instance.initStamp,
-      'initdate': _localDateTimeToJson(instance.initDateTime),
+      'initdate': _localDateTimeToUtcString(instance.initDateTime),
       'init_d': instance.initDate,
       'init_dm': instance.initDayMonth,
       'init_h': instance.initHour,
       'initstr': instance.initStr,
-      'update_last': _localDateTimeToJson(instance.updateLast),
-      'update_next': _localDateTimeToJson(instance.updateNext),
+      'update_last': _localDateTimeToUtcString(instance.updateLast),
+      'update_next': _localDateTimeToUtcString(instance.updateNext),
       'WINDSPD': instance.windSpeed,
       'GUST': instance.windGusts,
       'WINDDIR': instance.windDirection,
@@ -86,24 +86,37 @@ Map<String, dynamic> _$$_Forecast$ToJson(_$_Forecast$ instance) =>
       'img_var_map': instance.imgVarMap,
     };
 
-_$_WgmodelRun$ _$$_WgmodelRun$FromJson(Map<String, dynamic> json) =>
-    _$_WgmodelRun$(
-      initDate: json['initdate'] as String,
-      oInitDate: json['oinitdate'] as bool,
-      runHr: (json['run_hr'] as List<dynamic>).map((e) => e as int).toList(),
-      runHrSteps: (json['run_hr_steps'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as int).toList())
-          .toList(),
-      userHr: (json['use_hr'] as List<dynamic>).map((e) => e as int).toList(),
+_$_SpotData$ _$$_SpotData$FromJson(Map<String, dynamic> json) => _$_SpotData$(
+      idSpot: json['id_spot'] as int,
+      latitude: (json['lat'] as num).toDouble(),
+      longitude: (json['lon'] as num).toDouble(),
+      altitude: json['alt'] as int,
+      idModel: json['id_model'] as int,
+      model: json['model'] as String,
+      wgModel: WgModel.fromJson(json['wgmodel'] as Map<String, dynamic>),
+      modelAltitude: json['model_alt'] as int,
+      levels: json['levels'] as int,
+      sunrise: json['sunrise'] as String,
+      sunset: json['sunset'] as String,
+      md5check: json['md5chk'] as String,
+      forecast: Forecast.fromJson(json['fcst'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_WgmodelRun$ToJson(_$_WgmodelRun$ instance) =>
+Map<String, dynamic> _$$_SpotData$ToJson(_$_SpotData$ instance) =>
     <String, dynamic>{
-      'initdate': instance.initDate,
-      'oinitdate': instance.oInitDate,
-      'run_hr': instance.runHr,
-      'run_hr_steps': instance.runHrSteps,
-      'use_hr': instance.userHr,
+      'id_spot': instance.idSpot,
+      'lat': instance.latitude,
+      'lon': instance.longitude,
+      'alt': instance.altitude,
+      'id_model': instance.idModel,
+      'model': instance.model,
+      'wgmodel': instance.wgModel,
+      'model_alt': instance.modelAltitude,
+      'levels': instance.levels,
+      'sunrise': instance.sunrise,
+      'sunset': instance.sunset,
+      'md5chk': instance.md5check,
+      'fcst': instance.forecast,
     };
 
 _$_Suggestion$ _$$_Suggestion$FromJson(Map<String, dynamic> json) =>
@@ -130,4 +143,75 @@ Map<String, dynamic> _$$_Suggestion$ToJson(_$_Suggestion$ instance) =>
       's': instance.s,
       'category': instance.category,
       'id_user': instance.idUser,
+    };
+
+_$_WgModel$ _$$_WgModel$FromJson(Map<String, dynamic> json) => _$_WgModel$(
+      idModel: json['id_model'] as int,
+      model: json['model'] as String,
+      modelName: json['model_name'] as String,
+      modelLongName: json['model_longname'] as String,
+      latitude: (json['lat'] as List<dynamic>)
+          .map((e) => (e as num).toDouble())
+          .toList(),
+      longitude: (json['lon'] as List<dynamic>)
+          .map((e) => (e as num).toDouble())
+          .toList(),
+      pro: json['pro'] as bool,
+      priority: json['priority'] as int,
+      resolution: json['resolution'] as int,
+      resolutionReal: json['resolution_real'] as int,
+      initDate: _localDateTimeFromUtcString(json['initdate'] as String),
+      initStamp: json['initstamp'] as int,
+      hrStart: json['hr_start'] as int,
+      hrEnd: json['hr_end'] as int,
+      hrStep: json['hr_step'] as int,
+      wave: json['wave'] as bool,
+      maps: json['maps'] as bool,
+      rundef: json['rundef'] as String,
+      runs: (json['runs'] as List<dynamic>)
+          .map((e) => WgmodelRun.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_WgModel$ToJson(_$_WgModel$ instance) =>
+    <String, dynamic>{
+      'id_model': instance.idModel,
+      'model': instance.model,
+      'model_name': instance.modelName,
+      'model_longname': instance.modelLongName,
+      'lat': instance.latitude,
+      'lon': instance.longitude,
+      'pro': instance.pro,
+      'priority': instance.priority,
+      'resolution': instance.resolution,
+      'resolution_real': instance.resolutionReal,
+      'initdate': _localDateTimeToUtcString(instance.initDate),
+      'initstamp': instance.initStamp,
+      'hr_start': instance.hrStart,
+      'hr_end': instance.hrEnd,
+      'hr_step': instance.hrStep,
+      'wave': instance.wave,
+      'maps': instance.maps,
+      'rundef': instance.rundef,
+      'runs': instance.runs,
+    };
+
+_$_WgmodelRun$ _$$_WgmodelRun$FromJson(Map<String, dynamic> json) =>
+    _$_WgmodelRun$(
+      initDate: json['initdate'] as String,
+      oInitDate: json['oinitdate'] as bool,
+      runHr: (json['run_hr'] as List<dynamic>).map((e) => e as int).toList(),
+      runHrSteps: (json['run_hr_steps'] as List<dynamic>)
+          .map((e) => (e as List<dynamic>).map((e) => e as int).toList())
+          .toList(),
+      userHr: (json['use_hr'] as List<dynamic>).map((e) => e as int).toList(),
+    );
+
+Map<String, dynamic> _$$_WgmodelRun$ToJson(_$_WgmodelRun$ instance) =>
+    <String, dynamic>{
+      'initdate': instance.initDate,
+      'oinitdate': instance.oInitDate,
+      'run_hr': instance.runHr,
+      'run_hr_steps': instance.runHrSteps,
+      'use_hr': instance.userHr,
     };

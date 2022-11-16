@@ -1,91 +1,29 @@
-import 'index.dart';
+part of models;
 
-class Wgmodel {
-  final int id;
-  final String model;
-  final String modelName;
-  final String modelLongName;
-  final List<double> latitude;
-  final List<double> longitude;
-  final bool pro;
-  final int priority;
-  final int resolution;
-  final int resolutionReal;
-  final String initDate;
-  final int initStamp;
-  final int hrStart;
-  final int hrEnd;
-  final int hrStep;
-  final bool wave;
-  final bool maps;
-  final String rundef;
-  final List<WgmodelRun> runs;
+@freezed
+class WgModel with _$WgModel {
+  const factory WgModel({
+    @JsonKey(name: "id_model") required int idModel,
+    required String model,
+    @JsonKey(name: "model_name") required String modelName,
+    @JsonKey(name: "model_longname") required String modelLongName,
+    @JsonKey(name: "lat") required List<double> latitude,
+    @JsonKey(name: "lon") required List<double> longitude,
+    required bool pro,
+    required int priority,
+    required int resolution,
+    @JsonKey(name: "resolution_real") required int resolutionReal,
+    @JsonKey(name: "initdate", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
+        required DateTime initDate,
+    @JsonKey(name: "initstamp") required int initStamp,
+    @JsonKey(name: "hr_start") required int hrStart,
+    @JsonKey(name: "hr_end") required int hrEnd,
+    @JsonKey(name: "hr_step") required int hrStep,
+    required bool wave,
+    required bool maps,
+    required String rundef,
+    required List<WgmodelRun> runs,
+  }) = _WgModel$;
 
-  const Wgmodel(
-    this.id,
-    this.model,
-    this.modelName,
-    this.modelLongName,
-    this.latitude,
-    this.longitude,
-    this.pro,
-    this.priority,
-    this.resolution,
-    this.resolutionReal,
-    this.initDate,
-    this.initStamp,
-    this.hrStart,
-    this.hrEnd,
-    this.hrStep,
-    this.wave,
-    this.maps,
-    this.rundef,
-    this.runs,
-  );
-
-  Wgmodel.fromJson(Map<String, dynamic> json)
-      : id = json["id_model"],
-        model = json["model"],
-        modelName = json["model_name"],
-        modelLongName = json["model_longname"],
-        latitude = List<double>.from((json["lat"] as List<dynamic>).map((e) => e.toDouble())),
-        longitude = List<double>.from((json["lon"] as List<dynamic>).map((e) => e.toDouble())),
-        pro = json["pro"],
-        priority = json["priority"],
-        resolution = json["resolution"],
-        resolutionReal = json["resolution_real"],
-        initDate = json["initdate"],
-        initStamp = json["initstamp"],
-        hrStart = json["hr_start"],
-        hrEnd = json["hr_end"],
-        hrStep = json["hr_step"],
-        wave = json["wave"],
-        maps = json["maps"],
-        rundef = json["rundef"],
-        runs = List<WgmodelRun>.from((json["runs"] as List<dynamic>).map((e) => WgmodelRun.fromJson(e)));
-
-  Map<String, dynamic> toJson() => {
-        "id_model": id,
-        "model": model,
-        "model_name": modelName,
-        "model_longname": modelLongName,
-        "lat": latitude,
-        "lon": longitude,
-        "pro": pro,
-        "priority": priority,
-        "resolution": resolution,
-        "resolution_real": resolutionReal,
-        "initdate": initDate,
-        "initstamp": initStamp,
-        "hr_start": hrStart,
-        "hr_end": hrEnd,
-        "hr_step": hrStep,
-        "wave": wave,
-        "maps": maps,
-        "rundef": rundef,
-        "runs": runs.map((e) => e.toJson())
-      };
-
-  @override
-  String toString() => toJson().toString();
+  factory WgModel.fromJson(Map<dynamic, dynamic> json) => _$WgModelFromJson(Map<String, dynamic>.from(json));
 }
