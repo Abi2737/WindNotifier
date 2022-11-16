@@ -4,8 +4,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:wind_notifier/model/spot_data.dart';
-import 'package:wind_notifier/model/suggestion.dart';
+import 'package:wind_notifier/model/index.dart';
 
 const int kSpotFundataTheSpotId = 508600;
 const int kSpotWeGoId = 1109235;
@@ -124,6 +123,8 @@ Future<void> fetchFundata() async {
   print(response.headers);
 
   var json = jsonDecode(response.body);
+  print("-----------------BODY-----------------");
+  print(json);
 
   print("=========== Spot data ===========");
   var spotData = SpotData.fromJson(json);

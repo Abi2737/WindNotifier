@@ -1,33 +1,14 @@
-class WgmodelRun {
-  final String initDate;
-  final bool oInitDate;
-  final List<int> runHr;
-  final List<List<int>> runHrStep;
-  final List<int> useHr;
+part of models;
 
-  const WgmodelRun(
-    this.initDate,
-    this.oInitDate,
-    this.runHr,
-    this.runHrStep,
-    this.useHr,
-  );
+@freezed
+class WgmodelRun with _$WgmodelRun {
+  const factory WgmodelRun({
+    @JsonKey(name: "initdate") required String initDate,
+    @JsonKey(name: "oinitdate") required bool oInitDate,
+    @JsonKey(name: "run_hr") required List<int> runHr,
+    @JsonKey(name: "run_hr_steps") required List<List<int>> runHrSteps,
+    @JsonKey(name: "use_hr") required List<int> userHr,
+  }) = _WgmodelRun$;
 
-  WgmodelRun.fromJson(Map<String, dynamic> json)
-      : initDate = json["initdate"],
-        oInitDate = json["oinitdate"],
-        runHr = List<int>.from(json["run_hr"]),
-        runHrStep = List<List<int>>.from((json["run_hr_steps"] as List<dynamic>).map((e) => List<int>.from(e))),
-        useHr = List<int>.from(json["use_hr"]);
-
-  Map<String, dynamic> toJson() => {
-        "initdate": initDate,
-        "oinitdate": oInitDate,
-        "run_hr": runHr,
-        "run_hr_steps": runHrStep,
-        "use_hr": useHr,
-      };
-
-  @override
-  String toString() => toJson().toString();
+  factory WgmodelRun.fromJson(Map<dynamic, dynamic> json) => _$WgmodelRunFromJson(Map<String, dynamic>.from(json));
 }
