@@ -105,3 +105,29 @@ Map<String, dynamic> _$$_WgmodelRun$ToJson(_$_WgmodelRun$ instance) =>
       'run_hr_steps': instance.runHrSteps,
       'use_hr': instance.userHr,
     };
+
+_$_Suggestion$ _$$_Suggestion$FromJson(Map<String, dynamic> json) =>
+    _$_Suggestion$(
+      value: json['value'] as String,
+      data: json['data'] as int,
+      g: json['g'] as String,
+      type: json['type'] as String,
+      latitude: (json['lat'] as num).toDouble(),
+      longitude: (json['lon'] as num).toDouble(),
+      s: json['s'] as int?,
+      category: json['category'] as String?,
+      idUser: json['id_user'] as int,
+    );
+
+Map<String, dynamic> _$$_Suggestion$ToJson(_$_Suggestion$ instance) =>
+    <String, dynamic>{
+      'value': instance.value,
+      'data': instance.data,
+      'g': instance.g,
+      'type': instance.type,
+      'lat': instance.latitude,
+      'lon': instance.longitude,
+      's': instance.s,
+      'category': instance.category,
+      'id_user': instance.idUser,
+    };

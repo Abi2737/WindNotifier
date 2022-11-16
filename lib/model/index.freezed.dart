@@ -1282,3 +1282,315 @@ abstract class _WgmodelRun$ implements WgmodelRun {
   _$$_WgmodelRun$CopyWith<_$_WgmodelRun$> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Suggestion _$SuggestionFromJson(Map<String, dynamic> json) {
+  return _Suggestion$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Suggestion {
+  String get value => throw _privateConstructorUsedError;
+  int get data => throw _privateConstructorUsedError;
+  String get g => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lat')
+  double get latitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lon')
+  double get longitude => throw _privateConstructorUsedError;
+  int? get s => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id_user')
+  int get idUser => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SuggestionCopyWith<Suggestion> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SuggestionCopyWith<$Res> {
+  factory $SuggestionCopyWith(
+          Suggestion value, $Res Function(Suggestion) then) =
+      _$SuggestionCopyWithImpl<$Res>;
+  $Res call(
+      {String value,
+      int data,
+      String g,
+      String type,
+      @JsonKey(name: 'lat') double latitude,
+      @JsonKey(name: 'lon') double longitude,
+      int? s,
+      String? category,
+      @JsonKey(name: 'id_user') int idUser});
+}
+
+/// @nodoc
+class _$SuggestionCopyWithImpl<$Res> implements $SuggestionCopyWith<$Res> {
+  _$SuggestionCopyWithImpl(this._value, this._then);
+
+  final Suggestion _value;
+  // ignore: unused_field
+  final $Res Function(Suggestion) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? data = freezed,
+    Object? g = freezed,
+    Object? type = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? s = freezed,
+    Object? category = freezed,
+    Object? idUser = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as int,
+      g: g == freezed
+          ? _value.g
+          : g // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      s: s == freezed
+          ? _value.s
+          : s // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      idUser: idUser == freezed
+          ? _value.idUser
+          : idUser // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_Suggestion$CopyWith<$Res>
+    implements $SuggestionCopyWith<$Res> {
+  factory _$$_Suggestion$CopyWith(
+          _$_Suggestion$ value, $Res Function(_$_Suggestion$) then) =
+      __$$_Suggestion$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String value,
+      int data,
+      String g,
+      String type,
+      @JsonKey(name: 'lat') double latitude,
+      @JsonKey(name: 'lon') double longitude,
+      int? s,
+      String? category,
+      @JsonKey(name: 'id_user') int idUser});
+}
+
+/// @nodoc
+class __$$_Suggestion$CopyWithImpl<$Res> extends _$SuggestionCopyWithImpl<$Res>
+    implements _$$_Suggestion$CopyWith<$Res> {
+  __$$_Suggestion$CopyWithImpl(
+      _$_Suggestion$ _value, $Res Function(_$_Suggestion$) _then)
+      : super(_value, (v) => _then(v as _$_Suggestion$));
+
+  @override
+  _$_Suggestion$ get _value => super._value as _$_Suggestion$;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? data = freezed,
+    Object? g = freezed,
+    Object? type = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? s = freezed,
+    Object? category = freezed,
+    Object? idUser = freezed,
+  }) {
+    return _then(_$_Suggestion$(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as int,
+      g: g == freezed
+          ? _value.g
+          : g // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      s: s == freezed
+          ? _value.s
+          : s // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      idUser: idUser == freezed
+          ? _value.idUser
+          : idUser // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Suggestion$ implements _Suggestion$ {
+  const _$_Suggestion$(
+      {required this.value,
+      required this.data,
+      required this.g,
+      required this.type,
+      @JsonKey(name: 'lat') required this.latitude,
+      @JsonKey(name: 'lon') required this.longitude,
+      required this.s,
+      required this.category,
+      @JsonKey(name: 'id_user') required this.idUser});
+
+  factory _$_Suggestion$.fromJson(Map<String, dynamic> json) =>
+      _$$_Suggestion$FromJson(json);
+
+  @override
+  final String value;
+  @override
+  final int data;
+  @override
+  final String g;
+  @override
+  final String type;
+  @override
+  @JsonKey(name: 'lat')
+  final double latitude;
+  @override
+  @JsonKey(name: 'lon')
+  final double longitude;
+  @override
+  final int? s;
+  @override
+  final String? category;
+  @override
+  @JsonKey(name: 'id_user')
+  final int idUser;
+
+  @override
+  String toString() {
+    return 'Suggestion(value: $value, data: $data, g: $g, type: $type, latitude: $latitude, longitude: $longitude, s: $s, category: $category, idUser: $idUser)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Suggestion$ &&
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other.g, g) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
+            const DeepCollectionEquality().equals(other.s, s) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality().equals(other.idUser, idUser));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(g),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(longitude),
+      const DeepCollectionEquality().hash(s),
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(idUser));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_Suggestion$CopyWith<_$_Suggestion$> get copyWith =>
+      __$$_Suggestion$CopyWithImpl<_$_Suggestion$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_Suggestion$ToJson(this);
+  }
+}
+
+abstract class _Suggestion$ implements Suggestion {
+  const factory _Suggestion$(
+      {required final String value,
+      required final int data,
+      required final String g,
+      required final String type,
+      @JsonKey(name: 'lat') required final double latitude,
+      @JsonKey(name: 'lon') required final double longitude,
+      required final int? s,
+      required final String? category,
+      @JsonKey(name: 'id_user') required final int idUser}) = _$_Suggestion$;
+
+  factory _Suggestion$.fromJson(Map<String, dynamic> json) =
+      _$_Suggestion$.fromJson;
+
+  @override
+  String get value;
+  @override
+  int get data;
+  @override
+  String get g;
+  @override
+  String get type;
+  @override
+  @JsonKey(name: 'lat')
+  double get latitude;
+  @override
+  @JsonKey(name: 'lon')
+  double get longitude;
+  @override
+  int? get s;
+  @override
+  String? get category;
+  @override
+  @JsonKey(name: 'id_user')
+  int get idUser;
+  @override
+  @JsonKey(ignore: true)
+  _$$_Suggestion$CopyWith<_$_Suggestion$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
