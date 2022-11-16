@@ -168,8 +168,7 @@ Future<void> fetchFundataAndPrintDatesWithWind() async {
   // print(spotData.toJson());
 
   // print(spotData.forecast.initDateTime);
-  DateTime initDate = DateTime.parse(spotData.forecast.initDateTime);
-  initDate.add(initDate.timeZoneOffset);
+  DateTime initDate = spotData.forecast.initDateTime;
 
   // print(initDate.day.toString());
 
