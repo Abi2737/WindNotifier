@@ -14,7 +14,7 @@ const int kModelGfsId = 3;
 const int kModelWrfeuhId = 21;
 const int kModelMm5euId = 14;
 
-const String kDate = "2022111506";
+const String kDate = "2022111606";
 
 const String kLocation = "fundata";
 
