@@ -3054,7 +3054,7 @@ mixin _$TabItem {
   int get idSpot => throw _privateConstructorUsedError;
   @JsonKey(name: "id_model")
   int get idModel => throw _privateConstructorUsedError;
-  @JsonKey(name: "id_model_arr")
+  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
   List<ModelAttributes> get idModelArr => throw _privateConstructorUsedError;
   @JsonKey(name: "model_period")
   int get modelPeriod => throw _privateConstructorUsedError;
@@ -3069,10 +3069,14 @@ abstract class $TabItemCopyWith<$Res> {
   factory $TabItemCopyWith(TabItem value, $Res Function(TabItem) then) =
       _$TabItemCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "id_spot") int idSpot,
-      @JsonKey(name: "id_model") int idModel,
-      @JsonKey(name: "id_model_arr") List<ModelAttributes> idModelArr,
-      @JsonKey(name: "model_period") int modelPeriod});
+      {@JsonKey(name: "id_spot")
+          int idSpot,
+      @JsonKey(name: "id_model")
+          int idModel,
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+          List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          int modelPeriod});
 }
 
 /// @nodoc
@@ -3118,10 +3122,14 @@ abstract class _$$_TabItem$CopyWith<$Res> implements $TabItemCopyWith<$Res> {
       __$$_TabItem$CopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "id_spot") int idSpot,
-      @JsonKey(name: "id_model") int idModel,
-      @JsonKey(name: "id_model_arr") List<ModelAttributes> idModelArr,
-      @JsonKey(name: "model_period") int modelPeriod});
+      {@JsonKey(name: "id_spot")
+          int idSpot,
+      @JsonKey(name: "id_model")
+          int idModel,
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+          List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          int modelPeriod});
 }
 
 /// @nodoc
@@ -3170,7 +3178,7 @@ class _$_TabItem$ implements _TabItem$ {
           required this.idSpot,
       @JsonKey(name: "id_model")
           required this.idModel,
-      @JsonKey(name: "id_model_arr")
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
           required final List<ModelAttributes> idModelArr,
       @JsonKey(name: "model_period")
           required this.modelPeriod})
@@ -3187,7 +3195,7 @@ class _$_TabItem$ implements _TabItem$ {
   final int idModel;
   final List<ModelAttributes> _idModelArr;
   @override
-  @JsonKey(name: "id_model_arr")
+  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
   List<ModelAttributes> get idModelArr {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_idModelArr);
@@ -3241,7 +3249,7 @@ abstract class _TabItem$ implements TabItem {
           required final int idSpot,
       @JsonKey(name: "id_model")
           required final int idModel,
-      @JsonKey(name: "id_model_arr")
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
           required final List<ModelAttributes> idModelArr,
       @JsonKey(name: "model_period")
           required final int modelPeriod}) = _$_TabItem$;
@@ -3255,7 +3263,7 @@ abstract class _TabItem$ implements TabItem {
   @JsonKey(name: "id_model")
   int get idModel;
   @override
-  @JsonKey(name: "id_model_arr")
+  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
   List<ModelAttributes> get idModelArr;
   @override
   @JsonKey(name: "model_period")

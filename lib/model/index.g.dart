@@ -260,7 +260,7 @@ Map<String, dynamic> _$$_TabItem$ToJson(_$_TabItem$ instance) =>
     <String, dynamic>{
       'id_spot': instance.idSpot,
       'id_model': instance.idModel,
-      'id_model_arr': instance.idModelArr,
+      'id_model_arr': TabItem._listModelAttributesToJson(instance.idModelArr),
       'model_period': instance.modelPeriod,
     };
 

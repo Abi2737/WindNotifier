@@ -27,13 +27,17 @@ const String kLocation = "fundata";
 Future<void> main() async {
   List<Suggestion> suggestions = await searchSpotByName(kLocation);
 
-  int idSpot = suggestions[0].data;
+  int spotId = suggestions[0].data;
 
   // print("=============SPOT INFO===============");
   // testSpotInfo();
 
-  print("=========TAB ITEM===============");
-  testTabItem();
+  // print("=========TAB ITEM===============");
+  // testTabItem();
+
+  print("==============Forecast Models==============");
+  SpotForecastModels spotForecastModels = await fetchSpotForecastModels(spotId);
+  print(spotForecastModels.toJson());
 
   // fetchSpot();
 
@@ -74,6 +78,31 @@ Future<List<Suggestion>> searchSpotByName(String name) async {
   }
 
   return suggestions;
+}
+
+Future<SpotForecastModels> fetchSpotForecastModels(int spotId) async {
+  var uri = Uri.parse("https://www.windguru.cz/int/iapi.php?q=forecast_spot&id_spot=$spotId");
+
+  Map<String, String> requestHeaders = {
+    'accept': '*/*',
+    'dnt': '1',
+    'origin': 'https://www.windguru.cz',
+    'referer': 'https://www.windguru.cz/',
+    'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': 'Windows',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'cross-site',
+    'user-agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+  };
+  
+  final http.Response response = await http.get(uri,headers: requestHeaders);
+
+  var json = jsonDecode(response.body);
+
+  return SpotForecastModels.fromJson(json, spotId);
 }
 
 Future<void> fetchSpot() async {

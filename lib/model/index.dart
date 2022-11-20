@@ -24,6 +24,8 @@ part 'tab_item.dart';
 
 part 'model_attributes.dart';
 
+part 'spot_forecast_models.dart';
+
 // Converts a UTC date string into a local dateTime object
 DateTime _localDateTimeFromUtcString(String date) {
   var dateTimeUTC = DateTime.parse(date);
