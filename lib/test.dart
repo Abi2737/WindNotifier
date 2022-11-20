@@ -13,7 +13,7 @@ const int kModelGfsId = 3;
 const int kModelWrfeuhId = 21;
 const int kModelMm5euId = 14;
 
-const String kDate = "2022111606";
+const String kDate = "2022111612";
 
 const String kLocation = "fundata";
 
@@ -128,6 +128,8 @@ Future<void> fetchFundata() async {
   print(response.headers);
 
   var json = jsonDecode(response.body);
+  print("-----------------BODY-----------------");
+  print(json);
 
   print("=========== Spot data ===========");
   var spotData = SpotData.fromJson(json);
