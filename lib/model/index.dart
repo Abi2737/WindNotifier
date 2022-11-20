@@ -20,6 +20,10 @@ part 'wgmodel.dart';
 
 part 'wgmodel_run.dart';
 
+part 'tab_item.dart';
+
+part 'model_attributes.dart';
+
 // Converts a UTC date string into a local dateTime object
 DateTime _localDateTimeFromUtcString(String date) {
   var dateTimeUTC = DateTime.parse(date);

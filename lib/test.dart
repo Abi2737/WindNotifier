@@ -29,8 +29,11 @@ Future<void> main() async {
 
   int idSpot = suggestions[0].data;
 
-  print("=============SPOT INFO===============");
-  fetchSpotInfo();
+  // print("=============SPOT INFO===============");
+  // testSpotInfo();
+
+  print("=========TAB ITEM===============");
+  testTabItem();
 
   // fetchSpot();
 
@@ -136,7 +139,7 @@ Future<void> fetchFundata() async {
   print(spotData.toJson());
 }
 
-void fetchSpotInfo() {
+void testSpotInfo() {
   String jsonTest = """
      {
       "id_spot": "508600",
@@ -170,5 +173,70 @@ void fetchSpotInfo() {
 
   SpotInfo spotInfo = SpotInfo.fromJson(json);
   print(spotInfo.toJson());
+}
 
+void testTabItem() {
+  String jsonTest = """ 
+    {
+      "share": true,
+      "id_spot": 508600,
+      "id_model": 3,
+      "id_model_arr": [
+        {
+          "id_model": 3,
+          "initstr": "2022112012",
+          "rundef": "2022112012x0x240x0x240",
+          "period": 6,
+          "cachefix": "44.608x27.183x37"
+        }
+      ],
+      "model_period": 6,
+      "options": {
+        "wj": "knots",
+        "tj": "c",
+        "waj": "m",
+        "tij": "cm",
+        "odh": 3,
+        "doh": 22,
+        "fhours": 240,
+        "limit1": 10.63,
+        "limit2": 15.57,
+        "limit3": 19.41,
+        "tlimit": 10,
+        "vt": "forecast",
+        "wrapnew": null,
+        "show_flhgt_opt": 1,
+        "map_open_fn": "WG.openFcstMap",
+        "params": [
+          "WINDSPD",
+          "GUST",
+          "MWINDSPD",
+          "SMER",
+          "TMPE",
+          "FLHGT",
+          "CDC",
+          "APCP1s",
+          "RATING"
+        ],
+        "var_map": {
+          "WINDSPD": "m_windspd,particles",
+          "GUST": "m_gust,particles",
+          "MWINDSPD": "m_windspd,particles",
+          "SMER": "m_windspd,particles",
+          "TMPE": "m_t2m",
+          "CDC": "m_tcdca,isobars",
+          "APCP1s": "m_tcdca,isobars"
+        },
+        "tide": {
+          "style": "none",
+          "min": 50
+        }
+      }
+    }
+  """;
+
+  var json = jsonDecode(jsonTest);
+
+  TabItem tabItem = TabItem.fromJson(json);
+  print(tabItem);
 }

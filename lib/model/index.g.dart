@@ -246,3 +246,38 @@ Map<String, dynamic> _$$_WgmodelRun$ToJson(_$_WgmodelRun$ instance) =>
       'run_hr_steps': instance.runHrSteps,
       'use_hr': instance.userHr,
     };
+
+_$_TabItem$ _$$_TabItem$FromJson(Map<String, dynamic> json) => _$_TabItem$(
+      idSpot: json['id_spot'] as int,
+      idModel: json['id_model'] as int,
+      idModelArr: (json['id_model_arr'] as List<dynamic>)
+          .map((e) => ModelAttributes.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      modelPeriod: json['model_period'] as int,
+    );
+
+Map<String, dynamic> _$$_TabItem$ToJson(_$_TabItem$ instance) =>
+    <String, dynamic>{
+      'id_spot': instance.idSpot,
+      'id_model': instance.idModel,
+      'id_model_arr': instance.idModelArr,
+      'model_period': instance.modelPeriod,
+    };
+
+_$_ModelAttributes$ _$$_ModelAttributes$FromJson(Map<String, dynamic> json) =>
+    _$_ModelAttributes$(
+      id: json['id_model'] as int,
+      initstr: json['initstr'] as String,
+      rundef: json['rundef'] as String,
+      period: json['period'] as int,
+      cachefix: json['cachefix'] as String,
+    );
+
+Map<String, dynamic> _$$_ModelAttributes$ToJson(_$_ModelAttributes$ instance) =>
+    <String, dynamic>{
+      'id_model': instance.id,
+      'initstr': instance.initstr,
+      'rundef': instance.rundef,
+      'period': instance.period,
+      'cachefix': instance.cachefix,
+    };

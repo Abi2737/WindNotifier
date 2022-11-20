@@ -3043,3 +3043,449 @@ abstract class _WgmodelRun$ implements WgmodelRun {
   _$$_WgmodelRun$CopyWith<_$_WgmodelRun$> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+TabItem _$TabItemFromJson(Map<String, dynamic> json) {
+  return _TabItem$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TabItem {
+  @JsonKey(name: "id_spot")
+  int get idSpot => throw _privateConstructorUsedError;
+  @JsonKey(name: "id_model")
+  int get idModel => throw _privateConstructorUsedError;
+  @JsonKey(name: "id_model_arr")
+  List<ModelAttributes> get idModelArr => throw _privateConstructorUsedError;
+  @JsonKey(name: "model_period")
+  int get modelPeriod => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TabItemCopyWith<TabItem> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TabItemCopyWith<$Res> {
+  factory $TabItemCopyWith(TabItem value, $Res Function(TabItem) then) =
+      _$TabItemCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "id_spot") int idSpot,
+      @JsonKey(name: "id_model") int idModel,
+      @JsonKey(name: "id_model_arr") List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period") int modelPeriod});
+}
+
+/// @nodoc
+class _$TabItemCopyWithImpl<$Res> implements $TabItemCopyWith<$Res> {
+  _$TabItemCopyWithImpl(this._value, this._then);
+
+  final TabItem _value;
+  // ignore: unused_field
+  final $Res Function(TabItem) _then;
+
+  @override
+  $Res call({
+    Object? idSpot = freezed,
+    Object? idModel = freezed,
+    Object? idModelArr = freezed,
+    Object? modelPeriod = freezed,
+  }) {
+    return _then(_value.copyWith(
+      idSpot: idSpot == freezed
+          ? _value.idSpot
+          : idSpot // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModel: idModel == freezed
+          ? _value.idModel
+          : idModel // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModelArr: idModelArr == freezed
+          ? _value.idModelArr
+          : idModelArr // ignore: cast_nullable_to_non_nullable
+              as List<ModelAttributes>,
+      modelPeriod: modelPeriod == freezed
+          ? _value.modelPeriod
+          : modelPeriod // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_TabItem$CopyWith<$Res> implements $TabItemCopyWith<$Res> {
+  factory _$$_TabItem$CopyWith(
+          _$_TabItem$ value, $Res Function(_$_TabItem$) then) =
+      __$$_TabItem$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "id_spot") int idSpot,
+      @JsonKey(name: "id_model") int idModel,
+      @JsonKey(name: "id_model_arr") List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period") int modelPeriod});
+}
+
+/// @nodoc
+class __$$_TabItem$CopyWithImpl<$Res> extends _$TabItemCopyWithImpl<$Res>
+    implements _$$_TabItem$CopyWith<$Res> {
+  __$$_TabItem$CopyWithImpl(
+      _$_TabItem$ _value, $Res Function(_$_TabItem$) _then)
+      : super(_value, (v) => _then(v as _$_TabItem$));
+
+  @override
+  _$_TabItem$ get _value => super._value as _$_TabItem$;
+
+  @override
+  $Res call({
+    Object? idSpot = freezed,
+    Object? idModel = freezed,
+    Object? idModelArr = freezed,
+    Object? modelPeriod = freezed,
+  }) {
+    return _then(_$_TabItem$(
+      idSpot: idSpot == freezed
+          ? _value.idSpot
+          : idSpot // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModel: idModel == freezed
+          ? _value.idModel
+          : idModel // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModelArr: idModelArr == freezed
+          ? _value._idModelArr
+          : idModelArr // ignore: cast_nullable_to_non_nullable
+              as List<ModelAttributes>,
+      modelPeriod: modelPeriod == freezed
+          ? _value.modelPeriod
+          : modelPeriod // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TabItem$ implements _TabItem$ {
+  const _$_TabItem$(
+      {@JsonKey(name: "id_spot")
+          required this.idSpot,
+      @JsonKey(name: "id_model")
+          required this.idModel,
+      @JsonKey(name: "id_model_arr")
+          required final List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          required this.modelPeriod})
+      : _idModelArr = idModelArr;
+
+  factory _$_TabItem$.fromJson(Map<String, dynamic> json) =>
+      _$$_TabItem$FromJson(json);
+
+  @override
+  @JsonKey(name: "id_spot")
+  final int idSpot;
+  @override
+  @JsonKey(name: "id_model")
+  final int idModel;
+  final List<ModelAttributes> _idModelArr;
+  @override
+  @JsonKey(name: "id_model_arr")
+  List<ModelAttributes> get idModelArr {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_idModelArr);
+  }
+
+  @override
+  @JsonKey(name: "model_period")
+  final int modelPeriod;
+
+  @override
+  String toString() {
+    return 'TabItem(idSpot: $idSpot, idModel: $idModel, idModelArr: $idModelArr, modelPeriod: $modelPeriod)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TabItem$ &&
+            const DeepCollectionEquality().equals(other.idSpot, idSpot) &&
+            const DeepCollectionEquality().equals(other.idModel, idModel) &&
+            const DeepCollectionEquality()
+                .equals(other._idModelArr, _idModelArr) &&
+            const DeepCollectionEquality()
+                .equals(other.modelPeriod, modelPeriod));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(idSpot),
+      const DeepCollectionEquality().hash(idModel),
+      const DeepCollectionEquality().hash(_idModelArr),
+      const DeepCollectionEquality().hash(modelPeriod));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TabItem$CopyWith<_$_TabItem$> get copyWith =>
+      __$$_TabItem$CopyWithImpl<_$_TabItem$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TabItem$ToJson(this);
+  }
+}
+
+abstract class _TabItem$ implements TabItem {
+  const factory _TabItem$(
+      {@JsonKey(name: "id_spot")
+          required final int idSpot,
+      @JsonKey(name: "id_model")
+          required final int idModel,
+      @JsonKey(name: "id_model_arr")
+          required final List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          required final int modelPeriod}) = _$_TabItem$;
+
+  factory _TabItem$.fromJson(Map<String, dynamic> json) = _$_TabItem$.fromJson;
+
+  @override
+  @JsonKey(name: "id_spot")
+  int get idSpot;
+  @override
+  @JsonKey(name: "id_model")
+  int get idModel;
+  @override
+  @JsonKey(name: "id_model_arr")
+  List<ModelAttributes> get idModelArr;
+  @override
+  @JsonKey(name: "model_period")
+  int get modelPeriod;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TabItem$CopyWith<_$_TabItem$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ModelAttributes _$ModelAttributesFromJson(Map<String, dynamic> json) {
+  return _ModelAttributes$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ModelAttributes {
+  @JsonKey(name: "id_model")
+  int get id => throw _privateConstructorUsedError;
+  String get initstr => throw _privateConstructorUsedError;
+  String get rundef => throw _privateConstructorUsedError;
+  int get period => throw _privateConstructorUsedError;
+  String get cachefix => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ModelAttributesCopyWith<ModelAttributes> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ModelAttributesCopyWith<$Res> {
+  factory $ModelAttributesCopyWith(
+          ModelAttributes value, $Res Function(ModelAttributes) then) =
+      _$ModelAttributesCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "id_model") int id,
+      String initstr,
+      String rundef,
+      int period,
+      String cachefix});
+}
+
+/// @nodoc
+class _$ModelAttributesCopyWithImpl<$Res>
+    implements $ModelAttributesCopyWith<$Res> {
+  _$ModelAttributesCopyWithImpl(this._value, this._then);
+
+  final ModelAttributes _value;
+  // ignore: unused_field
+  final $Res Function(ModelAttributes) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? initstr = freezed,
+    Object? rundef = freezed,
+    Object? period = freezed,
+    Object? cachefix = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      initstr: initstr == freezed
+          ? _value.initstr
+          : initstr // ignore: cast_nullable_to_non_nullable
+              as String,
+      rundef: rundef == freezed
+          ? _value.rundef
+          : rundef // ignore: cast_nullable_to_non_nullable
+              as String,
+      period: period == freezed
+          ? _value.period
+          : period // ignore: cast_nullable_to_non_nullable
+              as int,
+      cachefix: cachefix == freezed
+          ? _value.cachefix
+          : cachefix // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_ModelAttributes$CopyWith<$Res>
+    implements $ModelAttributesCopyWith<$Res> {
+  factory _$$_ModelAttributes$CopyWith(
+          _$_ModelAttributes$ value, $Res Function(_$_ModelAttributes$) then) =
+      __$$_ModelAttributes$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "id_model") int id,
+      String initstr,
+      String rundef,
+      int period,
+      String cachefix});
+}
+
+/// @nodoc
+class __$$_ModelAttributes$CopyWithImpl<$Res>
+    extends _$ModelAttributesCopyWithImpl<$Res>
+    implements _$$_ModelAttributes$CopyWith<$Res> {
+  __$$_ModelAttributes$CopyWithImpl(
+      _$_ModelAttributes$ _value, $Res Function(_$_ModelAttributes$) _then)
+      : super(_value, (v) => _then(v as _$_ModelAttributes$));
+
+  @override
+  _$_ModelAttributes$ get _value => super._value as _$_ModelAttributes$;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? initstr = freezed,
+    Object? rundef = freezed,
+    Object? period = freezed,
+    Object? cachefix = freezed,
+  }) {
+    return _then(_$_ModelAttributes$(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      initstr: initstr == freezed
+          ? _value.initstr
+          : initstr // ignore: cast_nullable_to_non_nullable
+              as String,
+      rundef: rundef == freezed
+          ? _value.rundef
+          : rundef // ignore: cast_nullable_to_non_nullable
+              as String,
+      period: period == freezed
+          ? _value.period
+          : period // ignore: cast_nullable_to_non_nullable
+              as int,
+      cachefix: cachefix == freezed
+          ? _value.cachefix
+          : cachefix // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ModelAttributes$ implements _ModelAttributes$ {
+  const _$_ModelAttributes$(
+      {@JsonKey(name: "id_model") required this.id,
+      required this.initstr,
+      required this.rundef,
+      required this.period,
+      required this.cachefix});
+
+  factory _$_ModelAttributes$.fromJson(Map<String, dynamic> json) =>
+      _$$_ModelAttributes$FromJson(json);
+
+  @override
+  @JsonKey(name: "id_model")
+  final int id;
+  @override
+  final String initstr;
+  @override
+  final String rundef;
+  @override
+  final int period;
+  @override
+  final String cachefix;
+
+  @override
+  String toString() {
+    return 'ModelAttributes(id: $id, initstr: $initstr, rundef: $rundef, period: $period, cachefix: $cachefix)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ModelAttributes$ &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.initstr, initstr) &&
+            const DeepCollectionEquality().equals(other.rundef, rundef) &&
+            const DeepCollectionEquality().equals(other.period, period) &&
+            const DeepCollectionEquality().equals(other.cachefix, cachefix));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(initstr),
+      const DeepCollectionEquality().hash(rundef),
+      const DeepCollectionEquality().hash(period),
+      const DeepCollectionEquality().hash(cachefix));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>
+      __$$_ModelAttributes$CopyWithImpl<_$_ModelAttributes$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ModelAttributes$ToJson(this);
+  }
+}
+
+abstract class _ModelAttributes$ implements ModelAttributes {
+  const factory _ModelAttributes$(
+      {@JsonKey(name: "id_model") required final int id,
+      required final String initstr,
+      required final String rundef,
+      required final int period,
+      required final String cachefix}) = _$_ModelAttributes$;
+
+  factory _ModelAttributes$.fromJson(Map<String, dynamic> json) =
+      _$_ModelAttributes$.fromJson;
+
+  @override
+  @JsonKey(name: "id_model")
+  int get id;
+  @override
+  String get initstr;
+  @override
+  String get rundef;
+  @override
+  int get period;
+  @override
+  String get cachefix;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
