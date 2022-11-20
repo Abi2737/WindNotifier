@@ -27,7 +27,8 @@ mixin _$Forecast {
   @JsonKey(name: "model_longname")
   String get modelLongName => throw _privateConstructorUsedError;
   @JsonKey(name: "initstamp")
-  int get initStamp => throw _privateConstructorUsedError;
+  int get initStamp =>
+      throw _privateConstructorUsedError; // TODO: initdate should be in the spot's timezone!!!
   @JsonKey(
       name: "initdate",
       fromJson: _localDateTimeFromUtcString,
@@ -604,6 +605,7 @@ class _$_Forecast$ implements _Forecast$ {
   @override
   @JsonKey(name: "initstamp")
   final int initStamp;
+// TODO: initdate should be in the spot's timezone!!!
   @override
   @JsonKey(
       name: "initdate",
@@ -946,7 +948,7 @@ abstract class _Forecast$ implements Forecast {
   @override
   @JsonKey(name: "initstamp")
   int get initStamp;
-  @override
+  @override // TODO: initdate should be in the spot's timezone!!!
   @JsonKey(
       name: "initdate",
       fromJson: _localDateTimeFromUtcString,
@@ -1458,6 +1460,401 @@ abstract class _SpotData$ implements SpotData {
   @override
   @JsonKey(ignore: true)
   _$$_SpotData$CopyWith<_$_SpotData$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SpotInfo _$SpotInfoFromJson(Map<String, dynamic> json) {
+  return _SpotInfo$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SpotInfo {
+  @JsonKey(name: "id_spot")
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "spotname")
+  String get name => throw _privateConstructorUsedError;
+  String get country => throw _privateConstructorUsedError;
+  @JsonKey(name: "lat")
+  double get latitude => throw _privateConstructorUsedError;
+  @JsonKey(name: "lon")
+  double get longitude => throw _privateConstructorUsedError;
+  @JsonKey(name: "alt")
+  int get altitude => throw _privateConstructorUsedError;
+  @JsonKey(name: "tz")
+  String get timezone => throw _privateConstructorUsedError;
+  @JsonKey(name: "gmt_hour_offset")
+  int get gmtHourOffset => throw _privateConstructorUsedError;
+  String get sunrise => throw _privateConstructorUsedError;
+  String get sunset => throw _privateConstructorUsedError;
+  @JsonKey(name: "models")
+  List<int> get modelsId => throw _privateConstructorUsedError;
+  String get tides => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SpotInfoCopyWith<SpotInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SpotInfoCopyWith<$Res> {
+  factory $SpotInfoCopyWith(SpotInfo value, $Res Function(SpotInfo) then) =
+      _$SpotInfoCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "id_spot") String id,
+      @JsonKey(name: "spotname") String name,
+      String country,
+      @JsonKey(name: "lat") double latitude,
+      @JsonKey(name: "lon") double longitude,
+      @JsonKey(name: "alt") int altitude,
+      @JsonKey(name: "tz") String timezone,
+      @JsonKey(name: "gmt_hour_offset") int gmtHourOffset,
+      String sunrise,
+      String sunset,
+      @JsonKey(name: "models") List<int> modelsId,
+      String tides});
+}
+
+/// @nodoc
+class _$SpotInfoCopyWithImpl<$Res> implements $SpotInfoCopyWith<$Res> {
+  _$SpotInfoCopyWithImpl(this._value, this._then);
+
+  final SpotInfo _value;
+  // ignore: unused_field
+  final $Res Function(SpotInfo) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? country = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? altitude = freezed,
+    Object? timezone = freezed,
+    Object? gmtHourOffset = freezed,
+    Object? sunrise = freezed,
+    Object? sunset = freezed,
+    Object? modelsId = freezed,
+    Object? tides = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      altitude: altitude == freezed
+          ? _value.altitude
+          : altitude // ignore: cast_nullable_to_non_nullable
+              as int,
+      timezone: timezone == freezed
+          ? _value.timezone
+          : timezone // ignore: cast_nullable_to_non_nullable
+              as String,
+      gmtHourOffset: gmtHourOffset == freezed
+          ? _value.gmtHourOffset
+          : gmtHourOffset // ignore: cast_nullable_to_non_nullable
+              as int,
+      sunrise: sunrise == freezed
+          ? _value.sunrise
+          : sunrise // ignore: cast_nullable_to_non_nullable
+              as String,
+      sunset: sunset == freezed
+          ? _value.sunset
+          : sunset // ignore: cast_nullable_to_non_nullable
+              as String,
+      modelsId: modelsId == freezed
+          ? _value.modelsId
+          : modelsId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      tides: tides == freezed
+          ? _value.tides
+          : tides // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_SpotInfo$CopyWith<$Res> implements $SpotInfoCopyWith<$Res> {
+  factory _$$_SpotInfo$CopyWith(
+          _$_SpotInfo$ value, $Res Function(_$_SpotInfo$) then) =
+      __$$_SpotInfo$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "id_spot") String id,
+      @JsonKey(name: "spotname") String name,
+      String country,
+      @JsonKey(name: "lat") double latitude,
+      @JsonKey(name: "lon") double longitude,
+      @JsonKey(name: "alt") int altitude,
+      @JsonKey(name: "tz") String timezone,
+      @JsonKey(name: "gmt_hour_offset") int gmtHourOffset,
+      String sunrise,
+      String sunset,
+      @JsonKey(name: "models") List<int> modelsId,
+      String tides});
+}
+
+/// @nodoc
+class __$$_SpotInfo$CopyWithImpl<$Res> extends _$SpotInfoCopyWithImpl<$Res>
+    implements _$$_SpotInfo$CopyWith<$Res> {
+  __$$_SpotInfo$CopyWithImpl(
+      _$_SpotInfo$ _value, $Res Function(_$_SpotInfo$) _then)
+      : super(_value, (v) => _then(v as _$_SpotInfo$));
+
+  @override
+  _$_SpotInfo$ get _value => super._value as _$_SpotInfo$;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? country = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? altitude = freezed,
+    Object? timezone = freezed,
+    Object? gmtHourOffset = freezed,
+    Object? sunrise = freezed,
+    Object? sunset = freezed,
+    Object? modelsId = freezed,
+    Object? tides = freezed,
+  }) {
+    return _then(_$_SpotInfo$(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      altitude: altitude == freezed
+          ? _value.altitude
+          : altitude // ignore: cast_nullable_to_non_nullable
+              as int,
+      timezone: timezone == freezed
+          ? _value.timezone
+          : timezone // ignore: cast_nullable_to_non_nullable
+              as String,
+      gmtHourOffset: gmtHourOffset == freezed
+          ? _value.gmtHourOffset
+          : gmtHourOffset // ignore: cast_nullable_to_non_nullable
+              as int,
+      sunrise: sunrise == freezed
+          ? _value.sunrise
+          : sunrise // ignore: cast_nullable_to_non_nullable
+              as String,
+      sunset: sunset == freezed
+          ? _value.sunset
+          : sunset // ignore: cast_nullable_to_non_nullable
+              as String,
+      modelsId: modelsId == freezed
+          ? _value._modelsId
+          : modelsId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      tides: tides == freezed
+          ? _value.tides
+          : tides // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_SpotInfo$ implements _SpotInfo$ {
+  const _$_SpotInfo$(
+      {@JsonKey(name: "id_spot") required this.id,
+      @JsonKey(name: "spotname") required this.name,
+      required this.country,
+      @JsonKey(name: "lat") required this.latitude,
+      @JsonKey(name: "lon") required this.longitude,
+      @JsonKey(name: "alt") required this.altitude,
+      @JsonKey(name: "tz") required this.timezone,
+      @JsonKey(name: "gmt_hour_offset") required this.gmtHourOffset,
+      required this.sunrise,
+      required this.sunset,
+      @JsonKey(name: "models") required final List<int> modelsId,
+      required this.tides})
+      : _modelsId = modelsId;
+
+  factory _$_SpotInfo$.fromJson(Map<String, dynamic> json) =>
+      _$$_SpotInfo$FromJson(json);
+
+  @override
+  @JsonKey(name: "id_spot")
+  final String id;
+  @override
+  @JsonKey(name: "spotname")
+  final String name;
+  @override
+  final String country;
+  @override
+  @JsonKey(name: "lat")
+  final double latitude;
+  @override
+  @JsonKey(name: "lon")
+  final double longitude;
+  @override
+  @JsonKey(name: "alt")
+  final int altitude;
+  @override
+  @JsonKey(name: "tz")
+  final String timezone;
+  @override
+  @JsonKey(name: "gmt_hour_offset")
+  final int gmtHourOffset;
+  @override
+  final String sunrise;
+  @override
+  final String sunset;
+  final List<int> _modelsId;
+  @override
+  @JsonKey(name: "models")
+  List<int> get modelsId {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_modelsId);
+  }
+
+  @override
+  final String tides;
+
+  @override
+  String toString() {
+    return 'SpotInfo(id: $id, name: $name, country: $country, latitude: $latitude, longitude: $longitude, altitude: $altitude, timezone: $timezone, gmtHourOffset: $gmtHourOffset, sunrise: $sunrise, sunset: $sunset, modelsId: $modelsId, tides: $tides)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SpotInfo$ &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.country, country) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
+            const DeepCollectionEquality().equals(other.altitude, altitude) &&
+            const DeepCollectionEquality().equals(other.timezone, timezone) &&
+            const DeepCollectionEquality()
+                .equals(other.gmtHourOffset, gmtHourOffset) &&
+            const DeepCollectionEquality().equals(other.sunrise, sunrise) &&
+            const DeepCollectionEquality().equals(other.sunset, sunset) &&
+            const DeepCollectionEquality().equals(other._modelsId, _modelsId) &&
+            const DeepCollectionEquality().equals(other.tides, tides));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(longitude),
+      const DeepCollectionEquality().hash(altitude),
+      const DeepCollectionEquality().hash(timezone),
+      const DeepCollectionEquality().hash(gmtHourOffset),
+      const DeepCollectionEquality().hash(sunrise),
+      const DeepCollectionEquality().hash(sunset),
+      const DeepCollectionEquality().hash(_modelsId),
+      const DeepCollectionEquality().hash(tides));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SpotInfo$CopyWith<_$_SpotInfo$> get copyWith =>
+      __$$_SpotInfo$CopyWithImpl<_$_SpotInfo$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SpotInfo$ToJson(this);
+  }
+}
+
+abstract class _SpotInfo$ implements SpotInfo {
+  const factory _SpotInfo$(
+      {@JsonKey(name: "id_spot") required final String id,
+      @JsonKey(name: "spotname") required final String name,
+      required final String country,
+      @JsonKey(name: "lat") required final double latitude,
+      @JsonKey(name: "lon") required final double longitude,
+      @JsonKey(name: "alt") required final int altitude,
+      @JsonKey(name: "tz") required final String timezone,
+      @JsonKey(name: "gmt_hour_offset") required final int gmtHourOffset,
+      required final String sunrise,
+      required final String sunset,
+      @JsonKey(name: "models") required final List<int> modelsId,
+      required final String tides}) = _$_SpotInfo$;
+
+  factory _SpotInfo$.fromJson(Map<String, dynamic> json) =
+      _$_SpotInfo$.fromJson;
+
+  @override
+  @JsonKey(name: "id_spot")
+  String get id;
+  @override
+  @JsonKey(name: "spotname")
+  String get name;
+  @override
+  String get country;
+  @override
+  @JsonKey(name: "lat")
+  double get latitude;
+  @override
+  @JsonKey(name: "lon")
+  double get longitude;
+  @override
+  @JsonKey(name: "alt")
+  int get altitude;
+  @override
+  @JsonKey(name: "tz")
+  String get timezone;
+  @override
+  @JsonKey(name: "gmt_hour_offset")
+  int get gmtHourOffset;
+  @override
+  String get sunrise;
+  @override
+  String get sunset;
+  @override
+  @JsonKey(name: "models")
+  List<int> get modelsId;
+  @override
+  String get tides;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SpotInfo$CopyWith<_$_SpotInfo$> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

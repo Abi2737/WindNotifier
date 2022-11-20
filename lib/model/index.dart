@@ -2,6 +2,8 @@ library models;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// flutter pub run build_runner watch --delete-conflicting-outputs
+
 part 'forecast.dart';
 
 part 'index.freezed.dart';
@@ -9,6 +11,8 @@ part 'index.freezed.dart';
 part 'index.g.dart';
 
 part 'spot_data.dart';
+
+part 'spot_info.dart';
 
 part 'suggestion.dart';
 

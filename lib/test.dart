@@ -24,17 +24,22 @@ const String kLocation = "fundata";
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022111106x0x240x0x240&initstr=2022111106&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022111306x0x240x0x240&initstr=2022111306&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
 
-void main() {
-  // fetchSearch();
+Future<void> main() async {
+  List<Suggestion> suggestions = await searchSpotByName(kLocation);
+
+  int idSpot = suggestions[0].data;
+
+  print("=============SPOT INFO===============");
+  fetchSpotInfo();
 
   // fetchSpot();
 
-  fetchFundata();
+  // fetchFundata();
 }
 
-Future<void> fetchSearch() async {
+Future<List<Suggestion>> searchSpotByName(String name) async {
   var uri = Uri.parse(
-      "https://www.windguru.cz/int/iapi.php?q=autocomplete_ss&type_info=true&all=0&latlon=1&country=1&favourite=1&favourite_geonames=1&custom=1&stations=1&geonames=40&spots=1&priority_sort=1&query=$kLocation");
+      "https://www.windguru.cz/int/iapi.php?q=autocomplete_ss&type_info=true&all=0&latlon=1&country=1&favourite=1&favourite_geonames=1&custom=1&stations=1&geonames=40&spots=1&priority_sort=1&query=$name");
 
   Map<String, String> requestHeaders = {
     'accept': '*/*',
@@ -64,6 +69,8 @@ Future<void> fetchSearch() async {
   for (int i = 0; i < suggestions.length; i++) {
     print(suggestions[i]);
   }
+
+  return suggestions;
 }
 
 Future<void> fetchSpot() async {
@@ -125,4 +132,41 @@ Future<void> fetchFundata() async {
   print("=========== Spot data ===========");
   var spotData = SpotData.fromJson(json);
   print(spotData.toJson());
+}
+
+void fetchSpotInfo() {
+  String jsonTest = """
+     {
+      "id_spot": "508600",
+      "id_user": "2",
+      "spotname": "Fundata The Spot, spotfundata",
+      "country": "Romania",
+      "id_country": 642,
+      "lat": 44.608343,
+      "lon": 27.183309,
+      "alt": 37,
+      "tz": "Europe/Bucharest",
+      "tzid": "Europe/Bucharest",
+      "gmt_hour_offset": 2,
+      "sunrise": "07:18",
+      "sunset": "16:35",
+      "models": [
+        100,
+        3,
+        64,
+        21,
+        43,
+        14,
+        45,
+        59
+      ],
+      "tides": "0"
+    }
+    """;
+
+  var json = jsonDecode(jsonTest);
+
+  SpotInfo spotInfo = SpotInfo.fromJson(json);
+  print(spotInfo.toJson());
+
 }

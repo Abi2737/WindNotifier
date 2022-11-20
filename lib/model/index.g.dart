@@ -119,6 +119,37 @@ Map<String, dynamic> _$$_SpotData$ToJson(_$_SpotData$ instance) =>
       'fcst': instance.forecast,
     };
 
+_$_SpotInfo$ _$$_SpotInfo$FromJson(Map<String, dynamic> json) => _$_SpotInfo$(
+      id: json['id_spot'] as String,
+      name: json['spotname'] as String,
+      country: json['country'] as String,
+      latitude: (json['lat'] as num).toDouble(),
+      longitude: (json['lon'] as num).toDouble(),
+      altitude: json['alt'] as int,
+      timezone: json['tz'] as String,
+      gmtHourOffset: json['gmt_hour_offset'] as int,
+      sunrise: json['sunrise'] as String,
+      sunset: json['sunset'] as String,
+      modelsId: (json['models'] as List<dynamic>).map((e) => e as int).toList(),
+      tides: json['tides'] as String,
+    );
+
+Map<String, dynamic> _$$_SpotInfo$ToJson(_$_SpotInfo$ instance) =>
+    <String, dynamic>{
+      'id_spot': instance.id,
+      'spotname': instance.name,
+      'country': instance.country,
+      'lat': instance.latitude,
+      'lon': instance.longitude,
+      'alt': instance.altitude,
+      'tz': instance.timezone,
+      'gmt_hour_offset': instance.gmtHourOffset,
+      'sunrise': instance.sunrise,
+      'sunset': instance.sunset,
+      'models': instance.modelsId,
+      'tides': instance.tides,
+    };
+
 _$_Suggestion$ _$$_Suggestion$FromJson(Map<String, dynamic> json) =>
     _$_Suggestion$(
       value: json['value'] as String,
