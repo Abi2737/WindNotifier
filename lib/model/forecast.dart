@@ -7,6 +7,7 @@ class Forecast with _$Forecast {
     @JsonKey(name: "model_name") required String modelName,
     @JsonKey(name: "model_longname") required String modelLongName,
     @JsonKey(name: "initstamp") required int initStamp,
+    // TODO: initdate should be in the spot's timezone!!!
     @JsonKey(name: "initdate", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
         required DateTime initDateTime,
     @JsonKey(name: "init_d") required String initDate,
