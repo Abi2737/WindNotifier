@@ -36,8 +36,11 @@ Future<void> main() async {
   // testTabItem();
 
   print("==============Forecast Models==============");
-  SpotForecastModels spotForecastModels = await fetchSpotForecastModels(spotId);
+  SpotForecastModelsInfo spotForecastModels = await fetchSpotForecastModels(spotId);
   print(spotForecastModels.toJson());
+
+  print("-----------------------------------------");
+  print(spotForecastModels.allTabs[3]);
 
   // fetchSpot();
 
@@ -80,7 +83,7 @@ Future<List<Suggestion>> searchSpotByName(String name) async {
   return suggestions;
 }
 
-Future<SpotForecastModels> fetchSpotForecastModels(int spotId) async {
+Future<SpotForecastModelsInfo> fetchSpotForecastModels(int spotId) async {
   var uri = Uri.parse("https://www.windguru.cz/int/iapi.php?q=forecast_spot&id_spot=$spotId");
 
   Map<String, String> requestHeaders = {
@@ -102,7 +105,7 @@ Future<SpotForecastModels> fetchSpotForecastModels(int spotId) async {
 
   var json = jsonDecode(response.body);
 
-  return SpotForecastModels.fromJson(json, spotId);
+  return SpotForecastModelsInfo.fromJson(json, spotId);
 }
 
 Future<void> fetchSpot() async {

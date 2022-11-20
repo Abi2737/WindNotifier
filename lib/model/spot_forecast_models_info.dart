@@ -1,12 +1,12 @@
 part of models;
 
-class SpotForecastModels {
+class SpotForecastModelsInfo {
   final List<TabItem> tabs;
   final List<TabItem> hiddenTabs;
   final SpotInfo spotInfo;
   final int spotId;
 
-  const SpotForecastModels({
+  const SpotForecastModelsInfo({
     required this.spotId,
     required this.tabs,
     required this.hiddenTabs,
@@ -15,7 +15,7 @@ class SpotForecastModels {
 
   List<TabItem> get allTabs => [...tabs, ...hiddenTabs];
 
-  SpotForecastModels.fromJson(Map<dynamic, dynamic> json, this.spotId)
+  SpotForecastModelsInfo.fromJson(Map<dynamic, dynamic> json, this.spotId)
       : tabs = (json['tabs'] as List<dynamic>).map((e) => TabItem.fromJson(e)).toList(),
         hiddenTabs = (json['tabs_hidden'] as List<dynamic>).map((e) => TabItem.fromJson(e)).toList(),
         spotInfo = SpotInfo.fromJson(json['spots']["$spotId"]);
