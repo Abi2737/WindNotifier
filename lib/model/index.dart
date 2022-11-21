@@ -10,7 +10,7 @@ part 'index.freezed.dart';
 
 part 'index.g.dart';
 
-part 'spot_data.dart';
+part 'spot_forecast_models_data.dart';
 
 part 'spot_info.dart';
 

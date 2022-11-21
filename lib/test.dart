@@ -45,15 +45,17 @@ Future<void> main() async {
   // print(spotForecastModels.allTabs[3]);
 
   List<TabItem> allTabs = spotForecastModels.allTabs;
-  print(allTabs[3]);
+  // print(allTabs[3]);
+
+  int index = 1;
 
   fetchSpotForecastModelsData(
-    idSpot: allTabs[3].idSpot,
-    runDef: allTabs[3].idModelArr[0].runDef,
-    initStr: allTabs[3].idModelArr[0].initStr,
-    idModel: allTabs[3].idModelArr[0].id,
-    wgCacheable: allTabs[3].idModelArr[0].period * kSecondsInOneHour,
-    cacheFix: allTabs[3].idModelArr[0].cacheFix,
+    idModel: allTabs[index].idModel,
+    runDef: allTabs[index].idModelArr[0].runDef,
+    initStr: allTabs[index].idModelArr[0].initStr,
+    idSpot: allTabs[index].idSpot,
+    wgCacheable: allTabs[index].idModelArr[0].period * kSecondsInOneHour,
+    cacheFix: allTabs[index].idModelArr[0].cacheFix,
   );
 
   // fetchSpot();
@@ -147,15 +149,19 @@ Future<void> fetchSpot() async {
 }
 
 Future<void> fetchSpotForecastModelsData({
-  required int idSpot,
+  required int idModel,
   required String runDef,
   required String initStr,
-  required int idModel,
+  required int idSpot,
   required int wgCacheable,
   required String cacheFix,
 }) async {
+  print(idModel);
+
   var uri = Uri.parse(
-      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$idSpot&rundef=$runDef&initstr=$initStr&id_spot=$idModel&WGCACHEABLE=21600&cachefix=$cacheFix");
+      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$idModel&rundef=$runDef&initstr=$initStr&id_spot=$idSpot&WGCACHEABLE=$wgCacheable&cachefix=$cacheFix");
+
+  print(uri);
 
   Map<String, String> requestHeaders = {
     'accept': '*/*',
@@ -188,7 +194,7 @@ Future<void> fetchSpotForecastModelsData({
   print(json);
 
   print("=========== Spot data ===========");
-  var spotData = SpotData.fromJson(json);
+  var spotData = SpotForecastModelsData.fromJson(json);
   print(spotData.toJson());
 }
 

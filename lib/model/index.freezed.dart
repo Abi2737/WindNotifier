@@ -1028,12 +1028,13 @@ abstract class _Forecast$ implements Forecast {
       throw _privateConstructorUsedError;
 }
 
-SpotData _$SpotDataFromJson(Map<String, dynamic> json) {
+SpotForecastModelsData _$SpotForecastModelsDataFromJson(
+    Map<String, dynamic> json) {
   return _SpotData$.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SpotData {
+mixin _$SpotForecastModelsData {
   @JsonKey(name: "id_spot")
   int get idSpot => throw _privateConstructorUsedError;
   @JsonKey(name: "lat")
@@ -1059,14 +1060,15 @@ mixin _$SpotData {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SpotDataCopyWith<SpotData> get copyWith =>
+  $SpotForecastModelsDataCopyWith<SpotForecastModelsData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SpotDataCopyWith<$Res> {
-  factory $SpotDataCopyWith(SpotData value, $Res Function(SpotData) then) =
-      _$SpotDataCopyWithImpl<$Res>;
+abstract class $SpotForecastModelsDataCopyWith<$Res> {
+  factory $SpotForecastModelsDataCopyWith(SpotForecastModelsData value,
+          $Res Function(SpotForecastModelsData) then) =
+      _$SpotForecastModelsDataCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "id_spot") int idSpot,
       @JsonKey(name: "lat") double latitude,
@@ -1087,12 +1089,13 @@ abstract class $SpotDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SpotDataCopyWithImpl<$Res> implements $SpotDataCopyWith<$Res> {
-  _$SpotDataCopyWithImpl(this._value, this._then);
+class _$SpotForecastModelsDataCopyWithImpl<$Res>
+    implements $SpotForecastModelsDataCopyWith<$Res> {
+  _$SpotForecastModelsDataCopyWithImpl(this._value, this._then);
 
-  final SpotData _value;
+  final SpotForecastModelsData _value;
   // ignore: unused_field
-  final $Res Function(SpotData) _then;
+  final $Res Function(SpotForecastModelsData) _then;
 
   @override
   $Res call({
@@ -1182,7 +1185,8 @@ class _$SpotDataCopyWithImpl<$Res> implements $SpotDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_SpotData$CopyWith<$Res> implements $SpotDataCopyWith<$Res> {
+abstract class _$$_SpotData$CopyWith<$Res>
+    implements $SpotForecastModelsDataCopyWith<$Res> {
   factory _$$_SpotData$CopyWith(
           _$_SpotData$ value, $Res Function(_$_SpotData$) then) =
       __$$_SpotData$CopyWithImpl<$Res>;
@@ -1209,7 +1213,8 @@ abstract class _$$_SpotData$CopyWith<$Res> implements $SpotDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SpotData$CopyWithImpl<$Res> extends _$SpotDataCopyWithImpl<$Res>
+class __$$_SpotData$CopyWithImpl<$Res>
+    extends _$SpotForecastModelsDataCopyWithImpl<$Res>
     implements _$$_SpotData$CopyWith<$Res> {
   __$$_SpotData$CopyWithImpl(
       _$_SpotData$ _value, $Res Function(_$_SpotData$) _then)
@@ -1350,7 +1355,7 @@ class _$_SpotData$ implements _SpotData$ {
 
   @override
   String toString() {
-    return 'SpotData(idSpot: $idSpot, latitude: $latitude, longitude: $longitude, altitude: $altitude, idModel: $idModel, model: $model, wgModel: $wgModel, modelAltitude: $modelAltitude, levels: $levels, sunrise: $sunrise, sunset: $sunset, md5check: $md5check, forecast: $forecast)';
+    return 'SpotForecastModelsData(idSpot: $idSpot, latitude: $latitude, longitude: $longitude, altitude: $altitude, idModel: $idModel, model: $model, wgModel: $wgModel, modelAltitude: $modelAltitude, levels: $levels, sunrise: $sunrise, sunset: $sunset, md5check: $md5check, forecast: $forecast)';
   }
 
   @override
@@ -1403,7 +1408,7 @@ class _$_SpotData$ implements _SpotData$ {
   }
 }
 
-abstract class _SpotData$ implements SpotData {
+abstract class _SpotData$ implements SpotForecastModelsData {
   const factory _SpotData$(
       {@JsonKey(name: "id_spot") required final int idSpot,
       @JsonKey(name: "lat") required final double latitude,
