@@ -3282,10 +3282,13 @@ ModelAttributes _$ModelAttributesFromJson(Map<String, dynamic> json) {
 mixin _$ModelAttributes {
   @JsonKey(name: "id_model")
   int get id => throw _privateConstructorUsedError;
-  String get initstr => throw _privateConstructorUsedError;
-  String get rundef => throw _privateConstructorUsedError;
+  @JsonKey(name: "initstr")
+  String get initStr => throw _privateConstructorUsedError;
+  @JsonKey(name: "rundef")
+  String get runDef => throw _privateConstructorUsedError;
   int get period => throw _privateConstructorUsedError;
-  String get cachefix => throw _privateConstructorUsedError;
+  @JsonKey(name: "cachefix")
+  String get cacheFix => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -3300,10 +3303,10 @@ abstract class $ModelAttributesCopyWith<$Res> {
       _$ModelAttributesCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "id_model") int id,
-      String initstr,
-      String rundef,
+      @JsonKey(name: "initstr") String initStr,
+      @JsonKey(name: "rundef") String runDef,
       int period,
-      String cachefix});
+      @JsonKey(name: "cachefix") String cacheFix});
 }
 
 /// @nodoc
@@ -3318,31 +3321,31 @@ class _$ModelAttributesCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? initstr = freezed,
-    Object? rundef = freezed,
+    Object? initStr = freezed,
+    Object? runDef = freezed,
     Object? period = freezed,
-    Object? cachefix = freezed,
+    Object? cacheFix = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      initstr: initstr == freezed
-          ? _value.initstr
-          : initstr // ignore: cast_nullable_to_non_nullable
+      initStr: initStr == freezed
+          ? _value.initStr
+          : initStr // ignore: cast_nullable_to_non_nullable
               as String,
-      rundef: rundef == freezed
-          ? _value.rundef
-          : rundef // ignore: cast_nullable_to_non_nullable
+      runDef: runDef == freezed
+          ? _value.runDef
+          : runDef // ignore: cast_nullable_to_non_nullable
               as String,
       period: period == freezed
           ? _value.period
           : period // ignore: cast_nullable_to_non_nullable
               as int,
-      cachefix: cachefix == freezed
-          ? _value.cachefix
-          : cachefix // ignore: cast_nullable_to_non_nullable
+      cacheFix: cacheFix == freezed
+          ? _value.cacheFix
+          : cacheFix // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -3357,10 +3360,10 @@ abstract class _$$_ModelAttributes$CopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: "id_model") int id,
-      String initstr,
-      String rundef,
+      @JsonKey(name: "initstr") String initStr,
+      @JsonKey(name: "rundef") String runDef,
       int period,
-      String cachefix});
+      @JsonKey(name: "cachefix") String cacheFix});
 }
 
 /// @nodoc
@@ -3377,31 +3380,31 @@ class __$$_ModelAttributes$CopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? initstr = freezed,
-    Object? rundef = freezed,
+    Object? initStr = freezed,
+    Object? runDef = freezed,
     Object? period = freezed,
-    Object? cachefix = freezed,
+    Object? cacheFix = freezed,
   }) {
     return _then(_$_ModelAttributes$(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      initstr: initstr == freezed
-          ? _value.initstr
-          : initstr // ignore: cast_nullable_to_non_nullable
+      initStr: initStr == freezed
+          ? _value.initStr
+          : initStr // ignore: cast_nullable_to_non_nullable
               as String,
-      rundef: rundef == freezed
-          ? _value.rundef
-          : rundef // ignore: cast_nullable_to_non_nullable
+      runDef: runDef == freezed
+          ? _value.runDef
+          : runDef // ignore: cast_nullable_to_non_nullable
               as String,
       period: period == freezed
           ? _value.period
           : period // ignore: cast_nullable_to_non_nullable
               as int,
-      cachefix: cachefix == freezed
-          ? _value.cachefix
-          : cachefix // ignore: cast_nullable_to_non_nullable
+      cacheFix: cacheFix == freezed
+          ? _value.cacheFix
+          : cacheFix // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -3412,10 +3415,10 @@ class __$$_ModelAttributes$CopyWithImpl<$Res>
 class _$_ModelAttributes$ implements _ModelAttributes$ {
   const _$_ModelAttributes$(
       {@JsonKey(name: "id_model") required this.id,
-      required this.initstr,
-      required this.rundef,
+      @JsonKey(name: "initstr") required this.initStr,
+      @JsonKey(name: "rundef") required this.runDef,
       required this.period,
-      required this.cachefix});
+      @JsonKey(name: "cachefix") required this.cacheFix});
 
   factory _$_ModelAttributes$.fromJson(Map<String, dynamic> json) =>
       _$$_ModelAttributes$FromJson(json);
@@ -3424,17 +3427,20 @@ class _$_ModelAttributes$ implements _ModelAttributes$ {
   @JsonKey(name: "id_model")
   final int id;
   @override
-  final String initstr;
+  @JsonKey(name: "initstr")
+  final String initStr;
   @override
-  final String rundef;
+  @JsonKey(name: "rundef")
+  final String runDef;
   @override
   final int period;
   @override
-  final String cachefix;
+  @JsonKey(name: "cachefix")
+  final String cacheFix;
 
   @override
   String toString() {
-    return 'ModelAttributes(id: $id, initstr: $initstr, rundef: $rundef, period: $period, cachefix: $cachefix)';
+    return 'ModelAttributes(id: $id, initStr: $initStr, runDef: $runDef, period: $period, cacheFix: $cacheFix)';
   }
 
   @override
@@ -3443,10 +3449,10 @@ class _$_ModelAttributes$ implements _ModelAttributes$ {
         (other.runtimeType == runtimeType &&
             other is _$_ModelAttributes$ &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.initstr, initstr) &&
-            const DeepCollectionEquality().equals(other.rundef, rundef) &&
+            const DeepCollectionEquality().equals(other.initStr, initStr) &&
+            const DeepCollectionEquality().equals(other.runDef, runDef) &&
             const DeepCollectionEquality().equals(other.period, period) &&
-            const DeepCollectionEquality().equals(other.cachefix, cachefix));
+            const DeepCollectionEquality().equals(other.cacheFix, cacheFix));
   }
 
   @JsonKey(ignore: true)
@@ -3454,10 +3460,10 @@ class _$_ModelAttributes$ implements _ModelAttributes$ {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(initstr),
-      const DeepCollectionEquality().hash(rundef),
+      const DeepCollectionEquality().hash(initStr),
+      const DeepCollectionEquality().hash(runDef),
       const DeepCollectionEquality().hash(period),
-      const DeepCollectionEquality().hash(cachefix));
+      const DeepCollectionEquality().hash(cacheFix));
 
   @JsonKey(ignore: true)
   @override
@@ -3472,11 +3478,12 @@ class _$_ModelAttributes$ implements _ModelAttributes$ {
 
 abstract class _ModelAttributes$ implements ModelAttributes {
   const factory _ModelAttributes$(
-      {@JsonKey(name: "id_model") required final int id,
-      required final String initstr,
-      required final String rundef,
-      required final int period,
-      required final String cachefix}) = _$_ModelAttributes$;
+          {@JsonKey(name: "id_model") required final int id,
+          @JsonKey(name: "initstr") required final String initStr,
+          @JsonKey(name: "rundef") required final String runDef,
+          required final int period,
+          @JsonKey(name: "cachefix") required final String cacheFix}) =
+      _$_ModelAttributes$;
 
   factory _ModelAttributes$.fromJson(Map<String, dynamic> json) =
       _$_ModelAttributes$.fromJson;
@@ -3485,13 +3492,16 @@ abstract class _ModelAttributes$ implements ModelAttributes {
   @JsonKey(name: "id_model")
   int get id;
   @override
-  String get initstr;
+  @JsonKey(name: "initstr")
+  String get initStr;
   @override
-  String get rundef;
+  @JsonKey(name: "rundef")
+  String get runDef;
   @override
   int get period;
   @override
-  String get cachefix;
+  @JsonKey(name: "cachefix")
+  String get cacheFix;
   @override
   @JsonKey(ignore: true)
   _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>

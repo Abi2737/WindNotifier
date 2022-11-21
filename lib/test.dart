@@ -49,11 +49,11 @@ Future<void> main() async {
 
   fetchSpotForecastModelsData(
     idSpot: allTabs[3].idSpot,
-    rundef: allTabs[3].idModelArr[0].rundef,
-    initStr: allTabs[3].idModelArr[0].initstr,
+    runDef: allTabs[3].idModelArr[0].runDef,
+    initStr: allTabs[3].idModelArr[0].initStr,
     idModel: allTabs[3].idModelArr[0].id,
     wgCacheable: allTabs[3].idModelArr[0].period * kSecondsInOneHour,
-    cachefix: allTabs[3].idModelArr[0].cachefix,
+    cacheFix: allTabs[3].idModelArr[0].cacheFix,
   );
 
   // fetchSpot();
@@ -77,7 +77,7 @@ Future<List<Suggestion>> searchSpotByName(String name) async {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
@@ -95,7 +95,7 @@ Future<List<Suggestion>> searchSpotByName(String name) async {
   }
 
   return suggestions;
-},
+}
 
 Future<SpotForecastModelsInfo> fetchSpotForecastModelsInfo(int spotId) async {
   var uri = Uri.parse("https://www.windguru.cz/int/iapi.php?q=forecast_spot&id_spot=$spotId");
@@ -112,7 +112,7 @@ Future<SpotForecastModelsInfo> fetchSpotForecastModelsInfo(int spotId) async {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   final http.Response response = await http.get(uri, headers: requestHeaders);
@@ -137,7 +137,7 @@ Future<void> fetchSpot() async {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
@@ -146,10 +146,16 @@ Future<void> fetchSpot() async {
   print(response.body);
 }
 
-Future<void> fetchSpotForecastModelsData(
-    {required int idSpot, required String rundef, required String initStr, required int idModel, required int wgCacheable, required String cachefix,}) async {
+Future<void> fetchSpotForecastModelsData({
+  required int idSpot,
+  required String runDef,
+  required String initStr,
+  required int idModel,
+  required int wgCacheable,
+  required String cacheFix,
+}) async {
   var uri = Uri.parse(
-      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$idSpot&rundef=$rundef&initstr=$initStr&id_spot=$idModel&WGCACHEABLE=21600&cachefix=$cachefix");
+      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$idSpot&rundef=$runDef&initstr=$initStr&id_spot=$idModel&WGCACHEABLE=21600&cachefix=$cacheFix");
 
   Map<String, String> requestHeaders = {
     'accept': '*/*',
@@ -163,7 +169,7 @@ Future<void> fetchSpotForecastModelsData(
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);

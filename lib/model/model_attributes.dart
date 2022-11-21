@@ -4,10 +4,10 @@ part of models;
 class ModelAttributes with _$ModelAttributes {
   const factory ModelAttributes({
     @JsonKey(name: "id_model") required int id,
-    required String initstr,
-    required String rundef,
+    @JsonKey(name: "initstr") required String initStr,
+    @JsonKey(name: "rundef") required String runDef,
     required int period,
-    required String cachefix,
+    @JsonKey(name: "cachefix") required String cacheFix,
   }) = _ModelAttributes$;
 
   factory ModelAttributes.fromJson(Map<dynamic, dynamic> json) =>

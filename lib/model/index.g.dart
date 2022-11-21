@@ -267,17 +267,17 @@ Map<String, dynamic> _$$_TabItem$ToJson(_$_TabItem$ instance) =>
 _$_ModelAttributes$ _$$_ModelAttributes$FromJson(Map<String, dynamic> json) =>
     _$_ModelAttributes$(
       id: json['id_model'] as int,
-      initstr: json['initstr'] as String,
-      rundef: json['rundef'] as String,
+      initStr: json['initstr'] as String,
+      runDef: json['rundef'] as String,
       period: json['period'] as int,
-      cachefix: json['cachefix'] as String,
+      cacheFix: json['cachefix'] as String,
     );
 
 Map<String, dynamic> _$$_ModelAttributes$ToJson(_$_ModelAttributes$ instance) =>
     <String, dynamic>{
       'id_model': instance.id,
-      'initstr': instance.initstr,
-      'rundef': instance.rundef,
+      'initstr': instance.initStr,
+      'rundef': instance.runDef,
       'period': instance.period,
-      'cachefix': instance.cachefix,
+      'cachefix': instance.cacheFix,
     };
