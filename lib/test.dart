@@ -17,6 +17,8 @@ const String kDate = "2022111612";
 
 const String kLocation = "fundata";
 
+const int kSecondsInOneHour = 3600;
+
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022110900x0x240x0x240&initstr=2022110900&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022110912x0x240x0x240&initstr=2022110912&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
 // https://www.windguru.net/int/iapi.php?q=forecast&id_model=3&rundef=2022111006x0x240x0x240&initstr=2022111006&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37
@@ -36,11 +38,23 @@ Future<void> main() async {
   // testTabItem();
 
   print("==============Forecast Models==============");
-  SpotForecastModelsInfo spotForecastModels = await fetchSpotForecastModels(spotId);
+  SpotForecastModelsInfo spotForecastModels = await fetchSpotForecastModelsInfo(spotId);
   print(spotForecastModels.toJson());
 
   print("-----------------------------------------");
-  print(spotForecastModels.allTabs[3]);
+  // print(spotForecastModels.allTabs[3]);
+
+  List<TabItem> allTabs = spotForecastModels.allTabs;
+  print(allTabs[3]);
+
+  fetchSpotForecastModelsData(
+    idSpot: allTabs[3].idSpot,
+    rundef: allTabs[3].idModelArr[0].rundef,
+    initStr: allTabs[3].idModelArr[0].initstr,
+    idModel: allTabs[3].idModelArr[0].id,
+    wgCacheable: allTabs[3].idModelArr[0].period * kSecondsInOneHour,
+    cachefix: allTabs[3].idModelArr[0].cachefix,
+  );
 
   // fetchSpot();
 
@@ -63,7 +77,7 @@ Future<List<Suggestion>> searchSpotByName(String name) async {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
@@ -81,9 +95,9 @@ Future<List<Suggestion>> searchSpotByName(String name) async {
   }
 
   return suggestions;
-}
+},
 
-Future<SpotForecastModelsInfo> fetchSpotForecastModels(int spotId) async {
+Future<SpotForecastModelsInfo> fetchSpotForecastModelsInfo(int spotId) async {
   var uri = Uri.parse("https://www.windguru.cz/int/iapi.php?q=forecast_spot&id_spot=$spotId");
 
   Map<String, String> requestHeaders = {
@@ -100,8 +114,8 @@ Future<SpotForecastModelsInfo> fetchSpotForecastModels(int spotId) async {
     'user-agent':
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
-  
-  final http.Response response = await http.get(uri,headers: requestHeaders);
+
+  final http.Response response = await http.get(uri, headers: requestHeaders);
 
   var json = jsonDecode(response.body);
 
@@ -123,7 +137,7 @@ Future<void> fetchSpot() async {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
@@ -132,9 +146,10 @@ Future<void> fetchSpot() async {
   print(response.body);
 }
 
-Future<void> fetchFundata() async {
+Future<void> fetchSpotForecastModelsData(
+    {required int idSpot, required String rundef, required String initStr, required int idModel, required int wgCacheable, required String cachefix,}) async {
   var uri = Uri.parse(
-      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$kModelWrfeuhId&rundef=${kDate}x0x78x0x78&initstr=$kDate&id_spot=$kSpotFundataTheSpotId&WGCACHEABLE=21600&cachefix=44.608x27.183x37");
+      "https://www.windguru.net/int/iapi.php?q=forecast&id_model=$idSpot&rundef=$rundef&initstr=$initStr&id_spot=$idModel&WGCACHEABLE=21600&cachefix=$cachefix");
 
   Map<String, String> requestHeaders = {
     'accept': '*/*',
@@ -148,7 +163,7 @@ Future<void> fetchFundata() async {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'cross-site',
     'user-agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
   };
 
   var response = await http.get(uri, headers: requestHeaders);
