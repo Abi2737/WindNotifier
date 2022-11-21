@@ -16,7 +16,7 @@ class SpotForecastModelsData with _$SpotForecastModelsData {
     required String sunset,
     @JsonKey(name: "md5chk") required String md5check,
     @JsonKey(name: "fcst") required Forecast forecast,
-  }) = _SpotData$;
+  }) = _SpotForecastModelsData$;
 
   factory SpotForecastModelsData.fromJson(Map<dynamic, dynamic> json) => _$SpotForecastModelsDataFromJson(Map<String, dynamic>.from(json));
 }

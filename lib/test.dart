@@ -47,15 +47,27 @@ Future<void> main() async {
   List<TabItem> allTabs = spotForecastModels.allTabs;
   // print(allTabs[3]);
 
-  int index = 1;
+  int i = 7;
+
+  // for (int i = 0; i < allTabs.length; i++) {
+  //   print("========================Model: ${allTabs[i].idModel}===========================");
+  //   fetchSpotForecastModelsData(
+  //     idModel: allTabs[i].idModel,
+  //     runDef: allTabs[i].idModelArr[0].runDef,
+  //     initStr: allTabs[i].idModelArr[0].initStr,
+  //     idSpot: allTabs[i].idSpot,
+  //     wgCacheable: allTabs[i].idModelArr[0].period * kSecondsInOneHour,
+  //     cacheFix: allTabs[i].idModelArr[0].cacheFix,
+  //   );
+  // }
 
   fetchSpotForecastModelsData(
-    idModel: allTabs[index].idModel,
-    runDef: allTabs[index].idModelArr[0].runDef,
-    initStr: allTabs[index].idModelArr[0].initStr,
-    idSpot: allTabs[index].idSpot,
-    wgCacheable: allTabs[index].idModelArr[0].period * kSecondsInOneHour,
-    cacheFix: allTabs[index].idModelArr[0].cacheFix,
+    idModel: allTabs[i].idModel,
+    runDef: allTabs[i].idModelArr[0].runDef,
+    initStr: allTabs[i].idModelArr[0].initStr,
+    idSpot: allTabs[i].idSpot,
+    wgCacheable: allTabs[i].idModelArr[0].period * kSecondsInOneHour,
+    cacheFix: allTabs[i].idModelArr[0].cacheFix,
   );
 
   // fetchSpot();

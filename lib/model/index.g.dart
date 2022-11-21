@@ -17,35 +17,39 @@ _$_Forecast$ _$$_Forecast$FromJson(Map<String, dynamic> json) => _$_Forecast$(
       initHour: json['init_h'] as String,
       initStr: json['initstr'] as String,
       updateLast: _localDateTimeFromUtcString(json['update_last'] as String),
-      updateNext: _localDateTimeFromUtcString(json['update_next'] as String),
+      updateNext:
+          _localDateTimeOrNullFromUtcString(json['update_next'] as String?),
       windSpeed: (json['WINDSPD'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
       windGusts: (json['GUST'] as List<dynamic>)
-          .map((e) => (e as num).toDouble())
+          .map((e) => (e as num?)?.toDouble())
           .toList(),
       windDirection:
           (json['WINDDIR'] as List<dynamic>).map((e) => e as int).toList(),
       temperatures: (json['TMPE'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
-      precipitations: (json['APCP1'] as List<dynamic>)
-          .map((e) => (e as num).toDouble())
+      precipitations: (json['APCP'] as List<dynamic>?)
+          ?.map((e) => (e as num?)?.toDouble())
+          .toList(),
+      precipitations1: (json['APCP1'] as List<dynamic>?)
+          ?.map((e) => (e as num?)?.toDouble())
           .toList(),
       highCloudDensityCover:
-          (json['HCDC'] as List<dynamic>).map((e) => e as int).toList(),
+          (json['HCDC'] as List<dynamic>?)?.map((e) => e as int?).toList(),
       mediumCloudDensityCover:
-          (json['MCDC'] as List<dynamic>).map((e) => e as int).toList(),
+          (json['MCDC'] as List<dynamic>?)?.map((e) => e as int?).toList(),
       lowCloudDensityCover:
-          (json['LCDC'] as List<dynamic>).map((e) => e as int).toList(),
+          (json['LCDC'] as List<dynamic>?)?.map((e) => e as int?).toList(),
       totalCloudDensityCover:
-          (json['TCDC'] as List<dynamic>).map((e) => e as int).toList(),
+          (json['TCDC'] as List<dynamic>).map((e) => e as int?).toList(),
       hours: (json['hours'] as List<dynamic>).map((e) => e as int).toList(),
       TMP: (json['TMP'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
       SLP: (json['SLP'] as List<dynamic>).map((e) => e as int).toList(),
-      FLHGT: (json['FLHGT'] as List<dynamic>).map((e) => e as int).toList(),
+      FLHGT: (json['FLHGT'] as List<dynamic>).map((e) => e as int?).toList(),
       SLHGT: (json['SLHGT'] as List<dynamic>).map((e) => e as int).toList(),
       PCPT: (json['PCPT'] as List<dynamic>).map((e) => e as int).toList(),
       vars: (json['vars'] as List<dynamic>).map((e) => e as String).toList(),
@@ -66,12 +70,13 @@ Map<String, dynamic> _$$_Forecast$ToJson(_$_Forecast$ instance) =>
       'init_h': instance.initHour,
       'initstr': instance.initStr,
       'update_last': _localDateTimeToUtcString(instance.updateLast),
-      'update_next': _localDateTimeToUtcString(instance.updateNext),
+      'update_next': _localDateTimeToUtcStringOrNull(instance.updateNext),
       'WINDSPD': instance.windSpeed,
       'GUST': instance.windGusts,
       'WINDDIR': instance.windDirection,
       'TMPE': instance.temperatures,
-      'APCP1': instance.precipitations,
+      'APCP': instance.precipitations,
+      'APCP1': instance.precipitations1,
       'HCDC': instance.highCloudDensityCover,
       'MCDC': instance.mediumCloudDensityCover,
       'LCDC': instance.lowCloudDensityCover,
@@ -86,7 +91,27 @@ Map<String, dynamic> _$$_Forecast$ToJson(_$_Forecast$ instance) =>
       'img_var_map': instance.imgVarMap,
     };
 
-_$_SpotData$ _$$_SpotData$FromJson(Map<String, dynamic> json) => _$_SpotData$(
+_$_ModelAttributes$ _$$_ModelAttributes$FromJson(Map<String, dynamic> json) =>
+    _$_ModelAttributes$(
+      id: json['id_model'] as int,
+      initStr: json['initstr'] as String,
+      runDef: json['rundef'] as String,
+      period: json['period'] as int,
+      cacheFix: json['cachefix'] as String,
+    );
+
+Map<String, dynamic> _$$_ModelAttributes$ToJson(_$_ModelAttributes$ instance) =>
+    <String, dynamic>{
+      'id_model': instance.id,
+      'initstr': instance.initStr,
+      'rundef': instance.runDef,
+      'period': instance.period,
+      'cachefix': instance.cacheFix,
+    };
+
+_$_SpotForecastModelsData$ _$$_SpotForecastModelsData$FromJson(
+        Map<String, dynamic> json) =>
+    _$_SpotForecastModelsData$(
       idSpot: json['id_spot'] as int,
       latitude: (json['lat'] as num).toDouble(),
       longitude: (json['lon'] as num).toDouble(),
@@ -102,7 +127,8 @@ _$_SpotData$ _$$_SpotData$FromJson(Map<String, dynamic> json) => _$_SpotData$(
       forecast: Forecast.fromJson(json['fcst'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SpotData$ToJson(_$_SpotData$ instance) =>
+Map<String, dynamic> _$$_SpotForecastModelsData$ToJson(
+        _$_SpotForecastModelsData$ instance) =>
     <String, dynamic>{
       'id_spot': instance.idSpot,
       'lat': instance.latitude,
@@ -176,6 +202,23 @@ Map<String, dynamic> _$$_Suggestion$ToJson(_$_Suggestion$ instance) =>
       'id_user': instance.idUser,
     };
 
+_$_TabItem$ _$$_TabItem$FromJson(Map<String, dynamic> json) => _$_TabItem$(
+      idSpot: json['id_spot'] as int,
+      idModel: json['id_model'] as int,
+      idModelArr: (json['id_model_arr'] as List<dynamic>)
+          .map((e) => ModelAttributes.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      modelPeriod: json['model_period'] as int,
+    );
+
+Map<String, dynamic> _$$_TabItem$ToJson(_$_TabItem$ instance) =>
+    <String, dynamic>{
+      'id_spot': instance.idSpot,
+      'id_model': instance.idModel,
+      'id_model_arr': TabItem._listModelAttributesToJson(instance.idModelArr),
+      'model_period': instance.modelPeriod,
+    };
+
 _$_WgModel$ _$$_WgModel$FromJson(Map<String, dynamic> json) => _$_WgModel$(
       idModel: json['id_model'] as int,
       model: json['model'] as String,
@@ -230,7 +273,7 @@ Map<String, dynamic> _$$_WgModel$ToJson(_$_WgModel$ instance) =>
 _$_WgmodelRun$ _$$_WgmodelRun$FromJson(Map<String, dynamic> json) =>
     _$_WgmodelRun$(
       initDate: json['initdate'] as String,
-      oInitDate: json['oinitdate'] as bool,
+      oInitDate: json['oinitdate'] as Object,
       runHr: (json['run_hr'] as List<dynamic>).map((e) => e as int).toList(),
       runHrSteps: (json['run_hr_steps'] as List<dynamic>)
           .map((e) => (e as List<dynamic>).map((e) => e as int).toList())
@@ -245,39 +288,4 @@ Map<String, dynamic> _$$_WgmodelRun$ToJson(_$_WgmodelRun$ instance) =>
       'run_hr': instance.runHr,
       'run_hr_steps': instance.runHrSteps,
       'use_hr': instance.userHr,
-    };
-
-_$_TabItem$ _$$_TabItem$FromJson(Map<String, dynamic> json) => _$_TabItem$(
-      idSpot: json['id_spot'] as int,
-      idModel: json['id_model'] as int,
-      idModelArr: (json['id_model_arr'] as List<dynamic>)
-          .map((e) => ModelAttributes.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      modelPeriod: json['model_period'] as int,
-    );
-
-Map<String, dynamic> _$$_TabItem$ToJson(_$_TabItem$ instance) =>
-    <String, dynamic>{
-      'id_spot': instance.idSpot,
-      'id_model': instance.idModel,
-      'id_model_arr': TabItem._listModelAttributesToJson(instance.idModelArr),
-      'model_period': instance.modelPeriod,
-    };
-
-_$_ModelAttributes$ _$$_ModelAttributes$FromJson(Map<String, dynamic> json) =>
-    _$_ModelAttributes$(
-      id: json['id_model'] as int,
-      initStr: json['initstr'] as String,
-      runDef: json['rundef'] as String,
-      period: json['period'] as int,
-      cacheFix: json['cachefix'] as String,
-    );
-
-Map<String, dynamic> _$$_ModelAttributes$ToJson(_$_ModelAttributes$ instance) =>
-    <String, dynamic>{
-      'id_model': instance.id,
-      'initstr': instance.initStr,
-      'rundef': instance.runDef,
-      'period': instance.period,
-      'cachefix': instance.cacheFix,
     };

@@ -49,36 +49,40 @@ mixin _$Forecast {
   DateTime get updateLast => throw _privateConstructorUsedError;
   @JsonKey(
       name: "update_next",
-      fromJson: _localDateTimeFromUtcString,
-      toJson: _localDateTimeToUtcString)
-  DateTime get updateNext => throw _privateConstructorUsedError;
+      fromJson: _localDateTimeOrNullFromUtcString,
+      toJson: _localDateTimeToUtcStringOrNull)
+  DateTime? get updateNext => throw _privateConstructorUsedError;
   @JsonKey(name: "WINDSPD")
   List<double> get windSpeed => throw _privateConstructorUsedError; // knots
   @JsonKey(name: "GUST")
-  List<double> get windGusts => throw _privateConstructorUsedError; // knots
+  List<double?> get windGusts => throw _privateConstructorUsedError; // knots
   @JsonKey(name: "WINDDIR")
   List<int> get windDirection => throw _privateConstructorUsedError;
   @JsonKey(name: "TMPE")
   List<double> get temperatures =>
       throw _privateConstructorUsedError; // celsius
+  @JsonKey(name: "APCP")
+  List<double?>? get precipitations =>
+      throw _privateConstructorUsedError; // mm/1h
   @JsonKey(name: "APCP1")
-  List<double> get precipitations =>
+  List<double?>? get precipitations1 =>
       throw _privateConstructorUsedError; // mm/1h
   @JsonKey(name: "HCDC")
-  List<int> get highCloudDensityCover =>
+  List<int?>? get highCloudDensityCover =>
       throw _privateConstructorUsedError; // %
   @JsonKey(name: "MCDC")
-  List<int> get mediumCloudDensityCover =>
+  List<int?>? get mediumCloudDensityCover =>
       throw _privateConstructorUsedError; // %
   @JsonKey(name: "LCDC")
-  List<int> get lowCloudDensityCover => throw _privateConstructorUsedError; // %
+  List<int?>? get lowCloudDensityCover =>
+      throw _privateConstructorUsedError; // %
   @JsonKey(name: "TCDC")
-  List<int> get totalCloudDensityCover =>
+  List<int?> get totalCloudDensityCover =>
       throw _privateConstructorUsedError; // %
   List<int> get hours => throw _privateConstructorUsedError;
   List<double> get TMP => throw _privateConstructorUsedError;
   List<int> get SLP => throw _privateConstructorUsedError;
-  List<int> get FLHGT => throw _privateConstructorUsedError;
+  List<int?> get FLHGT => throw _privateConstructorUsedError;
   List<int> get SLHGT => throw _privateConstructorUsedError;
   List<int> get PCPT => throw _privateConstructorUsedError;
   List<String> get vars => throw _privateConstructorUsedError;
@@ -116,30 +120,32 @@ abstract class $ForecastCopyWith<$Res> {
           String initStr,
       @JsonKey(name: "update_last", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
           DateTime updateLast,
-      @JsonKey(name: "update_next", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
-          DateTime updateNext,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeOrNullFromUtcString, toJson: _localDateTimeToUtcStringOrNull)
+          DateTime? updateNext,
       @JsonKey(name: "WINDSPD")
           List<double> windSpeed,
       @JsonKey(name: "GUST")
-          List<double> windGusts,
+          List<double?> windGusts,
       @JsonKey(name: "WINDDIR")
           List<int> windDirection,
       @JsonKey(name: "TMPE")
           List<double> temperatures,
+      @JsonKey(name: "APCP")
+          List<double?>? precipitations,
       @JsonKey(name: "APCP1")
-          List<double> precipitations,
+          List<double?>? precipitations1,
       @JsonKey(name: "HCDC")
-          List<int> highCloudDensityCover,
+          List<int?>? highCloudDensityCover,
       @JsonKey(name: "MCDC")
-          List<int> mediumCloudDensityCover,
+          List<int?>? mediumCloudDensityCover,
       @JsonKey(name: "LCDC")
-          List<int> lowCloudDensityCover,
+          List<int?>? lowCloudDensityCover,
       @JsonKey(name: "TCDC")
-          List<int> totalCloudDensityCover,
+          List<int?> totalCloudDensityCover,
       List<int> hours,
       List<double> TMP,
       List<int> SLP,
-      List<int> FLHGT,
+      List<int?> FLHGT,
       List<int> SLHGT,
       List<int> PCPT,
       List<String> vars,
@@ -173,6 +179,7 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
     Object? windDirection = freezed,
     Object? temperatures = freezed,
     Object? precipitations = freezed,
+    Object? precipitations1 = freezed,
     Object? highCloudDensityCover = freezed,
     Object? mediumCloudDensityCover = freezed,
     Object? lowCloudDensityCover = freezed,
@@ -230,7 +237,7 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
       updateNext: updateNext == freezed
           ? _value.updateNext
           : updateNext // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       windSpeed: windSpeed == freezed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
@@ -238,7 +245,7 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
       windGusts: windGusts == freezed
           ? _value.windGusts
           : windGusts // ignore: cast_nullable_to_non_nullable
-              as List<double>,
+              as List<double?>,
       windDirection: windDirection == freezed
           ? _value.windDirection
           : windDirection // ignore: cast_nullable_to_non_nullable
@@ -250,23 +257,27 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
       precipitations: precipitations == freezed
           ? _value.precipitations
           : precipitations // ignore: cast_nullable_to_non_nullable
-              as List<double>,
+              as List<double?>?,
+      precipitations1: precipitations1 == freezed
+          ? _value.precipitations1
+          : precipitations1 // ignore: cast_nullable_to_non_nullable
+              as List<double?>?,
       highCloudDensityCover: highCloudDensityCover == freezed
           ? _value.highCloudDensityCover
           : highCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>?,
       mediumCloudDensityCover: mediumCloudDensityCover == freezed
           ? _value.mediumCloudDensityCover
           : mediumCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>?,
       lowCloudDensityCover: lowCloudDensityCover == freezed
           ? _value.lowCloudDensityCover
           : lowCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>?,
       totalCloudDensityCover: totalCloudDensityCover == freezed
           ? _value.totalCloudDensityCover
           : totalCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>,
       hours: hours == freezed
           ? _value.hours
           : hours // ignore: cast_nullable_to_non_nullable
@@ -282,7 +293,7 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
       FLHGT: FLHGT == freezed
           ? _value.FLHGT
           : FLHGT // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>,
       SLHGT: SLHGT == freezed
           ? _value.SLHGT
           : SLHGT // ignore: cast_nullable_to_non_nullable
@@ -330,30 +341,32 @@ abstract class _$$_Forecast$CopyWith<$Res> implements $ForecastCopyWith<$Res> {
           String initStr,
       @JsonKey(name: "update_last", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
           DateTime updateLast,
-      @JsonKey(name: "update_next", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
-          DateTime updateNext,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeOrNullFromUtcString, toJson: _localDateTimeToUtcStringOrNull)
+          DateTime? updateNext,
       @JsonKey(name: "WINDSPD")
           List<double> windSpeed,
       @JsonKey(name: "GUST")
-          List<double> windGusts,
+          List<double?> windGusts,
       @JsonKey(name: "WINDDIR")
           List<int> windDirection,
       @JsonKey(name: "TMPE")
           List<double> temperatures,
+      @JsonKey(name: "APCP")
+          List<double?>? precipitations,
       @JsonKey(name: "APCP1")
-          List<double> precipitations,
+          List<double?>? precipitations1,
       @JsonKey(name: "HCDC")
-          List<int> highCloudDensityCover,
+          List<int?>? highCloudDensityCover,
       @JsonKey(name: "MCDC")
-          List<int> mediumCloudDensityCover,
+          List<int?>? mediumCloudDensityCover,
       @JsonKey(name: "LCDC")
-          List<int> lowCloudDensityCover,
+          List<int?>? lowCloudDensityCover,
       @JsonKey(name: "TCDC")
-          List<int> totalCloudDensityCover,
+          List<int?> totalCloudDensityCover,
       List<int> hours,
       List<double> TMP,
       List<int> SLP,
-      List<int> FLHGT,
+      List<int?> FLHGT,
       List<int> SLHGT,
       List<int> PCPT,
       List<String> vars,
@@ -389,6 +402,7 @@ class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
     Object? windDirection = freezed,
     Object? temperatures = freezed,
     Object? precipitations = freezed,
+    Object? precipitations1 = freezed,
     Object? highCloudDensityCover = freezed,
     Object? mediumCloudDensityCover = freezed,
     Object? lowCloudDensityCover = freezed,
@@ -446,7 +460,7 @@ class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
       updateNext: updateNext == freezed
           ? _value.updateNext
           : updateNext // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       windSpeed: windSpeed == freezed
           ? _value._windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
@@ -454,7 +468,7 @@ class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
       windGusts: windGusts == freezed
           ? _value._windGusts
           : windGusts // ignore: cast_nullable_to_non_nullable
-              as List<double>,
+              as List<double?>,
       windDirection: windDirection == freezed
           ? _value._windDirection
           : windDirection // ignore: cast_nullable_to_non_nullable
@@ -466,23 +480,27 @@ class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
       precipitations: precipitations == freezed
           ? _value._precipitations
           : precipitations // ignore: cast_nullable_to_non_nullable
-              as List<double>,
+              as List<double?>?,
+      precipitations1: precipitations1 == freezed
+          ? _value._precipitations1
+          : precipitations1 // ignore: cast_nullable_to_non_nullable
+              as List<double?>?,
       highCloudDensityCover: highCloudDensityCover == freezed
           ? _value._highCloudDensityCover
           : highCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>?,
       mediumCloudDensityCover: mediumCloudDensityCover == freezed
           ? _value._mediumCloudDensityCover
           : mediumCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>?,
       lowCloudDensityCover: lowCloudDensityCover == freezed
           ? _value._lowCloudDensityCover
           : lowCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>?,
       totalCloudDensityCover: totalCloudDensityCover == freezed
           ? _value._totalCloudDensityCover
           : totalCloudDensityCover // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>,
       hours: hours == freezed
           ? _value._hours
           : hours // ignore: cast_nullable_to_non_nullable
@@ -498,7 +516,7 @@ class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
       FLHGT: FLHGT == freezed
           ? _value._FLHGT
           : FLHGT // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int?>,
       SLHGT: SLHGT == freezed
           ? _value._SLHGT
           : SLHGT // ignore: cast_nullable_to_non_nullable
@@ -521,7 +539,7 @@ class __$$_Forecast$CopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Forecast$ implements _Forecast$ {
+class _$_Forecast$ extends _Forecast$ {
   const _$_Forecast$(
       {@JsonKey(name: "id_model")
           required this.idModel,
@@ -543,30 +561,32 @@ class _$_Forecast$ implements _Forecast$ {
           required this.initStr,
       @JsonKey(name: "update_last", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
           required this.updateLast,
-      @JsonKey(name: "update_next", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
+      @JsonKey(name: "update_next", fromJson: _localDateTimeOrNullFromUtcString, toJson: _localDateTimeToUtcStringOrNull)
           required this.updateNext,
       @JsonKey(name: "WINDSPD")
           required final List<double> windSpeed,
       @JsonKey(name: "GUST")
-          required final List<double> windGusts,
+          required final List<double?> windGusts,
       @JsonKey(name: "WINDDIR")
           required final List<int> windDirection,
       @JsonKey(name: "TMPE")
           required final List<double> temperatures,
+      @JsonKey(name: "APCP")
+          required final List<double?>? precipitations,
       @JsonKey(name: "APCP1")
-          required final List<double> precipitations,
+          required final List<double?>? precipitations1,
       @JsonKey(name: "HCDC")
-          required final List<int> highCloudDensityCover,
+          required final List<int?>? highCloudDensityCover,
       @JsonKey(name: "MCDC")
-          required final List<int> mediumCloudDensityCover,
+          required final List<int?>? mediumCloudDensityCover,
       @JsonKey(name: "LCDC")
-          required final List<int> lowCloudDensityCover,
+          required final List<int?>? lowCloudDensityCover,
       @JsonKey(name: "TCDC")
-          required final List<int> totalCloudDensityCover,
+          required final List<int?> totalCloudDensityCover,
       required final List<int> hours,
       required final List<double> TMP,
       required final List<int> SLP,
-      required final List<int> FLHGT,
+      required final List<int?> FLHGT,
       required final List<int> SLHGT,
       required final List<int> PCPT,
       required final List<String> vars,
@@ -577,6 +597,7 @@ class _$_Forecast$ implements _Forecast$ {
         _windDirection = windDirection,
         _temperatures = temperatures,
         _precipitations = precipitations,
+        _precipitations1 = precipitations1,
         _highCloudDensityCover = highCloudDensityCover,
         _mediumCloudDensityCover = mediumCloudDensityCover,
         _lowCloudDensityCover = lowCloudDensityCover,
@@ -588,7 +609,8 @@ class _$_Forecast$ implements _Forecast$ {
         _SLHGT = SLHGT,
         _PCPT = PCPT,
         _vars = vars,
-        _imgVarMap = imgVarMap;
+        _imgVarMap = imgVarMap,
+        super._();
 
   factory _$_Forecast$.fromJson(Map<String, dynamic> json) =>
       _$$_Forecast$FromJson(json);
@@ -633,9 +655,9 @@ class _$_Forecast$ implements _Forecast$ {
   @override
   @JsonKey(
       name: "update_next",
-      fromJson: _localDateTimeFromUtcString,
-      toJson: _localDateTimeToUtcString)
-  final DateTime updateNext;
+      fromJson: _localDateTimeOrNullFromUtcString,
+      toJson: _localDateTimeToUtcStringOrNull)
+  final DateTime? updateNext;
   final List<double> _windSpeed;
   @override
   @JsonKey(name: "WINDSPD")
@@ -645,11 +667,11 @@ class _$_Forecast$ implements _Forecast$ {
   }
 
 // knots
-  final List<double> _windGusts;
+  final List<double?> _windGusts;
 // knots
   @override
   @JsonKey(name: "GUST")
-  List<double> get windGusts {
+  List<double?> get windGusts {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_windGusts);
   }
@@ -673,51 +695,71 @@ class _$_Forecast$ implements _Forecast$ {
   }
 
 // celsius
-  final List<double> _precipitations;
+  final List<double?>? _precipitations;
 // celsius
   @override
-  @JsonKey(name: "APCP1")
-  List<double> get precipitations {
+  @JsonKey(name: "APCP")
+  List<double?>? get precipitations {
+    final value = _precipitations;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_precipitations);
+    return EqualUnmodifiableListView(value);
   }
 
 // mm/1h
-  final List<int> _highCloudDensityCover;
+  final List<double?>? _precipitations1;
+// mm/1h
+  @override
+  @JsonKey(name: "APCP1")
+  List<double?>? get precipitations1 {
+    final value = _precipitations1;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+// mm/1h
+  final List<int?>? _highCloudDensityCover;
 // mm/1h
   @override
   @JsonKey(name: "HCDC")
-  List<int> get highCloudDensityCover {
+  List<int?>? get highCloudDensityCover {
+    final value = _highCloudDensityCover;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_highCloudDensityCover);
+    return EqualUnmodifiableListView(value);
   }
 
 // %
-  final List<int> _mediumCloudDensityCover;
+  final List<int?>? _mediumCloudDensityCover;
 // %
   @override
   @JsonKey(name: "MCDC")
-  List<int> get mediumCloudDensityCover {
+  List<int?>? get mediumCloudDensityCover {
+    final value = _mediumCloudDensityCover;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_mediumCloudDensityCover);
+    return EqualUnmodifiableListView(value);
   }
 
 // %
-  final List<int> _lowCloudDensityCover;
+  final List<int?>? _lowCloudDensityCover;
 // %
   @override
   @JsonKey(name: "LCDC")
-  List<int> get lowCloudDensityCover {
+  List<int?>? get lowCloudDensityCover {
+    final value = _lowCloudDensityCover;
+    if (value == null) return null;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lowCloudDensityCover);
+    return EqualUnmodifiableListView(value);
   }
 
 // %
-  final List<int> _totalCloudDensityCover;
+  final List<int?> _totalCloudDensityCover;
 // %
   @override
   @JsonKey(name: "TCDC")
-  List<int> get totalCloudDensityCover {
+  List<int?> get totalCloudDensityCover {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_totalCloudDensityCover);
   }
@@ -745,9 +787,9 @@ class _$_Forecast$ implements _Forecast$ {
     return EqualUnmodifiableListView(_SLP);
   }
 
-  final List<int> _FLHGT;
+  final List<int?> _FLHGT;
   @override
-  List<int> get FLHGT {
+  List<int?> get FLHGT {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_FLHGT);
   }
@@ -783,7 +825,7 @@ class _$_Forecast$ implements _Forecast$ {
 
   @override
   String toString() {
-    return 'Forecast(idModel: $idModel, modelName: $modelName, modelLongName: $modelLongName, initStamp: $initStamp, initDateTime: $initDateTime, initDate: $initDate, initDayMonth: $initDayMonth, initHour: $initHour, initStr: $initStr, updateLast: $updateLast, updateNext: $updateNext, windSpeed: $windSpeed, windGusts: $windGusts, windDirection: $windDirection, temperatures: $temperatures, precipitations: $precipitations, highCloudDensityCover: $highCloudDensityCover, mediumCloudDensityCover: $mediumCloudDensityCover, lowCloudDensityCover: $lowCloudDensityCover, totalCloudDensityCover: $totalCloudDensityCover, hours: $hours, TMP: $TMP, SLP: $SLP, FLHGT: $FLHGT, SLHGT: $SLHGT, PCPT: $PCPT, vars: $vars, imgVarMap: $imgVarMap)';
+    return 'Forecast(idModel: $idModel, modelName: $modelName, modelLongName: $modelLongName, initStamp: $initStamp, initDateTime: $initDateTime, initDate: $initDate, initDayMonth: $initDayMonth, initHour: $initHour, initStr: $initStr, updateLast: $updateLast, updateNext: $updateNext, windSpeed: $windSpeed, windGusts: $windGusts, windDirection: $windDirection, temperatures: $temperatures, precipitations: $precipitations, precipitations1: $precipitations1, highCloudDensityCover: $highCloudDensityCover, mediumCloudDensityCover: $mediumCloudDensityCover, lowCloudDensityCover: $lowCloudDensityCover, totalCloudDensityCover: $totalCloudDensityCover, hours: $hours, TMP: $TMP, SLP: $SLP, FLHGT: $FLHGT, SLHGT: $SLHGT, PCPT: $PCPT, vars: $vars, imgVarMap: $imgVarMap)';
   }
 
   @override
@@ -817,6 +859,8 @@ class _$_Forecast$ implements _Forecast$ {
                 .equals(other._temperatures, _temperatures) &&
             const DeepCollectionEquality()
                 .equals(other._precipitations, _precipitations) &&
+            const DeepCollectionEquality()
+                .equals(other._precipitations1, _precipitations1) &&
             const DeepCollectionEquality()
                 .equals(other._highCloudDensityCover, _highCloudDensityCover) &&
             const DeepCollectionEquality().equals(
@@ -856,6 +900,7 @@ class _$_Forecast$ implements _Forecast$ {
         const DeepCollectionEquality().hash(_windDirection),
         const DeepCollectionEquality().hash(_temperatures),
         const DeepCollectionEquality().hash(_precipitations),
+        const DeepCollectionEquality().hash(_precipitations1),
         const DeepCollectionEquality().hash(_highCloudDensityCover),
         const DeepCollectionEquality().hash(_mediumCloudDensityCover),
         const DeepCollectionEquality().hash(_lowCloudDensityCover),
@@ -881,7 +926,7 @@ class _$_Forecast$ implements _Forecast$ {
   }
 }
 
-abstract class _Forecast$ implements Forecast {
+abstract class _Forecast$ extends Forecast {
   const factory _Forecast$(
       {@JsonKey(name: "id_model")
           required final int idModel,
@@ -903,35 +948,38 @@ abstract class _Forecast$ implements Forecast {
           required final String initStr,
       @JsonKey(name: "update_last", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
           required final DateTime updateLast,
-      @JsonKey(name: "update_next", fromJson: _localDateTimeFromUtcString, toJson: _localDateTimeToUtcString)
-          required final DateTime updateNext,
+      @JsonKey(name: "update_next", fromJson: _localDateTimeOrNullFromUtcString, toJson: _localDateTimeToUtcStringOrNull)
+          required final DateTime? updateNext,
       @JsonKey(name: "WINDSPD")
           required final List<double> windSpeed,
       @JsonKey(name: "GUST")
-          required final List<double> windGusts,
+          required final List<double?> windGusts,
       @JsonKey(name: "WINDDIR")
           required final List<int> windDirection,
       @JsonKey(name: "TMPE")
           required final List<double> temperatures,
+      @JsonKey(name: "APCP")
+          required final List<double?>? precipitations,
       @JsonKey(name: "APCP1")
-          required final List<double> precipitations,
+          required final List<double?>? precipitations1,
       @JsonKey(name: "HCDC")
-          required final List<int> highCloudDensityCover,
+          required final List<int?>? highCloudDensityCover,
       @JsonKey(name: "MCDC")
-          required final List<int> mediumCloudDensityCover,
+          required final List<int?>? mediumCloudDensityCover,
       @JsonKey(name: "LCDC")
-          required final List<int> lowCloudDensityCover,
+          required final List<int?>? lowCloudDensityCover,
       @JsonKey(name: "TCDC")
-          required final List<int> totalCloudDensityCover,
+          required final List<int?> totalCloudDensityCover,
       required final List<int> hours,
       required final List<double> TMP,
       required final List<int> SLP,
-      required final List<int> FLHGT,
+      required final List<int?> FLHGT,
       required final List<int> SLHGT,
       required final List<int> PCPT,
       required final List<String> vars,
       @JsonKey(name: "img_var_map")
           required final List<String> imgVarMap}) = _$_Forecast$;
+  const _Forecast$._() : super._();
 
   factory _Forecast$.fromJson(Map<String, dynamic> json) =
       _$_Forecast$.fromJson;
@@ -975,15 +1023,15 @@ abstract class _Forecast$ implements Forecast {
   @override
   @JsonKey(
       name: "update_next",
-      fromJson: _localDateTimeFromUtcString,
-      toJson: _localDateTimeToUtcString)
-  DateTime get updateNext;
+      fromJson: _localDateTimeOrNullFromUtcString,
+      toJson: _localDateTimeToUtcStringOrNull)
+  DateTime? get updateNext;
   @override
   @JsonKey(name: "WINDSPD")
   List<double> get windSpeed;
   @override // knots
   @JsonKey(name: "GUST")
-  List<double> get windGusts;
+  List<double?> get windGusts;
   @override // knots
   @JsonKey(name: "WINDDIR")
   List<int> get windDirection;
@@ -991,20 +1039,23 @@ abstract class _Forecast$ implements Forecast {
   @JsonKey(name: "TMPE")
   List<double> get temperatures;
   @override // celsius
+  @JsonKey(name: "APCP")
+  List<double?>? get precipitations;
+  @override // mm/1h
   @JsonKey(name: "APCP1")
-  List<double> get precipitations;
+  List<double?>? get precipitations1;
   @override // mm/1h
   @JsonKey(name: "HCDC")
-  List<int> get highCloudDensityCover;
+  List<int?>? get highCloudDensityCover;
   @override // %
   @JsonKey(name: "MCDC")
-  List<int> get mediumCloudDensityCover;
+  List<int?>? get mediumCloudDensityCover;
   @override // %
   @JsonKey(name: "LCDC")
-  List<int> get lowCloudDensityCover;
+  List<int?>? get lowCloudDensityCover;
   @override // %
   @JsonKey(name: "TCDC")
-  List<int> get totalCloudDensityCover;
+  List<int?> get totalCloudDensityCover;
   @override // %
   List<int> get hours;
   @override
@@ -1012,7 +1063,7 @@ abstract class _Forecast$ implements Forecast {
   @override
   List<int> get SLP;
   @override
-  List<int> get FLHGT;
+  List<int?> get FLHGT;
   @override
   List<int> get SLHGT;
   @override
@@ -1028,9 +1079,243 @@ abstract class _Forecast$ implements Forecast {
       throw _privateConstructorUsedError;
 }
 
+ModelAttributes _$ModelAttributesFromJson(Map<String, dynamic> json) {
+  return _ModelAttributes$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ModelAttributes {
+  @JsonKey(name: "id_model")
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "initstr")
+  String get initStr => throw _privateConstructorUsedError;
+  @JsonKey(name: "rundef")
+  String get runDef => throw _privateConstructorUsedError;
+  int get period => throw _privateConstructorUsedError;
+  @JsonKey(name: "cachefix")
+  String get cacheFix => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ModelAttributesCopyWith<ModelAttributes> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ModelAttributesCopyWith<$Res> {
+  factory $ModelAttributesCopyWith(
+          ModelAttributes value, $Res Function(ModelAttributes) then) =
+      _$ModelAttributesCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "id_model") int id,
+      @JsonKey(name: "initstr") String initStr,
+      @JsonKey(name: "rundef") String runDef,
+      int period,
+      @JsonKey(name: "cachefix") String cacheFix});
+}
+
+/// @nodoc
+class _$ModelAttributesCopyWithImpl<$Res>
+    implements $ModelAttributesCopyWith<$Res> {
+  _$ModelAttributesCopyWithImpl(this._value, this._then);
+
+  final ModelAttributes _value;
+  // ignore: unused_field
+  final $Res Function(ModelAttributes) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? initStr = freezed,
+    Object? runDef = freezed,
+    Object? period = freezed,
+    Object? cacheFix = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      initStr: initStr == freezed
+          ? _value.initStr
+          : initStr // ignore: cast_nullable_to_non_nullable
+              as String,
+      runDef: runDef == freezed
+          ? _value.runDef
+          : runDef // ignore: cast_nullable_to_non_nullable
+              as String,
+      period: period == freezed
+          ? _value.period
+          : period // ignore: cast_nullable_to_non_nullable
+              as int,
+      cacheFix: cacheFix == freezed
+          ? _value.cacheFix
+          : cacheFix // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_ModelAttributes$CopyWith<$Res>
+    implements $ModelAttributesCopyWith<$Res> {
+  factory _$$_ModelAttributes$CopyWith(
+          _$_ModelAttributes$ value, $Res Function(_$_ModelAttributes$) then) =
+      __$$_ModelAttributes$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "id_model") int id,
+      @JsonKey(name: "initstr") String initStr,
+      @JsonKey(name: "rundef") String runDef,
+      int period,
+      @JsonKey(name: "cachefix") String cacheFix});
+}
+
+/// @nodoc
+class __$$_ModelAttributes$CopyWithImpl<$Res>
+    extends _$ModelAttributesCopyWithImpl<$Res>
+    implements _$$_ModelAttributes$CopyWith<$Res> {
+  __$$_ModelAttributes$CopyWithImpl(
+      _$_ModelAttributes$ _value, $Res Function(_$_ModelAttributes$) _then)
+      : super(_value, (v) => _then(v as _$_ModelAttributes$));
+
+  @override
+  _$_ModelAttributes$ get _value => super._value as _$_ModelAttributes$;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? initStr = freezed,
+    Object? runDef = freezed,
+    Object? period = freezed,
+    Object? cacheFix = freezed,
+  }) {
+    return _then(_$_ModelAttributes$(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      initStr: initStr == freezed
+          ? _value.initStr
+          : initStr // ignore: cast_nullable_to_non_nullable
+              as String,
+      runDef: runDef == freezed
+          ? _value.runDef
+          : runDef // ignore: cast_nullable_to_non_nullable
+              as String,
+      period: period == freezed
+          ? _value.period
+          : period // ignore: cast_nullable_to_non_nullable
+              as int,
+      cacheFix: cacheFix == freezed
+          ? _value.cacheFix
+          : cacheFix // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_ModelAttributes$ implements _ModelAttributes$ {
+  const _$_ModelAttributes$(
+      {@JsonKey(name: "id_model") required this.id,
+      @JsonKey(name: "initstr") required this.initStr,
+      @JsonKey(name: "rundef") required this.runDef,
+      required this.period,
+      @JsonKey(name: "cachefix") required this.cacheFix});
+
+  factory _$_ModelAttributes$.fromJson(Map<String, dynamic> json) =>
+      _$$_ModelAttributes$FromJson(json);
+
+  @override
+  @JsonKey(name: "id_model")
+  final int id;
+  @override
+  @JsonKey(name: "initstr")
+  final String initStr;
+  @override
+  @JsonKey(name: "rundef")
+  final String runDef;
+  @override
+  final int period;
+  @override
+  @JsonKey(name: "cachefix")
+  final String cacheFix;
+
+  @override
+  String toString() {
+    return 'ModelAttributes(id: $id, initStr: $initStr, runDef: $runDef, period: $period, cacheFix: $cacheFix)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ModelAttributes$ &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.initStr, initStr) &&
+            const DeepCollectionEquality().equals(other.runDef, runDef) &&
+            const DeepCollectionEquality().equals(other.period, period) &&
+            const DeepCollectionEquality().equals(other.cacheFix, cacheFix));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(initStr),
+      const DeepCollectionEquality().hash(runDef),
+      const DeepCollectionEquality().hash(period),
+      const DeepCollectionEquality().hash(cacheFix));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>
+      __$$_ModelAttributes$CopyWithImpl<_$_ModelAttributes$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ModelAttributes$ToJson(this);
+  }
+}
+
+abstract class _ModelAttributes$ implements ModelAttributes {
+  const factory _ModelAttributes$(
+          {@JsonKey(name: "id_model") required final int id,
+          @JsonKey(name: "initstr") required final String initStr,
+          @JsonKey(name: "rundef") required final String runDef,
+          required final int period,
+          @JsonKey(name: "cachefix") required final String cacheFix}) =
+      _$_ModelAttributes$;
+
+  factory _ModelAttributes$.fromJson(Map<String, dynamic> json) =
+      _$_ModelAttributes$.fromJson;
+
+  @override
+  @JsonKey(name: "id_model")
+  int get id;
+  @override
+  @JsonKey(name: "initstr")
+  String get initStr;
+  @override
+  @JsonKey(name: "rundef")
+  String get runDef;
+  @override
+  int get period;
+  @override
+  @JsonKey(name: "cachefix")
+  String get cacheFix;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 SpotForecastModelsData _$SpotForecastModelsDataFromJson(
     Map<String, dynamic> json) {
-  return _SpotData$.fromJson(json);
+  return _SpotForecastModelsData$.fromJson(json);
 }
 
 /// @nodoc
@@ -1185,11 +1470,11 @@ class _$SpotForecastModelsDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_SpotData$CopyWith<$Res>
+abstract class _$$_SpotForecastModelsData$CopyWith<$Res>
     implements $SpotForecastModelsDataCopyWith<$Res> {
-  factory _$$_SpotData$CopyWith(
-          _$_SpotData$ value, $Res Function(_$_SpotData$) then) =
-      __$$_SpotData$CopyWithImpl<$Res>;
+  factory _$$_SpotForecastModelsData$CopyWith(_$_SpotForecastModelsData$ value,
+          $Res Function(_$_SpotForecastModelsData$) then) =
+      __$$_SpotForecastModelsData$CopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: "id_spot") int idSpot,
@@ -1213,15 +1498,16 @@ abstract class _$$_SpotData$CopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SpotData$CopyWithImpl<$Res>
+class __$$_SpotForecastModelsData$CopyWithImpl<$Res>
     extends _$SpotForecastModelsDataCopyWithImpl<$Res>
-    implements _$$_SpotData$CopyWith<$Res> {
-  __$$_SpotData$CopyWithImpl(
-      _$_SpotData$ _value, $Res Function(_$_SpotData$) _then)
-      : super(_value, (v) => _then(v as _$_SpotData$));
+    implements _$$_SpotForecastModelsData$CopyWith<$Res> {
+  __$$_SpotForecastModelsData$CopyWithImpl(_$_SpotForecastModelsData$ _value,
+      $Res Function(_$_SpotForecastModelsData$) _then)
+      : super(_value, (v) => _then(v as _$_SpotForecastModelsData$));
 
   @override
-  _$_SpotData$ get _value => super._value as _$_SpotData$;
+  _$_SpotForecastModelsData$ get _value =>
+      super._value as _$_SpotForecastModelsData$;
 
   @override
   $Res call({
@@ -1239,7 +1525,7 @@ class __$$_SpotData$CopyWithImpl<$Res>
     Object? md5check = freezed,
     Object? forecast = freezed,
   }) {
-    return _then(_$_SpotData$(
+    return _then(_$_SpotForecastModelsData$(
       idSpot: idSpot == freezed
           ? _value.idSpot
           : idSpot // ignore: cast_nullable_to_non_nullable
@@ -1298,8 +1584,8 @@ class __$$_SpotData$CopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SpotData$ implements _SpotData$ {
-  const _$_SpotData$(
+class _$_SpotForecastModelsData$ implements _SpotForecastModelsData$ {
+  const _$_SpotForecastModelsData$(
       {@JsonKey(name: "id_spot") required this.idSpot,
       @JsonKey(name: "lat") required this.latitude,
       @JsonKey(name: "lon") required this.longitude,
@@ -1314,8 +1600,8 @@ class _$_SpotData$ implements _SpotData$ {
       @JsonKey(name: "md5chk") required this.md5check,
       @JsonKey(name: "fcst") required this.forecast});
 
-  factory _$_SpotData$.fromJson(Map<String, dynamic> json) =>
-      _$$_SpotData$FromJson(json);
+  factory _$_SpotForecastModelsData$.fromJson(Map<String, dynamic> json) =>
+      _$$_SpotForecastModelsData$FromJson(json);
 
   @override
   @JsonKey(name: "id_spot")
@@ -1362,7 +1648,7 @@ class _$_SpotData$ implements _SpotData$ {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SpotData$ &&
+            other is _$_SpotForecastModelsData$ &&
             const DeepCollectionEquality().equals(other.idSpot, idSpot) &&
             const DeepCollectionEquality().equals(other.latitude, latitude) &&
             const DeepCollectionEquality().equals(other.longitude, longitude) &&
@@ -1399,33 +1685,36 @@ class _$_SpotData$ implements _SpotData$ {
 
   @JsonKey(ignore: true)
   @override
-  _$$_SpotData$CopyWith<_$_SpotData$> get copyWith =>
-      __$$_SpotData$CopyWithImpl<_$_SpotData$>(this, _$identity);
+  _$$_SpotForecastModelsData$CopyWith<_$_SpotForecastModelsData$>
+      get copyWith =>
+          __$$_SpotForecastModelsData$CopyWithImpl<_$_SpotForecastModelsData$>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SpotData$ToJson(this);
+    return _$$_SpotForecastModelsData$ToJson(this);
   }
 }
 
-abstract class _SpotData$ implements SpotForecastModelsData {
-  const factory _SpotData$(
-      {@JsonKey(name: "id_spot") required final int idSpot,
-      @JsonKey(name: "lat") required final double latitude,
-      @JsonKey(name: "lon") required final double longitude,
-      @JsonKey(name: "alt") required final int altitude,
-      @JsonKey(name: "id_model") required final int idModel,
-      required final String model,
-      @JsonKey(name: "wgmodel") required final WgModel wgModel,
-      @JsonKey(name: "model_alt") required final int modelAltitude,
-      required final int levels,
-      required final String sunrise,
-      required final String sunset,
-      @JsonKey(name: "md5chk") required final String md5check,
-      @JsonKey(name: "fcst") required final Forecast forecast}) = _$_SpotData$;
+abstract class _SpotForecastModelsData$ implements SpotForecastModelsData {
+  const factory _SpotForecastModelsData$(
+          {@JsonKey(name: "id_spot") required final int idSpot,
+          @JsonKey(name: "lat") required final double latitude,
+          @JsonKey(name: "lon") required final double longitude,
+          @JsonKey(name: "alt") required final int altitude,
+          @JsonKey(name: "id_model") required final int idModel,
+          required final String model,
+          @JsonKey(name: "wgmodel") required final WgModel wgModel,
+          @JsonKey(name: "model_alt") required final int modelAltitude,
+          required final int levels,
+          required final String sunrise,
+          required final String sunset,
+          @JsonKey(name: "md5chk") required final String md5check,
+          @JsonKey(name: "fcst") required final Forecast forecast}) =
+      _$_SpotForecastModelsData$;
 
-  factory _SpotData$.fromJson(Map<String, dynamic> json) =
-      _$_SpotData$.fromJson;
+  factory _SpotForecastModelsData$.fromJson(Map<String, dynamic> json) =
+      _$_SpotForecastModelsData$.fromJson;
 
   @override
   @JsonKey(name: "id_spot")
@@ -1464,8 +1753,8 @@ abstract class _SpotData$ implements SpotForecastModelsData {
   Forecast get forecast;
   @override
   @JsonKey(ignore: true)
-  _$$_SpotData$CopyWith<_$_SpotData$> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_SpotForecastModelsData$CopyWith<_$_SpotForecastModelsData$>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 SpotInfo _$SpotInfoFromJson(Map<String, dynamic> json) {
@@ -2175,6 +2464,236 @@ abstract class _Suggestion$ implements Suggestion {
       throw _privateConstructorUsedError;
 }
 
+TabItem _$TabItemFromJson(Map<String, dynamic> json) {
+  return _TabItem$.fromJson(json);
+}
+
+/// @nodoc
+mixin _$TabItem {
+  @JsonKey(name: "id_spot")
+  int get idSpot => throw _privateConstructorUsedError;
+  @JsonKey(name: "id_model")
+  int get idModel => throw _privateConstructorUsedError;
+  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+  List<ModelAttributes> get idModelArr => throw _privateConstructorUsedError;
+  @JsonKey(name: "model_period")
+  int get modelPeriod => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TabItemCopyWith<TabItem> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TabItemCopyWith<$Res> {
+  factory $TabItemCopyWith(TabItem value, $Res Function(TabItem) then) =
+      _$TabItemCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "id_spot")
+          int idSpot,
+      @JsonKey(name: "id_model")
+          int idModel,
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+          List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          int modelPeriod});
+}
+
+/// @nodoc
+class _$TabItemCopyWithImpl<$Res> implements $TabItemCopyWith<$Res> {
+  _$TabItemCopyWithImpl(this._value, this._then);
+
+  final TabItem _value;
+  // ignore: unused_field
+  final $Res Function(TabItem) _then;
+
+  @override
+  $Res call({
+    Object? idSpot = freezed,
+    Object? idModel = freezed,
+    Object? idModelArr = freezed,
+    Object? modelPeriod = freezed,
+  }) {
+    return _then(_value.copyWith(
+      idSpot: idSpot == freezed
+          ? _value.idSpot
+          : idSpot // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModel: idModel == freezed
+          ? _value.idModel
+          : idModel // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModelArr: idModelArr == freezed
+          ? _value.idModelArr
+          : idModelArr // ignore: cast_nullable_to_non_nullable
+              as List<ModelAttributes>,
+      modelPeriod: modelPeriod == freezed
+          ? _value.modelPeriod
+          : modelPeriod // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_TabItem$CopyWith<$Res> implements $TabItemCopyWith<$Res> {
+  factory _$$_TabItem$CopyWith(
+          _$_TabItem$ value, $Res Function(_$_TabItem$) then) =
+      __$$_TabItem$CopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "id_spot")
+          int idSpot,
+      @JsonKey(name: "id_model")
+          int idModel,
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+          List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          int modelPeriod});
+}
+
+/// @nodoc
+class __$$_TabItem$CopyWithImpl<$Res> extends _$TabItemCopyWithImpl<$Res>
+    implements _$$_TabItem$CopyWith<$Res> {
+  __$$_TabItem$CopyWithImpl(
+      _$_TabItem$ _value, $Res Function(_$_TabItem$) _then)
+      : super(_value, (v) => _then(v as _$_TabItem$));
+
+  @override
+  _$_TabItem$ get _value => super._value as _$_TabItem$;
+
+  @override
+  $Res call({
+    Object? idSpot = freezed,
+    Object? idModel = freezed,
+    Object? idModelArr = freezed,
+    Object? modelPeriod = freezed,
+  }) {
+    return _then(_$_TabItem$(
+      idSpot: idSpot == freezed
+          ? _value.idSpot
+          : idSpot // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModel: idModel == freezed
+          ? _value.idModel
+          : idModel // ignore: cast_nullable_to_non_nullable
+              as int,
+      idModelArr: idModelArr == freezed
+          ? _value._idModelArr
+          : idModelArr // ignore: cast_nullable_to_non_nullable
+              as List<ModelAttributes>,
+      modelPeriod: modelPeriod == freezed
+          ? _value.modelPeriod
+          : modelPeriod // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_TabItem$ implements _TabItem$ {
+  const _$_TabItem$(
+      {@JsonKey(name: "id_spot")
+          required this.idSpot,
+      @JsonKey(name: "id_model")
+          required this.idModel,
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+          required final List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          required this.modelPeriod})
+      : _idModelArr = idModelArr;
+
+  factory _$_TabItem$.fromJson(Map<String, dynamic> json) =>
+      _$$_TabItem$FromJson(json);
+
+  @override
+  @JsonKey(name: "id_spot")
+  final int idSpot;
+  @override
+  @JsonKey(name: "id_model")
+  final int idModel;
+  final List<ModelAttributes> _idModelArr;
+  @override
+  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+  List<ModelAttributes> get idModelArr {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_idModelArr);
+  }
+
+  @override
+  @JsonKey(name: "model_period")
+  final int modelPeriod;
+
+  @override
+  String toString() {
+    return 'TabItem(idSpot: $idSpot, idModel: $idModel, idModelArr: $idModelArr, modelPeriod: $modelPeriod)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TabItem$ &&
+            const DeepCollectionEquality().equals(other.idSpot, idSpot) &&
+            const DeepCollectionEquality().equals(other.idModel, idModel) &&
+            const DeepCollectionEquality()
+                .equals(other._idModelArr, _idModelArr) &&
+            const DeepCollectionEquality()
+                .equals(other.modelPeriod, modelPeriod));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(idSpot),
+      const DeepCollectionEquality().hash(idModel),
+      const DeepCollectionEquality().hash(_idModelArr),
+      const DeepCollectionEquality().hash(modelPeriod));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TabItem$CopyWith<_$_TabItem$> get copyWith =>
+      __$$_TabItem$CopyWithImpl<_$_TabItem$>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TabItem$ToJson(this);
+  }
+}
+
+abstract class _TabItem$ implements TabItem {
+  const factory _TabItem$(
+      {@JsonKey(name: "id_spot")
+          required final int idSpot,
+      @JsonKey(name: "id_model")
+          required final int idModel,
+      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+          required final List<ModelAttributes> idModelArr,
+      @JsonKey(name: "model_period")
+          required final int modelPeriod}) = _$_TabItem$;
+
+  factory _TabItem$.fromJson(Map<String, dynamic> json) = _$_TabItem$.fromJson;
+
+  @override
+  @JsonKey(name: "id_spot")
+  int get idSpot;
+  @override
+  @JsonKey(name: "id_model")
+  int get idModel;
+  @override
+  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
+  List<ModelAttributes> get idModelArr;
+  @override
+  @JsonKey(name: "model_period")
+  int get modelPeriod;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TabItem$CopyWith<_$_TabItem$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 WgModel _$WgModelFromJson(Map<String, dynamic> json) {
   return _WgModel$.fromJson(json);
 }
@@ -2801,7 +3320,8 @@ mixin _$WgmodelRun {
   @JsonKey(name: "initdate")
   String get initDate => throw _privateConstructorUsedError;
   @JsonKey(name: "oinitdate")
-  bool get oInitDate => throw _privateConstructorUsedError;
+  Object get oInitDate =>
+      throw _privateConstructorUsedError; // can be String or bool from what we have observed
   @JsonKey(name: "run_hr")
   List<int> get runHr => throw _privateConstructorUsedError;
   @JsonKey(name: "run_hr_steps")
@@ -2822,7 +3342,7 @@ abstract class $WgmodelRunCopyWith<$Res> {
       _$WgmodelRunCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "initdate") String initDate,
-      @JsonKey(name: "oinitdate") bool oInitDate,
+      @JsonKey(name: "oinitdate") Object oInitDate,
       @JsonKey(name: "run_hr") List<int> runHr,
       @JsonKey(name: "run_hr_steps") List<List<int>> runHrSteps,
       @JsonKey(name: "use_hr") List<int> userHr});
@@ -2852,7 +3372,7 @@ class _$WgmodelRunCopyWithImpl<$Res> implements $WgmodelRunCopyWith<$Res> {
       oInitDate: oInitDate == freezed
           ? _value.oInitDate
           : oInitDate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as Object,
       runHr: runHr == freezed
           ? _value.runHr
           : runHr // ignore: cast_nullable_to_non_nullable
@@ -2878,7 +3398,7 @@ abstract class _$$_WgmodelRun$CopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: "initdate") String initDate,
-      @JsonKey(name: "oinitdate") bool oInitDate,
+      @JsonKey(name: "oinitdate") Object oInitDate,
       @JsonKey(name: "run_hr") List<int> runHr,
       @JsonKey(name: "run_hr_steps") List<List<int>> runHrSteps,
       @JsonKey(name: "use_hr") List<int> userHr});
@@ -2910,7 +3430,7 @@ class __$$_WgmodelRun$CopyWithImpl<$Res> extends _$WgmodelRunCopyWithImpl<$Res>
       oInitDate: oInitDate == freezed
           ? _value.oInitDate
           : oInitDate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as Object,
       runHr: runHr == freezed
           ? _value._runHr
           : runHr // ignore: cast_nullable_to_non_nullable
@@ -2948,8 +3468,10 @@ class _$_WgmodelRun$ implements _WgmodelRun$ {
   final String initDate;
   @override
   @JsonKey(name: "oinitdate")
-  final bool oInitDate;
+  final Object oInitDate;
+// can be String or bool from what we have observed
   final List<int> _runHr;
+// can be String or bool from what we have observed
   @override
   @JsonKey(name: "run_hr")
   List<int> get runHr {
@@ -3017,7 +3539,7 @@ abstract class _WgmodelRun$ implements WgmodelRun {
       {@JsonKey(name: "initdate")
           required final String initDate,
       @JsonKey(name: "oinitdate")
-          required final bool oInitDate,
+          required final Object oInitDate,
       @JsonKey(name: "run_hr")
           required final List<int> runHr,
       @JsonKey(name: "run_hr_steps")
@@ -3033,8 +3555,8 @@ abstract class _WgmodelRun$ implements WgmodelRun {
   String get initDate;
   @override
   @JsonKey(name: "oinitdate")
-  bool get oInitDate;
-  @override
+  Object get oInitDate;
+  @override // can be String or bool from what we have observed
   @JsonKey(name: "run_hr")
   List<int> get runHr;
   @override
@@ -3046,469 +3568,5 @@ abstract class _WgmodelRun$ implements WgmodelRun {
   @override
   @JsonKey(ignore: true)
   _$$_WgmodelRun$CopyWith<_$_WgmodelRun$> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-TabItem _$TabItemFromJson(Map<String, dynamic> json) {
-  return _TabItem$.fromJson(json);
-}
-
-/// @nodoc
-mixin _$TabItem {
-  @JsonKey(name: "id_spot")
-  int get idSpot => throw _privateConstructorUsedError;
-  @JsonKey(name: "id_model")
-  int get idModel => throw _privateConstructorUsedError;
-  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-  List<ModelAttributes> get idModelArr => throw _privateConstructorUsedError;
-  @JsonKey(name: "model_period")
-  int get modelPeriod => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TabItemCopyWith<TabItem> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TabItemCopyWith<$Res> {
-  factory $TabItemCopyWith(TabItem value, $Res Function(TabItem) then) =
-      _$TabItemCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: "id_spot")
-          int idSpot,
-      @JsonKey(name: "id_model")
-          int idModel,
-      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-          List<ModelAttributes> idModelArr,
-      @JsonKey(name: "model_period")
-          int modelPeriod});
-}
-
-/// @nodoc
-class _$TabItemCopyWithImpl<$Res> implements $TabItemCopyWith<$Res> {
-  _$TabItemCopyWithImpl(this._value, this._then);
-
-  final TabItem _value;
-  // ignore: unused_field
-  final $Res Function(TabItem) _then;
-
-  @override
-  $Res call({
-    Object? idSpot = freezed,
-    Object? idModel = freezed,
-    Object? idModelArr = freezed,
-    Object? modelPeriod = freezed,
-  }) {
-    return _then(_value.copyWith(
-      idSpot: idSpot == freezed
-          ? _value.idSpot
-          : idSpot // ignore: cast_nullable_to_non_nullable
-              as int,
-      idModel: idModel == freezed
-          ? _value.idModel
-          : idModel // ignore: cast_nullable_to_non_nullable
-              as int,
-      idModelArr: idModelArr == freezed
-          ? _value.idModelArr
-          : idModelArr // ignore: cast_nullable_to_non_nullable
-              as List<ModelAttributes>,
-      modelPeriod: modelPeriod == freezed
-          ? _value.modelPeriod
-          : modelPeriod // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$$_TabItem$CopyWith<$Res> implements $TabItemCopyWith<$Res> {
-  factory _$$_TabItem$CopyWith(
-          _$_TabItem$ value, $Res Function(_$_TabItem$) then) =
-      __$$_TabItem$CopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {@JsonKey(name: "id_spot")
-          int idSpot,
-      @JsonKey(name: "id_model")
-          int idModel,
-      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-          List<ModelAttributes> idModelArr,
-      @JsonKey(name: "model_period")
-          int modelPeriod});
-}
-
-/// @nodoc
-class __$$_TabItem$CopyWithImpl<$Res> extends _$TabItemCopyWithImpl<$Res>
-    implements _$$_TabItem$CopyWith<$Res> {
-  __$$_TabItem$CopyWithImpl(
-      _$_TabItem$ _value, $Res Function(_$_TabItem$) _then)
-      : super(_value, (v) => _then(v as _$_TabItem$));
-
-  @override
-  _$_TabItem$ get _value => super._value as _$_TabItem$;
-
-  @override
-  $Res call({
-    Object? idSpot = freezed,
-    Object? idModel = freezed,
-    Object? idModelArr = freezed,
-    Object? modelPeriod = freezed,
-  }) {
-    return _then(_$_TabItem$(
-      idSpot: idSpot == freezed
-          ? _value.idSpot
-          : idSpot // ignore: cast_nullable_to_non_nullable
-              as int,
-      idModel: idModel == freezed
-          ? _value.idModel
-          : idModel // ignore: cast_nullable_to_non_nullable
-              as int,
-      idModelArr: idModelArr == freezed
-          ? _value._idModelArr
-          : idModelArr // ignore: cast_nullable_to_non_nullable
-              as List<ModelAttributes>,
-      modelPeriod: modelPeriod == freezed
-          ? _value.modelPeriod
-          : modelPeriod // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_TabItem$ implements _TabItem$ {
-  const _$_TabItem$(
-      {@JsonKey(name: "id_spot")
-          required this.idSpot,
-      @JsonKey(name: "id_model")
-          required this.idModel,
-      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-          required final List<ModelAttributes> idModelArr,
-      @JsonKey(name: "model_period")
-          required this.modelPeriod})
-      : _idModelArr = idModelArr;
-
-  factory _$_TabItem$.fromJson(Map<String, dynamic> json) =>
-      _$$_TabItem$FromJson(json);
-
-  @override
-  @JsonKey(name: "id_spot")
-  final int idSpot;
-  @override
-  @JsonKey(name: "id_model")
-  final int idModel;
-  final List<ModelAttributes> _idModelArr;
-  @override
-  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-  List<ModelAttributes> get idModelArr {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_idModelArr);
-  }
-
-  @override
-  @JsonKey(name: "model_period")
-  final int modelPeriod;
-
-  @override
-  String toString() {
-    return 'TabItem(idSpot: $idSpot, idModel: $idModel, idModelArr: $idModelArr, modelPeriod: $modelPeriod)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TabItem$ &&
-            const DeepCollectionEquality().equals(other.idSpot, idSpot) &&
-            const DeepCollectionEquality().equals(other.idModel, idModel) &&
-            const DeepCollectionEquality()
-                .equals(other._idModelArr, _idModelArr) &&
-            const DeepCollectionEquality()
-                .equals(other.modelPeriod, modelPeriod));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(idSpot),
-      const DeepCollectionEquality().hash(idModel),
-      const DeepCollectionEquality().hash(_idModelArr),
-      const DeepCollectionEquality().hash(modelPeriod));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_TabItem$CopyWith<_$_TabItem$> get copyWith =>
-      __$$_TabItem$CopyWithImpl<_$_TabItem$>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_TabItem$ToJson(this);
-  }
-}
-
-abstract class _TabItem$ implements TabItem {
-  const factory _TabItem$(
-      {@JsonKey(name: "id_spot")
-          required final int idSpot,
-      @JsonKey(name: "id_model")
-          required final int idModel,
-      @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-          required final List<ModelAttributes> idModelArr,
-      @JsonKey(name: "model_period")
-          required final int modelPeriod}) = _$_TabItem$;
-
-  factory _TabItem$.fromJson(Map<String, dynamic> json) = _$_TabItem$.fromJson;
-
-  @override
-  @JsonKey(name: "id_spot")
-  int get idSpot;
-  @override
-  @JsonKey(name: "id_model")
-  int get idModel;
-  @override
-  @JsonKey(name: "id_model_arr", toJson: TabItem._listModelAttributesToJson)
-  List<ModelAttributes> get idModelArr;
-  @override
-  @JsonKey(name: "model_period")
-  int get modelPeriod;
-  @override
-  @JsonKey(ignore: true)
-  _$$_TabItem$CopyWith<_$_TabItem$> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ModelAttributes _$ModelAttributesFromJson(Map<String, dynamic> json) {
-  return _ModelAttributes$.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ModelAttributes {
-  @JsonKey(name: "id_model")
-  int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "initstr")
-  String get initStr => throw _privateConstructorUsedError;
-  @JsonKey(name: "rundef")
-  String get runDef => throw _privateConstructorUsedError;
-  int get period => throw _privateConstructorUsedError;
-  @JsonKey(name: "cachefix")
-  String get cacheFix => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ModelAttributesCopyWith<ModelAttributes> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ModelAttributesCopyWith<$Res> {
-  factory $ModelAttributesCopyWith(
-          ModelAttributes value, $Res Function(ModelAttributes) then) =
-      _$ModelAttributesCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: "id_model") int id,
-      @JsonKey(name: "initstr") String initStr,
-      @JsonKey(name: "rundef") String runDef,
-      int period,
-      @JsonKey(name: "cachefix") String cacheFix});
-}
-
-/// @nodoc
-class _$ModelAttributesCopyWithImpl<$Res>
-    implements $ModelAttributesCopyWith<$Res> {
-  _$ModelAttributesCopyWithImpl(this._value, this._then);
-
-  final ModelAttributes _value;
-  // ignore: unused_field
-  final $Res Function(ModelAttributes) _then;
-
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? initStr = freezed,
-    Object? runDef = freezed,
-    Object? period = freezed,
-    Object? cacheFix = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      initStr: initStr == freezed
-          ? _value.initStr
-          : initStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      runDef: runDef == freezed
-          ? _value.runDef
-          : runDef // ignore: cast_nullable_to_non_nullable
-              as String,
-      period: period == freezed
-          ? _value.period
-          : period // ignore: cast_nullable_to_non_nullable
-              as int,
-      cacheFix: cacheFix == freezed
-          ? _value.cacheFix
-          : cacheFix // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$$_ModelAttributes$CopyWith<$Res>
-    implements $ModelAttributesCopyWith<$Res> {
-  factory _$$_ModelAttributes$CopyWith(
-          _$_ModelAttributes$ value, $Res Function(_$_ModelAttributes$) then) =
-      __$$_ModelAttributes$CopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {@JsonKey(name: "id_model") int id,
-      @JsonKey(name: "initstr") String initStr,
-      @JsonKey(name: "rundef") String runDef,
-      int period,
-      @JsonKey(name: "cachefix") String cacheFix});
-}
-
-/// @nodoc
-class __$$_ModelAttributes$CopyWithImpl<$Res>
-    extends _$ModelAttributesCopyWithImpl<$Res>
-    implements _$$_ModelAttributes$CopyWith<$Res> {
-  __$$_ModelAttributes$CopyWithImpl(
-      _$_ModelAttributes$ _value, $Res Function(_$_ModelAttributes$) _then)
-      : super(_value, (v) => _then(v as _$_ModelAttributes$));
-
-  @override
-  _$_ModelAttributes$ get _value => super._value as _$_ModelAttributes$;
-
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? initStr = freezed,
-    Object? runDef = freezed,
-    Object? period = freezed,
-    Object? cacheFix = freezed,
-  }) {
-    return _then(_$_ModelAttributes$(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      initStr: initStr == freezed
-          ? _value.initStr
-          : initStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      runDef: runDef == freezed
-          ? _value.runDef
-          : runDef // ignore: cast_nullable_to_non_nullable
-              as String,
-      period: period == freezed
-          ? _value.period
-          : period // ignore: cast_nullable_to_non_nullable
-              as int,
-      cacheFix: cacheFix == freezed
-          ? _value.cacheFix
-          : cacheFix // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_ModelAttributes$ implements _ModelAttributes$ {
-  const _$_ModelAttributes$(
-      {@JsonKey(name: "id_model") required this.id,
-      @JsonKey(name: "initstr") required this.initStr,
-      @JsonKey(name: "rundef") required this.runDef,
-      required this.period,
-      @JsonKey(name: "cachefix") required this.cacheFix});
-
-  factory _$_ModelAttributes$.fromJson(Map<String, dynamic> json) =>
-      _$$_ModelAttributes$FromJson(json);
-
-  @override
-  @JsonKey(name: "id_model")
-  final int id;
-  @override
-  @JsonKey(name: "initstr")
-  final String initStr;
-  @override
-  @JsonKey(name: "rundef")
-  final String runDef;
-  @override
-  final int period;
-  @override
-  @JsonKey(name: "cachefix")
-  final String cacheFix;
-
-  @override
-  String toString() {
-    return 'ModelAttributes(id: $id, initStr: $initStr, runDef: $runDef, period: $period, cacheFix: $cacheFix)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ModelAttributes$ &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.initStr, initStr) &&
-            const DeepCollectionEquality().equals(other.runDef, runDef) &&
-            const DeepCollectionEquality().equals(other.period, period) &&
-            const DeepCollectionEquality().equals(other.cacheFix, cacheFix));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(initStr),
-      const DeepCollectionEquality().hash(runDef),
-      const DeepCollectionEquality().hash(period),
-      const DeepCollectionEquality().hash(cacheFix));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>
-      __$$_ModelAttributes$CopyWithImpl<_$_ModelAttributes$>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ModelAttributes$ToJson(this);
-  }
-}
-
-abstract class _ModelAttributes$ implements ModelAttributes {
-  const factory _ModelAttributes$(
-          {@JsonKey(name: "id_model") required final int id,
-          @JsonKey(name: "initstr") required final String initStr,
-          @JsonKey(name: "rundef") required final String runDef,
-          required final int period,
-          @JsonKey(name: "cachefix") required final String cacheFix}) =
-      _$_ModelAttributes$;
-
-  factory _ModelAttributes$.fromJson(Map<String, dynamic> json) =
-      _$_ModelAttributes$.fromJson;
-
-  @override
-  @JsonKey(name: "id_model")
-  int get id;
-  @override
-  @JsonKey(name: "initstr")
-  String get initStr;
-  @override
-  @JsonKey(name: "rundef")
-  String get runDef;
-  @override
-  int get period;
-  @override
-  @JsonKey(name: "cachefix")
-  String get cacheFix;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ModelAttributes$CopyWith<_$_ModelAttributes$> get copyWith =>
       throw _privateConstructorUsedError;
 }
