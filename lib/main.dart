@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_epics/redux_epics.dart';
+import 'package:wind_notifier/data/windguru_api.dart';
+import 'package:wind_notifier/epics/app_epics.dart';
 import 'package:wind_notifier/models/app_state.dart';
 import 'package:wind_notifier/presentation/main_page.dart';
 import 'package:wind_notifier/reducer/reducer.dart';
 
 void main() {
+  final WindguruApi windguruApi = WindguruApi();
+  final AppEpics epics = AppEpics(windguruApi);
+
   final Store<AppState> store = Store<AppState>(
     reducer,
     initialState: const AppState(),
     middleware: <Middleware<AppState>>[
       (Store<AppState> store, dynamic action, NextDispatcher next) {
         next(action);
-        print(store.state);
+        print('action: $action, state: ${store.state}');
       },
+      EpicMiddleware<AppState>(epics.epics),
     ],
   );
 

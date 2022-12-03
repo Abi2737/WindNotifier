@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wind_notifier/pages/favourites_page.dart';
-import 'package:wind_notifier/pages/home_page.dart';
+import 'package:wind_notifier/presentation/home_page.dart';
 import 'package:wind_notifier/pages/settings_page.dart';
 
 enum BottomTabItem {

@@ -4,7 +4,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:wind_notifier/model/index.dart';
+import 'package:wind_notifier/data/api_model/index.dart';
 
 const int kSpotFundataTheSpotId = 508600;
 const int kSpotWeGoId = 1109235;
