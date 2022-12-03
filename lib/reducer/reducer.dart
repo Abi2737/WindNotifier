@@ -8,7 +8,7 @@ import '../models/app_state.dart';
 
 Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
   TypedReducer<AppState, ChangeBottomTab>(_changeBottomTabIndex),
-  TypedReducer<AppState, SearchSportByNameSuccessful>(_searchSportByNameSuccessful)
+  TypedReducer<AppState, SearchSportByNameSuccessful>(_searchSportByNameSuccessful),
 ]);
 
 AppState _changeBottomTabIndex(AppState state, ChangeBottomTab action) {

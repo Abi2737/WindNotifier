@@ -16,9 +16,23 @@ class AppEpics {
     ]);
   }
 
+  // SearchSpotByName => SearchSportByNameSuccessful or null
   Stream<dynamic> _searchSpotByName(Stream<SearchSpotByName> actions, EpicStore<AppState> store) {
     return actions //
         .asyncMap((SearchSpotByName action) => _api.searchSpotByName(action.name))
-        .map((List<SearchSuggestion> searchSuggestions) => SearchSportByNameSuccessful(searchSuggestions));
+        .map(
+      (List<SearchSuggestion> searchSuggestions) {
+        // if another SearchSpotByName action has been triggered in the mean time, ignore this one.
+        // We need the most recent one.
+        SearchSpotByName.markActionFinished();
+
+        if (SearchSpotByName.areOtherActionsTriggered()) {
+          return null;
+        }
+
+        // this action is the newest one => return it's result
+        return SearchSportByNameSuccessful(searchSuggestions);
+      },
+    );
   }
 }
