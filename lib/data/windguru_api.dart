@@ -2,10 +2,9 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:wind_notifier/data/api_model/index.dart';
-import 'package:wind_notifier/models/search_suggestion.dart';
 
 class WindguruApi {
-  Future<List<SearchSuggestion>> searchSpotByName(String name) async {
+  Future<List<Suggestion>> searchSpotByName(String name) async {
     var uri = Uri.parse(
         "https://www.windguru.cz/int/iapi.php?q=autocomplete_ss&type_info=true&all=0&latlon=1&country=1&favourite=1&favourite_geonames=1&custom=1&stations=1&geonames=40&spots=1&priority_sort=1&query=$name");
 
@@ -13,14 +12,7 @@ class WindguruApi {
 
     List<Suggestion> suggestions = (json["suggestions"] as List<dynamic>).map((e) => Suggestion.fromJson(e)).toList();
 
-    return suggestions.map(
-          (suggestion) =>
-          SearchSuggestion(
-              title: suggestion.value,
-              latitude: suggestion.latitude,
-              longitude: suggestion.longitude,
-              data: suggestion.data),
-    ).toList();
+    return suggestions;
   }
 
   Future<dynamic> _getResponseJson(Uri uri) async {

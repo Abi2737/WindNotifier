@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:wind_notifier/models/search_suggestion.dart';
+import 'package:wind_notifier/data/api_model/index.dart';
 
 part 'app_state.freezed.dart';
 
@@ -7,6 +7,6 @@ part 'app_state.freezed.dart';
 class AppState with _$AppState {
   const factory AppState({
     @Default(0) int bottomBarIndex,
-    @Default(<SearchSuggestion>[]) List<SearchSuggestion> searchSuggestions,
+    @Default(<Suggestion>[]) List<Suggestion> searchSuggestions,
   }) = _AppState$;
 }

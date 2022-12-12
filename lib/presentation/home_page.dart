@@ -3,8 +3,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:wind_notifier/actions/search_spot_by_name.dart';
 import 'package:wind_notifier/container/search_suggestion_container.dart';
+import 'package:wind_notifier/data/api_model/index.dart';
 import 'package:wind_notifier/models/app_state.dart';
-import 'package:wind_notifier/models/search_suggestion.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _showSearchList(BuildContext context, List<SearchSuggestion> suggestions) {
+  Widget _showSearchList(BuildContext context, List<Suggestion> suggestions) {
     return Card(
       elevation: 5,
       child: SizedBox(
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(suggestion.title),
+                  child: Text(suggestion.value),
                 ),
               ),
             ),
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
             ),
             // _isDropDownAvailable ? ...searchList.map((e) => Text(e)) : const SizedBox.shrink(),
             SearchSuggestionContainer(
-              builder: (BuildContext context, List<SearchSuggestion> suggestions) {
+              builder: (BuildContext context, List<Suggestion> suggestions) {
                 return _showSearchList(context, suggestions);
               },
             ),

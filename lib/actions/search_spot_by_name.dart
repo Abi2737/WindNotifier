@@ -1,9 +1,11 @@
-import 'package:wind_notifier/models/search_suggestion.dart';
+
+
+import 'package:wind_notifier/data/api_model/index.dart';
 
 class SearchSpotByName {
   static int _actionsCount = 0;
 
-  static SearchSportByNameSuccessful? successfulOrIgnored(List<SearchSuggestion> suggestions) {
+  static SearchSportByNameSuccessful? successfulOrIgnored(List<Suggestion> suggestions) {
     // if another SearchSpotByName action has been triggered in the mean time, ignore this one.
     // We need the most recent one.
     _actionsCount--;
@@ -24,7 +26,7 @@ class SearchSpotByName {
 }
 
 class SearchSportByNameSuccessful {
-  final List<SearchSuggestion> suggestions;
+  final List<Suggestion> suggestions;
 
   SearchSportByNameSuccessful._(this.suggestions);
 }

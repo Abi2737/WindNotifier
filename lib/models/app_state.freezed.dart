@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppState {
   int get bottomBarIndex => throw _privateConstructorUsedError;
-  List<SearchSuggestion> get searchSuggestions =>
-      throw _privateConstructorUsedError;
+  List<Suggestion> get searchSuggestions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -29,7 +28,7 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({int bottomBarIndex, List<SearchSuggestion> searchSuggestions});
+  $Res call({int bottomBarIndex, List<Suggestion> searchSuggestions});
 }
 
 /// @nodoc
@@ -53,7 +52,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
       searchSuggestions: searchSuggestions == freezed
           ? _value.searchSuggestions
           : searchSuggestions // ignore: cast_nullable_to_non_nullable
-              as List<SearchSuggestion>,
+              as List<Suggestion>,
     ));
   }
 }
@@ -64,7 +63,7 @@ abstract class _$$_AppState$CopyWith<$Res> implements $AppStateCopyWith<$Res> {
           _$_AppState$ value, $Res Function(_$_AppState$) then) =
       __$$_AppState$CopyWithImpl<$Res>;
   @override
-  $Res call({int bottomBarIndex, List<SearchSuggestion> searchSuggestions});
+  $Res call({int bottomBarIndex, List<Suggestion> searchSuggestions});
 }
 
 /// @nodoc
@@ -90,7 +89,7 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
       searchSuggestions: searchSuggestions == freezed
           ? _value._searchSuggestions
           : searchSuggestions // ignore: cast_nullable_to_non_nullable
-              as List<SearchSuggestion>,
+              as List<Suggestion>,
     ));
   }
 }
@@ -100,17 +99,16 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 class _$_AppState$ implements _AppState$ {
   const _$_AppState$(
       {this.bottomBarIndex = 0,
-      final List<SearchSuggestion> searchSuggestions =
-          const <SearchSuggestion>[]})
+      final List<Suggestion> searchSuggestions = const <Suggestion>[]})
       : _searchSuggestions = searchSuggestions;
 
   @override
   @JsonKey()
   final int bottomBarIndex;
-  final List<SearchSuggestion> _searchSuggestions;
+  final List<Suggestion> _searchSuggestions;
   @override
   @JsonKey()
-  List<SearchSuggestion> get searchSuggestions {
+  List<Suggestion> get searchSuggestions {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_searchSuggestions);
   }
@@ -146,12 +144,12 @@ class _$_AppState$ implements _AppState$ {
 abstract class _AppState$ implements AppState {
   const factory _AppState$(
       {final int bottomBarIndex,
-      final List<SearchSuggestion> searchSuggestions}) = _$_AppState$;
+      final List<Suggestion> searchSuggestions}) = _$_AppState$;
 
   @override
   int get bottomBarIndex;
   @override
-  List<SearchSuggestion> get searchSuggestions;
+  List<Suggestion> get searchSuggestions;
   @override
   @JsonKey(ignore: true)
   _$$_AppState$CopyWith<_$_AppState$> get copyWith =>
