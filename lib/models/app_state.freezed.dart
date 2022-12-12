@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppState {
   int get bottomBarIndex => throw _privateConstructorUsedError;
+  bool get showSearchSuggestions => throw _privateConstructorUsedError;
   List<Suggestion> get searchSuggestions => throw _privateConstructorUsedError;
   List<SpotForecastModelData> get spotForecastModels =>
       throw _privateConstructorUsedError;
@@ -32,6 +33,7 @@ abstract class $AppStateCopyWith<$Res> {
       _$AppStateCopyWithImpl<$Res>;
   $Res call(
       {int bottomBarIndex,
+      bool showSearchSuggestions,
       List<Suggestion> searchSuggestions,
       List<SpotForecastModelData> spotForecastModels});
 }
@@ -47,6 +49,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call({
     Object? bottomBarIndex = freezed,
+    Object? showSearchSuggestions = freezed,
     Object? searchSuggestions = freezed,
     Object? spotForecastModels = freezed,
   }) {
@@ -55,6 +58,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.bottomBarIndex
           : bottomBarIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      showSearchSuggestions: showSearchSuggestions == freezed
+          ? _value.showSearchSuggestions
+          : showSearchSuggestions // ignore: cast_nullable_to_non_nullable
+              as bool,
       searchSuggestions: searchSuggestions == freezed
           ? _value.searchSuggestions
           : searchSuggestions // ignore: cast_nullable_to_non_nullable
@@ -75,6 +82,7 @@ abstract class _$$_AppState$CopyWith<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call(
       {int bottomBarIndex,
+      bool showSearchSuggestions,
       List<Suggestion> searchSuggestions,
       List<SpotForecastModelData> spotForecastModels});
 }
@@ -92,6 +100,7 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? bottomBarIndex = freezed,
+    Object? showSearchSuggestions = freezed,
     Object? searchSuggestions = freezed,
     Object? spotForecastModels = freezed,
   }) {
@@ -100,6 +109,10 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.bottomBarIndex
           : bottomBarIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      showSearchSuggestions: showSearchSuggestions == freezed
+          ? _value.showSearchSuggestions
+          : showSearchSuggestions // ignore: cast_nullable_to_non_nullable
+              as bool,
       searchSuggestions: searchSuggestions == freezed
           ? _value._searchSuggestions
           : searchSuggestions // ignore: cast_nullable_to_non_nullable
@@ -117,6 +130,7 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 class _$_AppState$ implements _AppState$ {
   const _$_AppState$(
       {this.bottomBarIndex = 0,
+      this.showSearchSuggestions = false,
       final List<Suggestion> searchSuggestions = const <Suggestion>[],
       final List<SpotForecastModelData> spotForecastModels =
           const <SpotForecastModelData>[]})
@@ -126,6 +140,9 @@ class _$_AppState$ implements _AppState$ {
   @override
   @JsonKey()
   final int bottomBarIndex;
+  @override
+  @JsonKey()
+  final bool showSearchSuggestions;
   final List<Suggestion> _searchSuggestions;
   @override
   @JsonKey()
@@ -144,7 +161,7 @@ class _$_AppState$ implements _AppState$ {
 
   @override
   String toString() {
-    return 'AppState(bottomBarIndex: $bottomBarIndex, searchSuggestions: $searchSuggestions, spotForecastModels: $spotForecastModels)';
+    return 'AppState(bottomBarIndex: $bottomBarIndex, showSearchSuggestions: $showSearchSuggestions, searchSuggestions: $searchSuggestions, spotForecastModels: $spotForecastModels)';
   }
 
   @override
@@ -155,6 +172,8 @@ class _$_AppState$ implements _AppState$ {
             const DeepCollectionEquality()
                 .equals(other.bottomBarIndex, bottomBarIndex) &&
             const DeepCollectionEquality()
+                .equals(other.showSearchSuggestions, showSearchSuggestions) &&
+            const DeepCollectionEquality()
                 .equals(other._searchSuggestions, _searchSuggestions) &&
             const DeepCollectionEquality()
                 .equals(other._spotForecastModels, _spotForecastModels));
@@ -164,6 +183,7 @@ class _$_AppState$ implements _AppState$ {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(bottomBarIndex),
+      const DeepCollectionEquality().hash(showSearchSuggestions),
       const DeepCollectionEquality().hash(_searchSuggestions),
       const DeepCollectionEquality().hash(_spotForecastModels));
 
@@ -176,11 +196,14 @@ class _$_AppState$ implements _AppState$ {
 abstract class _AppState$ implements AppState {
   const factory _AppState$(
       {final int bottomBarIndex,
+      final bool showSearchSuggestions,
       final List<Suggestion> searchSuggestions,
       final List<SpotForecastModelData> spotForecastModels}) = _$_AppState$;
 
   @override
   int get bottomBarIndex;
+  @override
+  bool get showSearchSuggestions;
   @override
   List<Suggestion> get searchSuggestions;
   @override

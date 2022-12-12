@@ -3,7 +3,9 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:wind_notifier/actions/fetch_spot_forecast.dart';
 import 'package:wind_notifier/actions/search_spot_by_name.dart';
+import 'package:wind_notifier/actions/show_search_suggestions.dart';
 import 'package:wind_notifier/container/search_suggestion_container.dart';
+import 'package:wind_notifier/container/show_search_suggestions_container.dart';
 import 'package:wind_notifier/container/spot_forecast_container.dart';
 import 'package:wind_notifier/data/api_model/index.dart';
 import 'package:wind_notifier/models/app_state.dart';
@@ -42,9 +44,7 @@ class _HomePageState extends State<HomePage> {
               (suggestion) => Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: TextButton(
-                  onPressed: () {
-                    _store.dispatch(FetchSpotForecast(suggestion.data));
-                  },
+                  onPressed: () => _fetchSpotForecastModels(suggestion.data),
                   child: Text(suggestion.value),
                 ),
               ),
@@ -58,7 +58,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _fetchSpotForecastModels(int spotId) {
+    _store.dispatch(const ShowSearchSuggestions(false));
+    _store.dispatch(FetchSpotForecast(spotId));
+
+    FocusScope.of(context).unfocus();
+  }
+
   void _searchSpot(String value) {
+    _store.dispatch(const ShowSearchSuggestions(true));
     _store.dispatch(SearchSpotByName(value));
   }
 
@@ -81,9 +89,17 @@ class _HomePageState extends State<HomePage> {
               ),
               onChanged: _searchSpot,
             ),
-            SearchSuggestionContainer(
-              builder: (BuildContext context, List<Suggestion> suggestions) {
-                return _showSearchList(context, suggestions);
+            ShowSearchSuggestionsContainer(
+              builder: (BuildContext context, bool showSearchSuggestions) {
+                if (showSearchSuggestions) {
+                  return SearchSuggestionContainer(
+                    builder: (BuildContext context, List<Suggestion> suggestions) {
+                      return _showSearchList(context, suggestions);
+                    },
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
               },
             ),
             SpotForecastContainer(

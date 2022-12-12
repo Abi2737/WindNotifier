@@ -2,6 +2,7 @@ import 'package:redux/redux.dart';
 import 'package:wind_notifier/actions/change_bottom_tab.dart';
 import 'package:wind_notifier/actions/fetch_spot_forecast.dart';
 import 'package:wind_notifier/actions/search_spot_by_name.dart';
+import 'package:wind_notifier/actions/show_search_suggestions.dart';
 
 import '../models/app_state.dart';
 
@@ -9,6 +10,7 @@ import '../models/app_state.dart';
 
 Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
   TypedReducer<AppState, ChangeBottomTab>(_changeBottomTabIndex),
+  TypedReducer<AppState, ShowSearchSuggestions>(_showSearchSuggestions),
   TypedReducer<AppState, SearchSportByNameSuccessful>(_searchSportByNameSuccessful),
   TypedReducer<AppState, FetchSpotForecastSuccessful>(_fetchSpotForecastSuccessful),
 ]);
@@ -28,5 +30,11 @@ AppState _searchSportByNameSuccessful(AppState state, SearchSportByNameSuccessfu
 AppState _fetchSpotForecastSuccessful(AppState state, FetchSpotForecastSuccessful action) {
   return state.copyWith(
     spotForecastModels: action.spotForecastModelsData,
+  );
+}
+
+AppState _showSearchSuggestions(AppState state, ShowSearchSuggestions action) {
+  return state.copyWith(
+    showSearchSuggestions: action.showSearchSuggestions,
   );
 }
