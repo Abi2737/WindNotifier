@@ -8,5 +8,6 @@ class AppState with _$AppState {
   const factory AppState({
     @Default(0) int bottomBarIndex,
     @Default(<Suggestion>[]) List<Suggestion> searchSuggestions,
+    @Default(<SpotForecastModelData>[]) List<SpotForecastModelData> spotForecastModels,
   }) = _AppState$;
 }

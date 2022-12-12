@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AppState {
   int get bottomBarIndex => throw _privateConstructorUsedError;
   List<Suggestion> get searchSuggestions => throw _privateConstructorUsedError;
+  List<SpotForecastModelData> get spotForecastModels =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -28,7 +30,10 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({int bottomBarIndex, List<Suggestion> searchSuggestions});
+  $Res call(
+      {int bottomBarIndex,
+      List<Suggestion> searchSuggestions,
+      List<SpotForecastModelData> spotForecastModels});
 }
 
 /// @nodoc
@@ -43,6 +48,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   $Res call({
     Object? bottomBarIndex = freezed,
     Object? searchSuggestions = freezed,
+    Object? spotForecastModels = freezed,
   }) {
     return _then(_value.copyWith(
       bottomBarIndex: bottomBarIndex == freezed
@@ -53,6 +59,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.searchSuggestions
           : searchSuggestions // ignore: cast_nullable_to_non_nullable
               as List<Suggestion>,
+      spotForecastModels: spotForecastModels == freezed
+          ? _value.spotForecastModels
+          : spotForecastModels // ignore: cast_nullable_to_non_nullable
+              as List<SpotForecastModelData>,
     ));
   }
 }
@@ -63,7 +73,10 @@ abstract class _$$_AppState$CopyWith<$Res> implements $AppStateCopyWith<$Res> {
           _$_AppState$ value, $Res Function(_$_AppState$) then) =
       __$$_AppState$CopyWithImpl<$Res>;
   @override
-  $Res call({int bottomBarIndex, List<Suggestion> searchSuggestions});
+  $Res call(
+      {int bottomBarIndex,
+      List<Suggestion> searchSuggestions,
+      List<SpotForecastModelData> spotForecastModels});
 }
 
 /// @nodoc
@@ -80,6 +93,7 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   $Res call({
     Object? bottomBarIndex = freezed,
     Object? searchSuggestions = freezed,
+    Object? spotForecastModels = freezed,
   }) {
     return _then(_$_AppState$(
       bottomBarIndex: bottomBarIndex == freezed
@@ -90,6 +104,10 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value._searchSuggestions
           : searchSuggestions // ignore: cast_nullable_to_non_nullable
               as List<Suggestion>,
+      spotForecastModels: spotForecastModels == freezed
+          ? _value._spotForecastModels
+          : spotForecastModels // ignore: cast_nullable_to_non_nullable
+              as List<SpotForecastModelData>,
     ));
   }
 }
@@ -99,8 +117,11 @@ class __$$_AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 class _$_AppState$ implements _AppState$ {
   const _$_AppState$(
       {this.bottomBarIndex = 0,
-      final List<Suggestion> searchSuggestions = const <Suggestion>[]})
-      : _searchSuggestions = searchSuggestions;
+      final List<Suggestion> searchSuggestions = const <Suggestion>[],
+      final List<SpotForecastModelData> spotForecastModels =
+          const <SpotForecastModelData>[]})
+      : _searchSuggestions = searchSuggestions,
+        _spotForecastModels = spotForecastModels;
 
   @override
   @JsonKey()
@@ -113,9 +134,17 @@ class _$_AppState$ implements _AppState$ {
     return EqualUnmodifiableListView(_searchSuggestions);
   }
 
+  final List<SpotForecastModelData> _spotForecastModels;
+  @override
+  @JsonKey()
+  List<SpotForecastModelData> get spotForecastModels {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_spotForecastModels);
+  }
+
   @override
   String toString() {
-    return 'AppState(bottomBarIndex: $bottomBarIndex, searchSuggestions: $searchSuggestions)';
+    return 'AppState(bottomBarIndex: $bottomBarIndex, searchSuggestions: $searchSuggestions, spotForecastModels: $spotForecastModels)';
   }
 
   @override
@@ -126,14 +155,17 @@ class _$_AppState$ implements _AppState$ {
             const DeepCollectionEquality()
                 .equals(other.bottomBarIndex, bottomBarIndex) &&
             const DeepCollectionEquality()
-                .equals(other._searchSuggestions, _searchSuggestions));
+                .equals(other._searchSuggestions, _searchSuggestions) &&
+            const DeepCollectionEquality()
+                .equals(other._spotForecastModels, _spotForecastModels));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(bottomBarIndex),
-      const DeepCollectionEquality().hash(_searchSuggestions));
+      const DeepCollectionEquality().hash(_searchSuggestions),
+      const DeepCollectionEquality().hash(_spotForecastModels));
 
   @JsonKey(ignore: true)
   @override
@@ -144,12 +176,15 @@ class _$_AppState$ implements _AppState$ {
 abstract class _AppState$ implements AppState {
   const factory _AppState$(
       {final int bottomBarIndex,
-      final List<Suggestion> searchSuggestions}) = _$_AppState$;
+      final List<Suggestion> searchSuggestions,
+      final List<SpotForecastModelData> spotForecastModels}) = _$_AppState$;
 
   @override
   int get bottomBarIndex;
   @override
   List<Suggestion> get searchSuggestions;
+  @override
+  List<SpotForecastModelData> get spotForecastModels;
   @override
   @JsonKey(ignore: true)
   _$$_AppState$CopyWith<_$_AppState$> get copyWith =>

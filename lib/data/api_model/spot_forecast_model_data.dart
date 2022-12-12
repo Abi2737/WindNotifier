@@ -1,8 +1,8 @@
 part of models;
 
 @freezed
-class SpotForecastModelsData with _$SpotForecastModelsData {
-  const factory SpotForecastModelsData({
+class SpotForecastModelData with _$SpotForecastModelData {
+  const factory SpotForecastModelData({
     @JsonKey(name: "id_spot") required int idSpot,
     @JsonKey(name: "lat") required double latitude,
     @JsonKey(name: "lon") required double longitude,
@@ -18,5 +18,5 @@ class SpotForecastModelsData with _$SpotForecastModelsData {
     @JsonKey(name: "fcst") required Forecast forecast,
   }) = _SpotForecastModelsData$;
 
-  factory SpotForecastModelsData.fromJson(Map<dynamic, dynamic> json) => _$SpotForecastModelsDataFromJson(Map<String, dynamic>.from(json));
+  factory SpotForecastModelData.fromJson(Map<dynamic, dynamic> json) => _$SpotForecastModelDataFromJson(Map<String, dynamic>.from(json));
 }

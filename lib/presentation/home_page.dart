@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:wind_notifier/actions/fetch_spot_forecast.dart';
 import 'package:wind_notifier/actions/search_spot_by_name.dart';
 import 'package:wind_notifier/container/search_suggestion_container.dart';
+import 'package:wind_notifier/container/spot_forecast_container.dart';
 import 'package:wind_notifier/data/api_model/index.dart';
 import 'package:wind_notifier/models/app_state.dart';
 
@@ -16,21 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final TextEditingController _controller = TextEditingController();
 
-  late final Store _store;
-
-  bool _isDropDownAvailable = false;
-
-  final List<String> latestAccses = [
-    'The spot',
-    'We go',
-    'Constanta',
-  ];
-
-  final List<String> searchList = [
-    'Fundata',
-    'WeGo Kite Spot',
-    'Gockceada',
-  ];
+  late final Store<AppState> _store;
 
   @override
   void initState() {
@@ -54,7 +42,9 @@ class _HomePageState extends State<HomePage> {
               (suggestion) => Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _store.dispatch(FetchSpotForecast(suggestion.data));
+                  },
                   child: Text(suggestion.value),
                 ),
               ),
@@ -91,16 +81,23 @@ class _HomePageState extends State<HomePage> {
               ),
               onChanged: _searchSpot,
             ),
-            // _isDropDownAvailable ? ...searchList.map((e) => Text(e)) : const SizedBox.shrink(),
             SearchSuggestionContainer(
               builder: (BuildContext context, List<Suggestion> suggestions) {
                 return _showSearchList(context, suggestions);
               },
             ),
+            SpotForecastContainer(
+              builder: (BuildContext context, List<SpotForecastModelData> spotForecastModelsData) {
+                if (spotForecastModelsData.isEmpty) {
+                  return const SizedBox.shrink();
+                }
+
+                return Text('${spotForecastModelsData[0].idSpot}');
+              },
+            ),
             Container(
               height: 20,
             ),
-            ...latestAccses.map((e) => Text(e)),
           ],
         ),
       ),

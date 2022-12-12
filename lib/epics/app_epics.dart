@@ -1,9 +1,9 @@
 import 'package:redux_epics/redux_epics.dart';
+import 'package:wind_notifier/actions/fetch_spot_forecast.dart';
 import 'package:wind_notifier/actions/search_spot_by_name.dart';
 import 'package:wind_notifier/data/api_model/index.dart';
 import 'package:wind_notifier/data/windguru_api.dart';
 import 'package:wind_notifier/models/app_state.dart';
-
 
 // action in => action out
 class AppEpics {
@@ -14,6 +14,7 @@ class AppEpics {
   Epic<AppState> get epics {
     return combineEpics([
       TypedEpic<AppState, SearchSpotByName>(_searchSpotByName),
+      TypedEpic<AppState, FetchSpotForecast>(_fetchSpotForecast),
     ]);
   }
 
@@ -28,5 +29,12 @@ class AppEpics {
         return SearchSpotByName.successfulOrIgnored(searchSuggestions);
       },
     );
+  }
+
+  Stream<dynamic> _fetchSpotForecast(Stream<FetchSpotForecast> actions, EpicStore<AppState> store) {
+    return actions //
+        .asyncMap((FetchSpotForecast action) => _api.fetchSpotForecastModelsData(action.spotId))
+        .map((List<SpotForecastModelData> spotForecastModelsData) =>
+            FetchSpotForecastSuccessful(spotForecastModelsData));
   }
 }

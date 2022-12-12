@@ -37,6 +37,8 @@ Future<void> main() async {
   // print("=========TAB ITEM===============");
   // testTabItem();
 
+  print(spotId);
+
   print("==============Forecast Models==============");
   SpotForecastModelsInfo spotForecastModels = await fetchSpotForecastModelsInfo(spotId);
   print(spotForecastModels.toJson());
@@ -47,32 +49,39 @@ Future<void> main() async {
   List<TabItem> allTabs = spotForecastModels.allTabs;
   // print(allTabs[3]);
 
-  int i = 7;
 
-  // for (int i = 0; i < allTabs.length; i++) {
-  //   print("========================Model: ${allTabs[i].idModel}===========================");
-  //   fetchSpotForecastModelsData(
-  //     idModel: allTabs[i].idModel,
-  //     runDef: allTabs[i].idModelArr[0].runDef,
-  //     initStr: allTabs[i].idModelArr[0].initStr,
-  //     idSpot: allTabs[i].idSpot,
-  //     wgCacheable: allTabs[i].idModelArr[0].period * kSecondsInOneHour,
-  //     cacheFix: allTabs[i].idModelArr[0].cacheFix,
-  //   );
-  // }
+  for (int i = 1; i < allTabs.length; i++) {
+    print("========================Model: ${allTabs[i].idModel}===========================");
+    var spotData = await fetchSpotForecastModelsData(
+      idModel: allTabs[i].idModel,
+      runDef: allTabs[i].idModelArr[0].runDef,
+      initStr: allTabs[i].idModelArr[0].initStr,
+      idSpot: allTabs[i].idSpot,
+      wgCacheable: allTabs[i].idModelArr[0].period * kSecondsInOneHour,
+      cacheFix: allTabs[i].idModelArr[0].cacheFix,
+    );
 
-  fetchSpotForecastModelsData(
-    idModel: allTabs[i].idModel,
-    runDef: allTabs[i].idModelArr[0].runDef,
-    initStr: allTabs[i].idModelArr[0].initStr,
-    idSpot: allTabs[i].idSpot,
-    wgCacheable: allTabs[i].idModelArr[0].period * kSecondsInOneHour,
-    cacheFix: allTabs[i].idModelArr[0].cacheFix,
-  );
+    print(spotData.toJson());
+  }
+
+
+  // int i = 2;
+  // var spotData = await fetchSpotForecastModelsData(
+  //   idModel: allTabs[i].idModel,
+  //   runDef: allTabs[i].idModelArr[0].runDef,
+  //   initStr: allTabs[i].idModelArr[0].initStr,
+  //   idSpot: allTabs[i].idSpot,
+  //   wgCacheable: allTabs[i].idModelArr[0].period * kSecondsInOneHour,
+  //   cacheFix: allTabs[i].idModelArr[0].cacheFix,
+  // );
+  // print(spotData.toJson());
 
   // fetchSpot();
 
   // fetchFundata();
+
+  print("****************************************");
+  // testUri();
 }
 
 Future<List<Suggestion>> searchSpotByName(String name) async {
@@ -160,7 +169,7 @@ Future<void> fetchSpot() async {
   print(response.body);
 }
 
-Future<void> fetchSpotForecastModelsData({
+Future<SpotForecastModelData> fetchSpotForecastModelsData({
   required int idModel,
   required String runDef,
   required String initStr,
@@ -206,8 +215,7 @@ Future<void> fetchSpotForecastModelsData({
   print(json);
 
   print("=========== Spot data ===========");
-  var spotData = SpotForecastModelsData.fromJson(json);
-  print(spotData.toJson());
+  return SpotForecastModelData.fromJson(json);
 }
 
 void testSpotInfo() {
@@ -310,4 +318,27 @@ void testTabItem() {
 
   TabItem tabItem = TabItem.fromJson(json);
   print(tabItem);
+}
+
+Future<void> testUri() async {
+  Uri uri = Uri.parse("https://www.windguru.net/int/iapi.php?q=forecast&id_model=100&rundef=2022121206x0x240x0x240&initstr=2022121206&id_spot=508600&WGCACHEABLE=21600&cachefix=44.608x27.183x37");
+
+  Map<String, String> requestHeaders = {
+    'accept': '*/*',
+    'dnt': '1',
+    'origin': 'https://www.windguru.cz',
+    'referer': 'https://www.windguru.cz/',
+    'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': 'Windows',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'cross-site',
+    'user-agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+  };
+
+  var response = await http.get(uri, headers: requestHeaders);
+
+  print(jsonDecode(response.body));
 }

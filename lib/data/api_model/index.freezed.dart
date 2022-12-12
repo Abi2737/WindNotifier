@@ -1313,13 +1313,13 @@ abstract class _ModelAttributes$ implements ModelAttributes {
       throw _privateConstructorUsedError;
 }
 
-SpotForecastModelsData _$SpotForecastModelsDataFromJson(
+SpotForecastModelData _$SpotForecastModelDataFromJson(
     Map<String, dynamic> json) {
   return _SpotForecastModelsData$.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SpotForecastModelsData {
+mixin _$SpotForecastModelData {
   @JsonKey(name: "id_spot")
   int get idSpot => throw _privateConstructorUsedError;
   @JsonKey(name: "lat")
@@ -1345,15 +1345,15 @@ mixin _$SpotForecastModelsData {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SpotForecastModelsDataCopyWith<SpotForecastModelsData> get copyWith =>
+  $SpotForecastModelDataCopyWith<SpotForecastModelData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SpotForecastModelsDataCopyWith<$Res> {
-  factory $SpotForecastModelsDataCopyWith(SpotForecastModelsData value,
-          $Res Function(SpotForecastModelsData) then) =
-      _$SpotForecastModelsDataCopyWithImpl<$Res>;
+abstract class $SpotForecastModelDataCopyWith<$Res> {
+  factory $SpotForecastModelDataCopyWith(SpotForecastModelData value,
+          $Res Function(SpotForecastModelData) then) =
+      _$SpotForecastModelDataCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "id_spot") int idSpot,
       @JsonKey(name: "lat") double latitude,
@@ -1374,13 +1374,13 @@ abstract class $SpotForecastModelsDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SpotForecastModelsDataCopyWithImpl<$Res>
-    implements $SpotForecastModelsDataCopyWith<$Res> {
-  _$SpotForecastModelsDataCopyWithImpl(this._value, this._then);
+class _$SpotForecastModelDataCopyWithImpl<$Res>
+    implements $SpotForecastModelDataCopyWith<$Res> {
+  _$SpotForecastModelDataCopyWithImpl(this._value, this._then);
 
-  final SpotForecastModelsData _value;
+  final SpotForecastModelData _value;
   // ignore: unused_field
-  final $Res Function(SpotForecastModelsData) _then;
+  final $Res Function(SpotForecastModelData) _then;
 
   @override
   $Res call({
@@ -1471,7 +1471,7 @@ class _$SpotForecastModelsDataCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class _$$_SpotForecastModelsData$CopyWith<$Res>
-    implements $SpotForecastModelsDataCopyWith<$Res> {
+    implements $SpotForecastModelDataCopyWith<$Res> {
   factory _$$_SpotForecastModelsData$CopyWith(_$_SpotForecastModelsData$ value,
           $Res Function(_$_SpotForecastModelsData$) then) =
       __$$_SpotForecastModelsData$CopyWithImpl<$Res>;
@@ -1499,7 +1499,7 @@ abstract class _$$_SpotForecastModelsData$CopyWith<$Res>
 
 /// @nodoc
 class __$$_SpotForecastModelsData$CopyWithImpl<$Res>
-    extends _$SpotForecastModelsDataCopyWithImpl<$Res>
+    extends _$SpotForecastModelDataCopyWithImpl<$Res>
     implements _$$_SpotForecastModelsData$CopyWith<$Res> {
   __$$_SpotForecastModelsData$CopyWithImpl(_$_SpotForecastModelsData$ _value,
       $Res Function(_$_SpotForecastModelsData$) _then)
@@ -1641,7 +1641,7 @@ class _$_SpotForecastModelsData$ implements _SpotForecastModelsData$ {
 
   @override
   String toString() {
-    return 'SpotForecastModelsData(idSpot: $idSpot, latitude: $latitude, longitude: $longitude, altitude: $altitude, idModel: $idModel, model: $model, wgModel: $wgModel, modelAltitude: $modelAltitude, levels: $levels, sunrise: $sunrise, sunset: $sunset, md5check: $md5check, forecast: $forecast)';
+    return 'SpotForecastModelData(idSpot: $idSpot, latitude: $latitude, longitude: $longitude, altitude: $altitude, idModel: $idModel, model: $model, wgModel: $wgModel, modelAltitude: $modelAltitude, levels: $levels, sunrise: $sunrise, sunset: $sunset, md5check: $md5check, forecast: $forecast)';
   }
 
   @override
@@ -1696,7 +1696,7 @@ class _$_SpotForecastModelsData$ implements _SpotForecastModelsData$ {
   }
 }
 
-abstract class _SpotForecastModelsData$ implements SpotForecastModelsData {
+abstract class _SpotForecastModelsData$ implements SpotForecastModelData {
   const factory _SpotForecastModelsData$(
           {@JsonKey(name: "id_spot") required final int idSpot,
           @JsonKey(name: "lat") required final double latitude,

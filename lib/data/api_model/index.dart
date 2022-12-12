@@ -12,7 +12,7 @@ part 'index.g.dart';
 
 part 'model_attributes.dart';
 
-part 'spot_forecast_models_data.dart';
+part 'spot_forecast_model_data.dart';
 
 part 'spot_forecast_models_info.dart';
 
