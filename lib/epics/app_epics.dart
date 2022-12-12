@@ -24,14 +24,7 @@ class AppEpics {
       (List<SearchSuggestion> searchSuggestions) {
         // if another SearchSpotByName action has been triggered in the mean time, ignore this one.
         // We need the most recent one.
-        SearchSpotByName.markActionFinished();
-
-        if (SearchSpotByName.areOtherActionsTriggered()) {
-          return null;
-        }
-
-        // this action is the newest one => return it's result
-        return SearchSportByNameSuccessful(searchSuggestions);
+        return SearchSpotByName.successfulOrIgnored(searchSuggestions);
       },
     );
   }
